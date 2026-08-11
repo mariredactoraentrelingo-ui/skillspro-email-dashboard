@@ -9,16 +9,8 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
 :root{
-  --petroleo:#0c465b;
-  --teal:#10728d;
-  --cyan:#0fb5c9;
-  --coral:#ff6b5b;
-  --amber:#ffb020;
-  --violet:#7c5cff;
-  --lime:#3ecf8e;
-  --white:#ffffff;
-  --gray-text:#3f545e;
-  --border:#e2ebef;
+  --petroleo:#0c465b;--teal:#10728d;--cyan:#0fb5c9;--coral:#ff6b5b;--amber:#ffb020;
+  --violet:#7c5cff;--lime:#3ecf8e;--white:#ffffff;--gray-text:#3f545e;--border:#e2ebef;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:#eef3f6;color:#132c37;font-size:14px;min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
@@ -33,11 +25,12 @@ body{font-family:'DM Sans',sans-serif;background:#eef3f6;color:#132c37;font-size
 
 .tab-bar{background:#0a3b4d;padding:11px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .tab-bar label{font-size:11px;color:rgba(255,255,255,0.5);font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-right:4px;}
-.chip{padding:6px 16px;border-radius:20px;border:none;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.75);font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.chip{padding:7px 18px;border-radius:20px;border:none;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.75);font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
 .chip:hover{background:rgba(255,255,255,0.22);}
 .chip.active{background:var(--cyan);color:#04323c;}
 
-.page{max-width:1240px;margin:0 auto;padding:22px 24px 44px;}
+.page{max-width:1240px;margin:0 auto;padding:22px 24px 44px;display:none;}
+.page.active{display:block;}
 .section-label{font-size:11px;font-weight:700;color:#6f8b98;letter-spacing:.9px;text-transform:uppercase;margin:28px 0 12px;display:flex;align-items:center;gap:10px;}
 .section-label:first-of-type{margin-top:14px;}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#d3e2e8,transparent);}
@@ -67,12 +60,19 @@ body{font-family:'DM Sans',sans-serif;background:#eef3f6;color:#132c37;font-size
 .cwrap{position:relative;}
 
 .insight-card{background:linear-gradient(120deg,#eafaf1,#f2fbfc);border:1px solid #c8ecdb;border-left:5px solid var(--lime);border-radius:14px;padding:22px 24px;}
+.insight-card.blue{background:linear-gradient(120deg,#e8f4fb,#f2f9fc);border-color:#c3e2f0;border-left-color:var(--teal);}
 .insight-card .tag{display:inline-block;background:var(--lime);color:#05412a;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:12px;}
+.insight-card.blue .tag{background:var(--teal);color:#fff;}
 .insight-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:var(--petroleo);margin-bottom:10px;}
 .insight-card p{font-size:13px;color:#3f5a52;line-height:1.75;margin-bottom:10px;}
+.insight-card.blue p{color:#3c5563;}
 .insight-card p:last-child{margin-bottom:0;}
 .insight-card strong{color:#0c465b;}
 .insight-card .big{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#17784f;}
+.insight-card.blue .big{color:#0a6b7c;}
+.insight-card ul{padding-left:20px;margin:8px 0 4px;}
+.insight-card li{font-size:13px;color:#3c5563;line-height:1.7;margin-bottom:6px;}
+.insight-card li strong{color:#0c465b;}
 
 .table-card{background:var(--white);border-radius:14px;border:1px solid var(--border);overflow:hidden;}
 .table-scroll{overflow-x:auto;}
@@ -86,15 +86,17 @@ tbody tr:hover{background:#e9f7fa;}
 tbody tr.dup-row{background:#fff5f2;}
 tbody tr.dup-row:hover{background:#ffe9e3;}
 tbody td{padding:11px 12px;text-align:left;color:var(--gray-text);border-bottom:1px solid #eef3f5;white-space:nowrap;vertical-align:middle;}
-tbody td.wrap{white-space:normal;line-height:1.45;max-width:200px;}
+tbody td.wrap{white-space:normal;line-height:1.45;max-width:230px;min-width:170px;}
 tbody td.hi-cell{background:#e6f8fb;border-left:3px solid var(--cyan);border-right:3px solid var(--cyan);}
 tbody tr:hover td.hi-cell{background:#d3f2f7;}
 tbody tr.dup-row td.hi-cell{background:#fdeee9;}
 tbody td.muted{color:#a9bcc4;}
+tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 
 .campaign-tag{display:inline-block;background:linear-gradient(135deg,#0fb5c9,#0a94a6);color:#ffffff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;}
 .campaign-tag.oraculo{background:linear-gradient(135deg,#7c5cff,#5f42d6);}
-.campaign-tag.star::after{content:' ★';font-size:9px;}
+.campaign-tag.profesion{background:linear-gradient(135deg,#ffb020,#e8940e);color:#4a3000;}
+.campaign-tag.generica{background:#eceff1;color:#7a8a92;border:1px dashed #b9c6cd;}
 
 .pill{display:inline-block;font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;white-space:nowrap;}
 .p-invitado{background:#dcecff;color:#1b5fa8;}
@@ -102,14 +104,20 @@ tbody td.muted{color:#a9bcc4;}
 .p-reprogramada{background:#ffe0d9;color:#c14a35;}
 .p-ejecutada{background:#d6f5e6;color:#17784f;}
 .p-duplicado{background:#ffe1d3;color:#b5502a;}
+.p-inasistente{background:#fdf0d0;color:#8a6300;}
+.p-ventacruzada{background:linear-gradient(135deg,#ffb020,#e8940e);color:#4a3000;}
 .p-closed{background:#ede8ff;color:#5f42d6;}
 .p-converted{background:linear-gradient(135deg,#3ecf8e,#22a46a);color:#ffffff;}
 .p-contacted{background:#d6f5e6;color:#17784f;}
+.p-sold{background:linear-gradient(135deg,#22a46a,#17784f);color:#ffffff;}
 .p-message{background:#e3f1f5;color:#357788;}
 .p-none{background:#f1f4f6;color:#a3b2b9;}
-.p-presu{background:linear-gradient(135deg,#22a46a,#17784f);color:#ffffff;}
-.p-podria{background:#dff5e7;color:#2e7d55;}
-.p-nomomento{background:#ffe4d1;color:#b5601f;}
+.p-presu{background:#128a52;color:#ffffff;}
+.p-presu-estrat{background:#7ed3a3;color:#0e4d30;}
+.p-podria{background:#bce8cf;color:#1f6e48;}
+.p-noposi{background:#f3a07d;color:#7a3313;}
+.p-completed{background:#d6f5e6;color:#17784f;}
+.p-ongoing{background:#fff0cd;color:#a06a00;}
 
 .note-card{background:var(--white);border-radius:14px;border:1px solid var(--border);border-left:5px solid var(--coral);padding:24px 26px;}
 .note-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--petroleo);margin-bottom:7px;}
@@ -119,12 +127,10 @@ tbody td.muted{color:#a9bcc4;}
 .note-card li{font-size:13px;color:#4c6470;line-height:1.75;margin-bottom:8px;}
 .note-card li::marker{color:var(--coral);}
 .note-card li strong{color:var(--petroleo);}
-.note-card ul.sol li::marker{color:var(--lime);}
 .metric-tag{display:inline-block;background:linear-gradient(135deg,#e6f8fb,#f2fbfc);border:1px solid #b9e6ee;color:#076b7c;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin:0 4px 6px 0;}
 
-.legend-inline{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;}
-.legend-item{display:flex;align-items:center;gap:7px;font-size:11px;color:#657f8a;font-weight:500;}
-.legend-dot{width:11px;height:11px;border-radius:4px;}
+.empty-banner{background:#f2f9fb;border:1px dashed #b9e0ea;border-radius:12px;padding:16px 20px;font-size:13px;color:#4c6470;line-height:1.7;}
+.empty-banner strong{color:var(--petroleo);}
 
 .footer-note{font-size:11px;color:#a3b6bd;text-align:center;margin-top:32px;}
 
@@ -137,7 +143,7 @@ tbody td.muted{color:#a9bcc4;}
 <div class="header">
   <div class="header-left">
     <h1>Dashboard Agendamientos · SkillsPRO</h1>
-    <p>Seguimiento de consultorías desde newsletter · Clientify + Airtable</p>
+    <p>Seguimiento de consultorías desde newsletter · Clientify + Airtable + WordPress</p>
   </div>
   <div class="header-right">
     <span class="badge-cache">Datos manuales</span>
@@ -147,46 +153,42 @@ tbody td.muted{color:#a9bcc4;}
 </div>
 
 <div class="tab-bar">
-  <label>Mes:</label>
-  <button class="chip active" id="chip-julio">Julio 2026</button>
+  <label>Periodo:</label>
+  <button class="chip active" id="chip-julio" onclick="switchTab('julio')">Julio 2026</button>
+  <button class="chip" id="chip-agosto" onclick="switchTab('agosto')">Agosto 2026</button>
+  <button class="chip" id="chip-historico" onclick="switchTab('historico')">Histórico hasta julio</button>
 </div>
 
-<div class="page">
-
+<!-- ==================== JULIO ==================== -->
+<div class="page active" id="page-julio">
   <div class="section-label">Resumen del mes · corte 27 jul 2026</div>
   <div class="kpi-grid">
-    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">10</div><div class="ksub">8 únicos + 2 duplicados</div></div>
-    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">3</div><div class="ksub">Sobre 8 contactos únicos</div></div>
+    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">11</div><div class="ksub">7 únicos + 4 duplicados</div></div>
+    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">3</div><div class="ksub">Sobre 7 contactos únicos</div></div>
     <div class="kcard k3"><div class="klabel">Programadas pendientes</div><div class="kval">2</div><div class="ksub">Agenda hasta 31 jul</div></div>
     <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">1</div><div class="ksub">Meet Your Experts</div></div>
-    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">12.5%</div><div class="ksub">1 venta / 8 contactos</div></div>
+    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">14.3%</div><div class="ksub">1 venta / 7 contactos</div></div>
   </div>
 
-  <div class="section-label">Campaña más efectiva hasta ahora</div>
+  <div class="section-label">Campaña más efectiva del mes</div>
   <div class="insight-card">
     <span class="tag">Lectura del mes</span>
     <h3>pagan_australia es la campaña que más agendamientos trae</h3>
-    <p>De los 8 contactos únicos de julio, <strong>pagan_australia</strong> generó <span class="big">3 agendamientos</span>, más que cualquier otra campaña. Le siguen <strong>oraculo</strong>, <strong>tema_mes_año</strong>, <strong>cada_excusa_tiene_respuesta</strong>, <strong>despues_graduacion</strong> y <strong>tarifa_visas</strong>, con un agendamiento cada una.</p>
-    <p>Más allá del volumen, <strong>pagan_australia</strong> es también la única campaña que aporta la <span class="big">única venta cerrada</span> del mes (Silvestre Ismael Valdez, soldador industrial, ejecutada y convertida). Eso la posiciona como la campaña con mejor recorrido completo: atrae, agenda y cierra.</p>
-    <p style="font-size:12px;color:#5c7168;background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #d5eee0"><strong>Con qué cautela leerlo:</strong> todavía no sabemos a cuántos contactos se envió cada campaña. Es posible que pagan_australia lidere porque se envió a una base mayor, no necesariamente porque el contenido convenza más. Para confirmarlo hace falta el total de enviados por campaña, que hoy Clientify no entrega.</p>
+    <p>De los contactos únicos de julio, <strong>pagan_australia</strong> generó <span class="big">3 agendamientos</span>, más que cualquier otra campaña, y es la única que aporta la <span class="big">venta cerrada</span> del mes (Silvestre Ismael Valdez, soldador industrial). Eso la posiciona como la campaña con mejor recorrido completo: atrae, agenda y cierra.</p>
+    <p style="font-size:12px;color:#5c7168;background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #d5eee0"><strong>Con qué cautela leerlo:</strong> todavía no sabemos a cuántos contactos se envió cada campaña. pagan_australia podría liderar por tamaño de base y no por contenido. Para confirmarlo hace falta el total de enviados por campaña, que en julio Clientify no entregaba.</p>
   </div>
 
   <div class="section-label">Estado de la agenda y conversión</div>
   <div class="charts-row">
     <div class="ccard">
       <div class="ctitle">Agenda newsletter en este mes</div>
-      <div class="csub">Distribución por estado de consultoría (10 registros)</div>
-      <div class="cwrap" style="height:275px"><canvas id="cEstado"></canvas></div>
+      <div class="csub">Distribución por estado de consultoría (11 registros)</div>
+      <div class="cwrap" style="height:275px"><canvas id="jEstado"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle">Embudo de conversión</div>
       <div class="csub">De contacto único a venta cerrada</div>
-      <div class="cwrap" style="height:275px"><canvas id="cVentas"></canvas></div>
-      <div class="legend-inline">
-        <div class="legend-item"><span class="legend-dot" style="background:#0c465b"></span> 8 contactos</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#0fb5c9"></span> 3 ejecutadas</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#3ecf8e"></span> 1 venta</div>
-      </div>
+      <div class="cwrap" style="height:275px"><canvas id="jVentas"></canvas></div>
     </div>
   </div>
 
@@ -195,203 +197,365 @@ tbody td.muted{color:#a9bcc4;}
     <div class="ccard">
       <div class="ctitle">Agendamientos por utm_campaign</div>
       <div class="csub">Qué campaña trajo cada contacto único · ★ genera venta</div>
-      <div class="cwrap" style="height:260px"><canvas id="cCampaign"></canvas></div>
+      <div class="cwrap" style="height:260px"><canvas id="jCampaign"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle">Capacidad de inversión declarada</div>
       <div class="csub">Situación actual reportada en el formulario</div>
-      <div class="cwrap" style="height:260px"><canvas id="cSituacion"></canvas></div>
+      <div class="cwrap" style="height:290px"><canvas id="jSituacion"></canvas></div>
     </div>
   </div>
 
   <div class="section-label">Detalle de agendamientos · utm_campaign destacada</div>
-  <div class="table-card">
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>Correo electrónico</th>
-            <th>WhatsApp</th>
-            <th>Nombre completo</th>
-            <th>Fecha creación</th>
-            <th>Fecha consultoría</th>
-            <th>2ª fecha consultoría</th>
-            <th>Estado consultoría</th>
-            <th>Status sales</th>
-            <th>Área / Campo</th>
-            <th>Profesión</th>
-            <th>Experiencia laboral</th>
-            <th>Situación actual</th>
-            <th>utm_source</th>
-            <th>utm_medium</th>
-            <th class="hi">utm_campaign</th>
-            <th>utm_term</th>
-            <th>utm_content</th>
-          </tr>
-        </thead>
-        <tbody id="tbodyAgenda"></tbody>
-      </table>
-    </div>
-  </div>
+  <div class="table-card"><div class="table-scroll"><table>
+    <thead><tr id="theadJulio"></tr></thead>
+    <tbody id="tbodyJulio"></tbody>
+  </table></div></div>
 
   <div class="section-label">Problemáticas a resolver</div>
   <div class="note-card">
     <div class="note-title">Limitaciones actuales de medición</div>
-    <div class="note-intro">
-      El dashboard de Entrelingo corre sobre WordPress con FunnelKit, lo que permite leer el comportamiento completo del correo y atribuir ingresos campaña por campaña. SkillsPRO todavía no tiene esa infraestructura, y Clientify no entrega esas métricas. Por eso este panel se limita a lo que sí podemos registrar de forma confiable: agendamientos, estado de consultoría, perfil del contacto y cierre de venta.
-    </div>
-
+    <div class="note-intro">En julio SkillsPRO todavía no tenía WordPress ni UTMs específicas por correo, y Clientify no entregaba métricas de comportamiento. Por eso este panel se limitó a lo que sí podíamos registrar de forma confiable: agendamientos, estado de consultoría, perfil del contacto y cierre de venta. A partir de agosto varios de estos puntos empiezan a resolverse.</div>
     <ul>
-      <li><strong>No tenemos aún página de WordPress</strong> que nos ayudaría a tener métricas exactas de open rate, CTR y demás datos de comportamiento del correo. Clientify no las entrega.</li>
-      <li><strong>No podemos comparar campañas de forma justa.</strong> pagan_australia lidera con 3 agendamientos, pero sin el total de enviados por campaña no sabemos si rindió más por el contenido o simplemente porque llegó a más gente.</li>
-      <li><strong>El revenue no se conecta con la campaña.</strong> Sabemos que hubo una venta vía pagan_australia, pero no tenemos el monto registrado, así que no podemos calcular revenue ni ticket por campaña.</li>
-      <li><strong>Hay registros duplicados.</strong> IMRAN KHAN y el contacto de Baker aparecen dos veces. Sin deduplicación automática, los totales crudos inflan el conteo y hay que limpiarlos a mano.</li>
-      <li><strong>utm_term y utm_content llegan sin poblar.</strong> Los registros muestran el placeholder literal, así que perdemos la capacidad de distinguir qué enlace o qué versión del correo generó el clic.</li>
-      <li><strong>Carga manual de datos.</strong> El panel se alimenta desde Airtable a mano, con riesgo de desfase respecto a la agenda real.</li>
-      <li><strong>Sin histórico comparable.</strong> Julio es el primer mes con registro estructurado, así que todavía no hay base para comparar mes contra mes.</li>
+      <li><strong>No teníamos página de WordPress</strong> que nos permitiera medir open rate, CTR y demás comportamiento del correo. Clientify no las entrega.</li>
+      <li><strong>No podíamos comparar campañas de forma justa.</strong> pagan_australia lidera, pero sin el total de enviados no sabemos si rindió por contenido o por tamaño de base.</li>
+      <li><strong>El revenue no se conecta con la campaña.</strong> Sabemos que hubo una venta, pero sin el monto registrado no podemos calcular revenue ni ticket por campaña.</li>
+      <li><strong>Hay registros duplicados.</strong> Sin deduplicación automática, los totales crudos inflan el conteo y hay que limpiarlos a mano.</li>
+      <li><strong>utm_term y utm_content llegan sin poblar.</strong> Perdemos la capacidad de distinguir qué enlace o versión del correo generó el clic.</li>
     </ul>
-
-    <div class="note-sub">Métricas que sí tenemos en el dashboard de Entrelingo y aquí no</div>
+    <div class="note-sub">Métricas que sí tenemos en Entrelingo y en julio aún no aquí</div>
     <div>
-      <span class="metric-tag">Open rate</span>
-      <span class="metric-tag">Click rate</span>
-      <span class="metric-tag">CTOR</span>
-      <span class="metric-tag">Total de enviados por campaña</span>
-      <span class="metric-tag">Órdenes atribuidas al correo</span>
-      <span class="metric-tag">Revenue por campaña</span>
-      <span class="metric-tag">Revenue por cada 1.000 enviados</span>
-      <span class="metric-tag">Ticket promedio</span>
-      <span class="metric-tag">Uso y revenue de cupones</span>
-      <span class="metric-tag">Recuperación de carrito</span>
-      <span class="metric-tag">Tasa de recuperación</span>
-      <span class="metric-tag">Evolución open rate vs click rate</span>
-      <span class="metric-tag">Benchmark contra promedio de industria</span>
+      <span class="metric-tag">Open rate</span><span class="metric-tag">Click rate</span><span class="metric-tag">CTOR</span>
+      <span class="metric-tag">Total de enviados por campaña</span><span class="metric-tag">Órdenes atribuidas al correo</span>
+      <span class="metric-tag">Revenue por campaña</span><span class="metric-tag">Revenue por cada 1.000 enviados</span>
+      <span class="metric-tag">Ticket promedio</span><span class="metric-tag">Uso y revenue de cupones</span>
+      <span class="metric-tag">Recuperación de carrito</span><span class="metric-tag">Tasa de recuperación</span>
+      <span class="metric-tag">Evolución open rate vs click rate</span><span class="metric-tag">Benchmark de industria</span>
     </div>
-
-    <div class="note-sub">Qué desbloquea cada solución</div>
-    <ul class="sol">
-      <li><strong>Montar el sitio en WordPress con FunnelKit:</strong> habilita open rate, click rate, CTOR y atribución de revenue por campaña, igual que en Entrelingo.</li>
-      <li><strong>Poblar utm_term y utm_content en cada envío:</strong> permite saber qué enlace y qué versión del correo generan el agendamiento, no solo qué campaña.</li>
-      <li><strong>Deduplicar en Airtable por correo:</strong> deja los totales limpios sin trabajo manual.</li>
-      <li><strong>Registrar el monto de cada venta:</strong> convierte la tasa de conversión en revenue real por origen.</li>
-    </ul>
   </div>
-
   <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Datos de Airtable y Clientify · Corte 27 jul 2026 · Actualización manual mensual</p>
 </div>
 
+<!-- ==================== AGOSTO ==================== -->
+<div class="page" id="page-agosto">
+  <div class="section-label">Resumen del mes · agosto 2026 en curso</div>
+  <div class="kpi-grid">
+    <div class="kcard k1"><div class="klabel">Correos enviados</div><div class="kval">4</div><div class="ksub">2 segmentados + 2 completos</div></div>
+    <div class="kcard k2"><div class="klabel">Contactos alcanzados</div><div class="kval">15.885</div><div class="ksub">Suma de los 4 envíos</div></div>
+    <div class="kcard k3"><div class="klabel">Agendamientos</div><div class="kval">2</div><div class="ksub">Invitados · profesion_util</div></div>
+    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">Sin ventas aún</div></div>
+    <div class="kcard k5"><div class="klabel">Open rate promedio</div><div class="kval">10.9%</div><div class="ksub">Ponderado de 4 envíos</div></div>
+  </div>
+
+  <div class="section-label">Lo que cambia a partir de agosto</div>
+  <div class="insight-card blue">
+    <span class="tag">Punto de inflexión</span>
+    <h3>Ya tenemos WordPress y UTMs específicas por correo</h3>
+    <p>Agosto es el primer mes con la infraestructura para cerrar las brechas que arrastrábamos desde julio. Dos cambios de fondo:</p>
+    <ul>
+      <li><strong>UTMs específicas por envío.</strong> Antes usábamos una UTM genérica (tema_mes_año) para todos los correos; ahora cada campaña lleva su propia UTM, como profesion_util. Esto nos permitirá saber con precisión qué correo trajo cada agendamiento y, con el tiempo, ir reclasificando el histórico.</li>
+      <li><strong>WordPress ya está en marcha.</strong> Con esto empezamos a resolver las problemáticas listadas en julio: open rate, click rate y comportamiento del correo pasan a ser medibles por broadcast.</li>
+    </ul>
+    <p><strong>Trabajo de IT durante este mes:</strong> el equipo va a trabajar en la métrica de revenue de forma que, cuando el equipo comercial de SkillsPRO cierre una venta originada en un correo, ese ingreso se refleje y se asocie automáticamente en el revenue de la sección de broadcast de WordPress. Así cerramos el último eslabón que falta: conectar la venta con la campaña que la generó.</p>
+  </div>
+
+  <div class="section-label">Detalle de agendamientos · utm_campaign destacada</div>
+  <div class="table-card"><div class="table-scroll"><table>
+    <thead><tr id="theadAgosto"></tr></thead>
+    <tbody id="tbodyAgosto"></tbody>
+  </table></div></div>
+  <div class="empty-banner" style="margin-top:12px">
+    En agendamientos solo aparece <strong>profesion_util</strong> porque es la campaña que hasta ahora generó citas registradas (2), pero <strong>no es la única enviada</strong>. Abajo está el detalle de broadcast con todos los correos que salieron este mes.
+  </div>
+
+  <div class="section-label">Broadcast · métricas por correo enviado (WordPress)</div>
+  <div class="table-card"><div class="table-scroll"><table>
+    <thead><tr id="theadBroadcast"></tr></thead>
+    <tbody id="tbodyBroadcast"></tbody>
+  </table></div></div>
+  <div class="empty-banner" style="margin-top:12px">
+    Para calentar la base se envió primero de forma <strong>segmentada</strong> (base 1 el 8 de agosto, base 2 con métricas ya finales), y luego a la <strong>base completa</strong> con dos envíos: la invitación al webinar y Skillspro_agosto_2. El de <strong>mejor open rate fue Skillspro_agosto_1_final (14.95%)</strong> sobre base segmentada; entre los de base completa, el <strong>webinar rindió mejor (12.26%)</strong> que el envío general. Revenue y órdenes salen vacíos porque la conexión venta-campaña es justo lo que IT está montando este mes.
+  </div>
+
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agosto 2026 en curso · Datos de Airtable, Clientify y WordPress</p>
+</div>
+
+<!-- ==================== HISTÓRICO ==================== -->
+<div class="page" id="page-historico">
+  <div class="section-label">Agenda newsletter total hasta julio 2026</div>
+  <div class="kpi-grid">
+    <div class="kcard k1"><div class="klabel">Agendamientos totales</div><div class="kval">21</div><div class="ksub">Desde mayo a julio</div></div>
+    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">8</div><div class="ksub">38% del total</div></div>
+    <div class="kcard k3"><div class="klabel">Inasistentes</div><div class="kval">6</div><div class="ksub">Agendaron y no asistieron</div></div>
+    <div class="kcard k4"><div class="klabel">Venta cruzada</div><div class="kval">1</div><div class="ksub">Esteban Barrios · AustraliaPRO</div></div>
+    <div class="kcard k5"><div class="klabel">Sin UTM específica</div><div class="kval">17</div><div class="ksub">81% con UTM genérica</div></div>
+  </div>
+
+  <div class="section-label">Lectura del histórico</div>
+  <div class="insight-card blue">
+    <span class="tag">Nota metodológica</span>
+    <h3>El histórico no permite comparar campañas todavía</h3>
+    <p><strong>tema_mes_año</strong> aparece con 17 de 21 agendamientos, pero <span class="big">no es un correo ni una campaña real</span>. Era la <strong>UTM genérica</strong> que se usaba antes para etiquetar por igual a todos los envíos, cuando aún no teníamos una UTM distinta por correo. Por eso concentra casi todo el volumen: no es que rindiera más, es que absorbía todo lo que no tenía etiqueta propia.</p>
+    <p>Las únicas campañas con UTM específica en este periodo son <strong>oraculo</strong> (3) y <strong>profesion_util</strong> (1), y son las que sí podemos leer como campañas reales. A partir de agosto, con UTMs específicas por correo, cada envío queda identificado, y con el tiempo podremos ir reclasificando lo que hoy cae en la bolsa de tema_mes_año.</p>
+    <p style="background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #cfe4ef"><strong>Lo que sí vale del histórico:</strong> el patrón de <span class="big">6 inasistencias</span> sobre 21 agendamientos. Independiente de la campaña, casi una de cada tres personas que agenda no llega a la consultoría. Reducir esa fuga de citas es la palanca más accionable con los datos que ya tenemos.</p>
+  </div>
+
+  <div class="section-label">Estado y origen acumulados</div>
+  <div class="charts-row">
+    <div class="ccard">
+      <div class="ctitle">Agenda newsletter total</div>
+      <div class="csub">Estado de consultoría por UTM · tema_mes_año = etiqueta genérica</div>
+      <div class="cwrap" style="height:300px"><canvas id="hStacked"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Estado de consultoría</div>
+      <div class="csub">Distribución global de los 21 agendamientos</div>
+      <div class="cwrap" style="height:300px"><canvas id="hEstado"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-label">Perfil de los contactos acumulados</div>
+  <div class="charts-row-2">
+    <div class="ccard">
+      <div class="ctitle">Áreas / campos más frecuentes</div>
+      <div class="csub">De qué sector vienen los agendamientos</div>
+      <div class="cwrap" style="height:300px"><canvas id="hArea"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Capacidad de inversión declarada</div>
+      <div class="csub">Situación actual reportada en el formulario</div>
+      <div class="cwrap" style="height:310px"><canvas id="hSituacion"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-label">Detalle histórico · utm_campaign destacada</div>
+  <div class="table-card"><div class="table-scroll"><table>
+    <thead><tr id="theadHist"></tr></thead>
+    <tbody id="tbodyHist"></tbody>
+  </table></div></div>
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agenda newsletter total hasta julio 2026 · Datos de Airtable y Clientify</p>
+</div>
+
 <script>
-const AGENDA=[
-  {correo:'javicaceresarias@gmail.com',wa:'+61434995632',nombre:'JAVIERA ALEJANDRA CACERES ARIAS',creacion:'22/7/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Message',area:'Otros',profesion:'Antropología',experiencia:'Menos de 1 año',situacion:'Tengo el presupuesto',situacionTipo:'presu',utm_source:'newsletter',utm_medium:'email',utm_campaign:'oraculo',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'25/7/2026',consultoria:'31/7/2026 08:00 AEST',consultoria2:'–',estado:'Invitado',sales:'–',area:'Educación, artes y cocina',profesion:'Electrician',experiencia:'Más de 5 años',situacion:'En este momento no es prioridad',situacionTipo:'nomomento',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'ajiboyemayor01@gmail.com',wa:'+2348120300834',nombre:'AJIBOYE MAYOWA',creacion:'9/7/2026',consultoria:'31/7/2026 09:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',area:'Ciencias, agricultura y medio ambiente',profesion:'Fruit Picking',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',situacionTipo:'presu',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'allison.su.valenzuela@gmail.com',wa:'+61425343706',nombre:'ALLISON SU',creacion:'22/7/2026',consultoria:'29/7/2026 09:20 AEST',consultoria2:'–',estado:'Programada',sales:'–',area:'Negocios y administración',profesion:'Gestión y alta dirección',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto',situacionTipo:'presu',utm_source:'clientify',utm_medium:'email',utm_campaign:'cada_excusa_tiene_respuesta',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'jhonatan94096@hotmail.com',wa:'+32466353259',nombre:'JHONATAN SILVA',creacion:'10/7/2026',consultoria:'15/7/2026 09:00 AEST',consultoria2:'16/7/2026 GMT',estado:'Reprogramada',sales:'Closed',area:'Oficios varios (generales)',profesion:'Mecánico',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',situacionTipo:'presu',utm_source:'clientify',utm_medium:'email',utm_campaign:'despues_graduacion',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'mlourdesynigo@gmail.com',wa:'+5493815360979',nombre:'LOURDES YNIGO',creacion:'2/7/2026',consultoria:'4/7/2026 13:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',area:'Construcción, Diseño y Drafting',profesion:'Graduada de arquitectura',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito claridad',situacionTipo:'podria',utm_source:'clientify',utm_medium:'email',utm_campaign:'tarifa_visas',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'ismaelvaldez11072@gmail.com',wa:'+48783216242',nombre:'SILVESTRE ISMAEL VALDEZ',creacion:'9/7/2026',consultoria:'18/7/2026 13:00 AEST',consultoria2:'22/7/2026 GMT',estado:'Ejecutada',sales:'Contacted',area:'Ingeniería',profesion:'Soldador industrial',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',situacionTipo:'presu',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'ingenierialinaariza@gmail.com',wa:'+61420420018',nombre:'LIVI ARIZA',creacion:'9/7/2026',consultoria:'17/7/2026 10:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'–',area:'Educación, artes y cocina',profesion:'Baker',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito claridad',situacionTipo:'podria',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:false},
-  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'3/7/2026',consultoria:'31/7/2026 08:00 AEST',consultoria2:'–',estado:'Duplicado',sales:'–',area:'Construcción, Diseño y Drafting',profesion:'Electrician',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito claridad',situacionTipo:'podria',utm_source:'clientify',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:true},
-  {correo:'ingenierialinaariza@gmail.com',wa:'+61420420018',nombre:'LIVI ARIZA',creacion:'9/7/2026',consultoria:'–',consultoria2:'–',estado:'Duplicado',sales:'–',area:'Educación, artes y cocina',profesion:'Baker',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito claridad',situacionTipo:'podria',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]',dup:true}
-];
+const COLS=['Correo electrónico','WhatsApp','Nombre completo','Fecha creación','Fecha consultoría','2ª fecha consultoría','Estado consultoría','Status sales','Venta cruzada','Área / Campo','Profesión','Experiencia laboral','Situación actual','utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
 
-// contactos únicos para las gráficas (excluye duplicados)
-const UNICOS=AGENDA.filter(r=>!r.dup);
-
+function situTipo(s){
+  if(!s||s==='–')return 'none';
+  const t=s.toLowerCase();
+  if(t.includes('no esta dentro')||t.includes('no es prioridad')||t.includes('no está'))return 'noposi';
+  if(t.startsWith('tengo el presupuesto pero'))return 'presuEstrat';
+  if(t.startsWith('tengo el presupuesto'))return 'presu';
+  if(t.startsWith('podría invertir'))return 'podria';
+  return 'none';
+}
 function pillEstado(e){
-  const map={'Invitado':'p-invitado','Programada':'p-programada','Reprogramada':'p-reprogramada','Ejecutada':'p-ejecutada','Duplicado':'p-duplicado'};
-  return '<span class="pill '+(map[e]||'p-none')+'">'+e+'</span>';
+  const m={'Invitado':'p-invitado','Programada':'p-programada','Reprogramada':'p-reprogramada','Ejecutada':'p-ejecutada','Duplicado':'p-duplicado','Inasistente':'p-inasistente','Venta Cruzada':'p-ventacruzada'};
+  if(!e||e==='–')return '<span class="pill p-none">–</span>';
+  return '<span class="pill '+(m[e]||'p-none')+'">'+e+'</span>';
 }
 function pillSales(s){
   if(!s||s==='–')return '<span class="pill p-none">–</span>';
-  if(s==='Converted')return '<span class="pill p-converted">Converted</span>';
-  if(s==='Contacted')return '<span class="pill p-contacted">Contacted</span>';
-  if(s==='Closed')return '<span class="pill p-closed">Closed</span>';
-  return '<span class="pill p-message">'+s+'</span>';
+  const m={'Converted':'p-converted','Contacted':'p-contacted','Closed':'p-closed','Sold':'p-sold','Message':'p-message'};
+  return '<span class="pill '+(m[s]||'p-message')+'">'+s+'</span>';
 }
-function pillSituacion(r){
-  const cls=r.situacionTipo==='presu'?'p-presu':r.situacionTipo==='podria'?'p-podria':'p-nomomento';
-  return '<span class="pill '+cls+'">'+r.situacion+'</span>';
+function pillSitu(s){
+  const t=situTipo(s);
+  if(t==='none')return '<span class="pill p-none">–</span>';
+  const m={presu:'p-presu',presuEstrat:'p-presu-estrat',podria:'p-podria',noposi:'p-noposi'};
+  return '<span class="pill '+m[t]+'">'+s+'</span>';
+}
+function campTag(c){
+  if(!c||c==='–')return '<span class="pill p-none">–</span>';
+  let cls='';
+  if(c==='oraculo')cls=' oraculo';
+  else if(c==='profesion_util')cls=' profesion';
+  else if(c==='tema_mes_año')cls=' generica';
+  return '<span class="campaign-tag'+cls+'">'+c+'</span>';
+}
+function renderHead(id){
+  document.getElementById(id).innerHTML=COLS.map((c,i)=>i===15?'<th class="hi">'+c+'</th>':'<th>'+c+'</th>').join('');
+}
+function renderRows(tbodyId,data){
+  document.getElementById(tbodyId).innerHTML=data.map(r=>{
+    const dup=r.estado==='Duplicado';
+    return '<tr'+(dup?' class="dup-row"':'')+'>'+
+      '<td class="wrap">'+(r.correo||'–')+'</td>'+
+      '<td>'+(r.wa||'–')+'</td>'+
+      '<td class="wrap">'+(r.nombre||'–')+'</td>'+
+      '<td>'+(r.creacion||'–')+'</td>'+
+      '<td class="wrap">'+(r.consultoria||'–')+'</td>'+
+      '<td class="wrap">'+(r.consultoria2||'–')+'</td>'+
+      '<td>'+pillEstado(r.estado)+'</td>'+
+      '<td>'+pillSales(r.sales)+'</td>'+
+      '<td>'+(r.cruzada&&r.cruzada!=='–'?'<span class="pill p-ventacruzada">'+r.cruzada+'</span>':'<span class="pill p-none">–</span>')+'</td>'+
+      '<td class="wrap">'+(r.area||'–')+'</td>'+
+      '<td class="wrap">'+(r.profesion||'–')+'</td>'+
+      '<td>'+(r.experiencia||'–')+'</td>'+
+      '<td class="wrap">'+pillSitu(r.situacion)+'</td>'+
+      '<td>'+(r.utm_source||'–')+'</td>'+
+      '<td>'+(r.utm_medium||'–')+'</td>'+
+      '<td class="hi-cell">'+campTag(r.utm_campaign)+'</td>'+
+      '<td class="muted">'+(r.utm_term||'–')+'</td>'+
+      '<td class="muted">'+(r.utm_content||'–')+'</td>'+
+    '</tr>';
+  }).join('');
 }
 
-// campañas que generan al menos una venta/cierre para marcarlas con estrella
-const campaignVende=new Set(UNICOS.filter(r=>r.sales==='Converted'||r.sales==='Contacted'||r.sales==='Closed').map(r=>r.utm_campaign));
+/* ---------- JULIO ---------- */
+const JULIO=[
+  {correo:'javicaceresarias@gmail.com',wa:'+61434995632',nombre:'JAVIERA ALEJANDRA CACERES ARIAS',creacion:'22/7/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Message',cruzada:'–',area:'Otros',profesion:'Antropología',experiencia:'Menos de 1 año',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'oraculo',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'25/7/2026',consultoria:'31/7/2026 08:00 AEST',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Educación, artes y cocina',profesion:'Electrician',experiencia:'Más de 5 años',situacion:'En este momento no esta dentro de mis posibilidades',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ajiboyemayor01@gmail.com',wa:'+2348120300834',nombre:'AJIBOYE MAYOWA',creacion:'9/7/2026',consultoria:'31/7/2026 09:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ciencias, agricultura y medio ambiente',profesion:'Fruit Picking',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'allison.su.valenzuela@gmail.com',wa:'+61425343706',nombre:'ALLISON SU',creacion:'22/7/2026',consultoria:'29/7/2026 09:20 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Gestión y alta dirección',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto',utm_source:'clientify',utm_medium:'email',utm_campaign:'cada_excusa_tiene_respuesta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'jhonatan94096@hotmail.com',wa:'+32466353259',nombre:'JHONATAN SILVA',creacion:'10/7/2026',consultoria:'15/7/2026 09:00 AEST',consultoria2:'16/7/2026 GMT',estado:'Reprogramada',sales:'Closed',cruzada:'–',area:'Oficios varios (generales)',profesion:'Mecánico',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',utm_source:'clientify',utm_medium:'email',utm_campaign:'despues_graduacion',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'mlourdesynigo@gmail.com',wa:'+5493815360979',nombre:'LOURDES YNIGO',creacion:'2/7/2026',consultoria:'4/7/2026 13:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'Graduada de arquitectura',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'clientify',utm_medium:'email',utm_campaign:'tarifa_visas',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ismaelvaldez11072@gmail.com',wa:'+48783216242',nombre:'SILVESTRE ISMAEL VALDEZ',creacion:'9/7/2026',consultoria:'18/7/2026 13:00 AEST',consultoria2:'22/7/2026 GMT',estado:'Ejecutada',sales:'Contacted',cruzada:'–',area:'Ingeniería',profesion:'Soldador industrial',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ingenierialinaariza@gmail.com',wa:'+61420420018',nombre:'LIVI ARIZA',creacion:'9/7/2026',consultoria:'17/7/2026 10:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'–',cruzada:'–',area:'Educación, artes y cocina',profesion:'Baker',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'3/7/2026',consultoria:'31/7/2026 08:00 AEST',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'Electrician',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'clientify',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ingenierialinaariza@gmail.com',wa:'+61420420018',nombre:'LIVI ARIZA',creacion:'9/7/2026',consultoria:'–',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Educación, artes y cocina',profesion:'Baker',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'clientify',utm_medium:'email',utm_campaign:'pagan_australia',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ehsanehsas121@gmail.com',wa:'+93781282442',nombre:'EHSANULLAH EHSAS',creacion:'22/6/2026',consultoria:'18/7/2026 14:15 AEST',consultoria2:'–',estado:'Duplicado',sales:'Closed',cruzada:'–',area:'Oficios varios (generales)',profesion:'Shopping and driving and agriculture jobs',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'}
+];
 
-document.getElementById('tbodyAgenda').innerHTML=AGENDA.map(r=>
-  '<tr'+(r.dup?' class="dup-row"':'')+'>'+
-  '<td class="wrap">'+r.correo+'</td>'+
-  '<td>'+r.wa+'</td>'+
-  '<td class="wrap">'+r.nombre+'</td>'+
-  '<td>'+r.creacion+'</td>'+
-  '<td class="wrap">'+r.consultoria+'</td>'+
-  '<td class="wrap">'+r.consultoria2+'</td>'+
-  '<td>'+pillEstado(r.estado)+'</td>'+
-  '<td>'+pillSales(r.sales)+'</td>'+
-  '<td class="wrap">'+r.area+'</td>'+
-  '<td class="wrap">'+r.profesion+'</td>'+
-  '<td>'+r.experiencia+'</td>'+
-  '<td class="wrap">'+pillSituacion(r)+'</td>'+
-  '<td>'+r.utm_source+'</td>'+
-  '<td>'+r.utm_medium+'</td>'+
-  '<td class="hi-cell"><span class="campaign-tag'+(r.utm_campaign==='oraculo'?' oraculo':'')+'">'+r.utm_campaign+'</span></td>'+
-  '<td class="muted">'+r.utm_term+'</td>'+
-  '<td class="muted">'+r.utm_content+'</td>'+
-  '</tr>'
-).join('');
+/* ---------- AGOSTO ---------- */
+const AGOSTO=[
+  {correo:'arguellojuank44@gmail.com',wa:'+37062640593',nombre:'JUAN CARLOS ARGUELLO',creacion:'7/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Producción de cerdo y res',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'lorenatovars03@gmail.com',wa:'+61412088494',nombre:'LORENA TOVAR',creacion:'10/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera Ambiental',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'}
+];
+
+/* ---------- BROADCAST AGOSTO ---------- */
+const BROADCAST_COLS=['Nombre','Categoría','Creado','Fecha de envío','Contactos','Enviados','Open rate','Click rate','Órdenes','Revenue','Estado'];
+const BROADCAST=[
+  {name:'Skillspro_agosto_1_final',cat:'Base segmentada 1',created:'8 ago 2026 7:38 am',exec:'8 ago 2026 7:39 am',contacts:'2.657',sent:'2.657',open:'14.95%',click:'0.19%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «¿Y si no tengo experiencia en Australia? Aún puedo validar mi carrera?». Mejor open rate del mes.'},
+  {name:'Skillspro_agosto_1_base2',cat:'Base segmentada 2',created:'7 ago 2026 12:07 pm',exec:'11 ago 2026 6:17 am',contacts:'2.638',sent:'2.638',open:'8.70%',click:'0.23%',orders:'–',revenue:'–',status:'Completed',nota:'Segunda base segmentada, ya con métricas finales. Mejor click rate del mes (0.23%).'},
+  {name:'Skillspro_agosto_2_WEBINAR',cat:'Base completa · webinar',created:'9 ago 2026 10:45 am',exec:'9 ago 2026 10:54 am',contacts:'5.304',sent:'5.304',open:'12.26%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Invitación a webinar, base completa. Segundo mejor open rate del mes.'},
+  {name:'Skillspro_agosto_2',cat:'Base completa',created:'10 ago 2026 1:07 pm',exec:'10 ago 2026 1:12 pm',contacts:'5.286',sent:'5.286',open:'8.73%',click:'0.09%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «Aquí nadie le dice «señor» al jefe». Envío a base completa.'}
+];
+
+/* ---------- HISTÓRICO ---------- */
+const HIST=[
+  {correo:'sanchezquintodiana@gmail.com',wa:'+51991847426',nombre:'DIANA SANCHEZ QUINTO',creacion:'28/5/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Consejería (psicología)',profesion:'Psicología',experiencia:'Menos de 1 año',situacion:'En este momento no esta dentro de mis posibilidades',utm_source:'newsletter',utm_medium:'email',utm_campaign:'oraculo',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'tinigarcia43@gmail.com',wa:'+543813390756',nombre:'LAURA GARCIA',creacion:'28/5/2026',consultoria:'4/6/2026 08:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Negocios y administración',profesion:'Licenciada en administracion de empresas',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'oraculo',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'javicaceresarias@gmail.com',wa:'+61434995632',nombre:'JAVIERA ALEJANDRA CACERES ARIAS',creacion:'22/7/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Message',cruzada:'–',area:'Otros',profesion:'Antropología',experiencia:'Menos de 1 año',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'oraculo',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'arguellojuank44@gmail.com',wa:'+37062640593',nombre:'JUAN CARLOS ARGUELLO',creacion:'7/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Producción de cerdo y res',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'95.huircan@gmail.com',wa:'+61416025635',nombre:'ALEJANDRA HUIRCAN',creacion:'12/5/2026',consultoria:'16/5/2026 09:00 AEST',consultoria2:'–',estado:'–',sales:'–',cruzada:'–',area:'Finanzas y contabilidad',profesion:'Finanzas',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'alejandro.vasquez.15@hotmail.com',wa:'+573219025446',nombre:'ALEJANDRO VÁSQUEZ',creacion:'12/5/2026',consultoria:'14/5/2026 09:30 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Ingeniero civil',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'cristinapalaugil83@gmail.com',wa:'+61415942866',nombre:'CRISTINA PALAU GIL',creacion:'12/5/2026',consultoria:'14/5/2026 11:00 AEST',consultoria2:'12/6/2026 GMT',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'Carpentry',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'jotamtz.28@gmail.com',wa:'+61451491137',nombre:'JONATHAN MARTINEZ',creacion:'14/5/2026',consultoria:'23/5/2026 11:30 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Ingeniería Industrial',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'xeas1@hotmail.com',wa:'+573167429029',nombre:'JESSICA ZEA',creacion:'21/5/2026',consultoria:'27/5/2026 09:18 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'–',profesion:'–',experiencia:'–',situacion:'–',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'davidpajarito924@gmail.com',wa:'+610414210732',nombre:'DAVID YUCEF',creacion:'21/5/2026',consultoria:'25/5/2026 09:20 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'–',profesion:'–',experiencia:'–',situacion:'–',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'amili.17@hotmail.com',wa:'+61415113592',nombre:'AMILI SOLIS DIBARRART',creacion:'22/5/2026',consultoria:'26/5/2026 13:45 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Ingeniería',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'dar2dp@gmail.com',wa:'+593984195869',nombre:'DARIO PUMARICA',creacion:'28/5/2026',consultoria:'8/6/2026 11:30 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Mecanica Automotriz',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'daxi3105@gmail.com',wa:'+61451053663',nombre:'LADY XIOMARA VELASCO BASTIDAS',creacion:'2/6/2026',consultoria:'10/6/2026 08:30 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Negocios y administración',profesion:'Profesional en Mercado y Negocios Internacionales',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'stbn.barrios@gmail.com',wa:'+61404746813',nombre:'ESTEBAN ANTONIO BARRIOS MORA',creacion:'7/6/2026',consultoria:'24/6/2026 13:15 AEST',consultoria2:'–',estado:'Venta Cruzada',sales:'Sold',cruzada:'AustraliaPRO',area:'Retail y Hospitabilidad',profesion:'Chef',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'ehsanehsas121@gmail.com',wa:'+93781282442',nombre:'EHSANULLAH EHSAS',creacion:'22/6/2026',consultoria:'18/7/2026 14:15 AEST',consultoria2:'–',estado:'Duplicado',sales:'Closed',cruzada:'–',area:'Oficios varios (generales)',profesion:'Shopping and driving and agriculture jobs',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'s1a9m8u9el@hotmail.com',wa:'+61414905916',nombre:'SAMUEL CHARRY',creacion:'24/6/2026',consultoria:'6/7/2026 12:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Consejería (psicología)',profesion:'Psicologia del deporte',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'yesithp.cortes@gmail.com',wa:'+61435982913',nombre:'YESID FERNANDO PINEDA CORTES',creacion:'24/6/2026',consultoria:'2/7/2026 13:30 AEST',consultoria2:'7/7/2026',estado:'Ejecutada',sales:'Closed',cruzada:'–',area:'Educación, artes y cocina',profesion:'Productor Audiovisual',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'lccocinero@gmail.com',wa:'+61430045715',nombre:'LUIS CARLOS IBARRA RUIZ',creacion:'25/6/2026',consultoria:'6/7/2026 11:00 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Retail y Hospitabilidad',profesion:'Chef',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'25/6/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Otros',profesion:'truck driver',experiencia:'Menos de 1 año',situacion:'En este momento no esta dentro de mis posibilidades',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'ndifonkelvinekpe@gmail.com',wa:'+237653116602',nombre:'NDIFON KELVIN EKPE',creacion:'25/6/2026',consultoria:'4/7/2026 10:45 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Educación, artes y cocina',profesion:'Teaching English',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  {correo:'alejandra.pizarro.jorquera@gmail.com',wa:'+61415287972',nombre:'ALEJANDRA PIZARRO JORQUERA',creacion:'25/6/2026',consultoria:'11/7/2026 10:15 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria en Prevencion de Riesgos / Magister en Ingenieria Industrial',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'}
+];
+
+renderHead('theadJulio');renderRows('tbodyJulio',JULIO);
+renderHead('theadAgosto');renderRows('tbodyAgosto',AGOSTO);
+renderHead('theadHist');renderRows('tbodyHist',HIST);
+
+document.getElementById('theadBroadcast').innerHTML=BROADCAST_COLS.map(c=>'<th>'+c+'</th>').join('');
+document.getElementById('tbodyBroadcast').innerHTML=BROADCAST.map(b=>{
+  const est=b.status==='Completed'?'<span class="pill p-completed">Completed</span>':'<span class="pill p-ongoing">Ongoing</span>';
+  return '<tr>'+
+    '<td class="wrap"><strong style="color:#0c465b">'+b.name+'</strong>'+(b.nota?'<br><span style="font-size:10px;color:#93a9b2;font-weight:400">'+b.nota+'</span>':'')+'</td>'+
+    '<td>'+b.cat+'</td>'+
+    '<td>'+b.created+'</td>'+
+    '<td>'+b.exec+'</td>'+
+    '<td class="num">'+b.contacts+'</td>'+
+    '<td class="num">'+b.sent+'</td>'+
+    '<td class="num">'+b.open+'</td>'+
+    '<td class="num">'+b.click+'</td>'+
+    '<td class="num muted">'+b.orders+'</td>'+
+    '<td class="num muted">'+b.revenue+'</td>'+
+    '<td>'+est+'</td>'+
+  '</tr>';
+}).join('');
 
 Chart.register(ChartDataLabels);
+const CFG={responsive:true,maintainAspectRatio:false};
+const SITU_LABELS=['Tengo el presupuesto','Presupuesto, necesito estrategia','Podría invertir, necesito planificar','No está en mis posibilidades'];
+const SITU_COLORS=['#0c465b','#0fb5c9','#3ecf8e','#ff9a5b'];
+let charts={};
 
-// estado: cuenta sobre los 10 registros
-const estCount={Invitado:0,Programada:0,Reprogramada:0,Ejecutada:0,Duplicado:0};
-AGENDA.forEach(r=>{estCount[r.estado]=(estCount[r.estado]||0)+1;});
-new Chart(document.getElementById('cEstado'),{
-  type:'bar',
-  data:{labels:['Invitado','Programada','Reprogramada','Ejecutada','Duplicado'],
-    datasets:[{data:[estCount.Invitado,estCount.Programada,estCount.Reprogramada,estCount.Ejecutada,estCount.Duplicado],
-      backgroundColor:['#7c5cff','#ffb020','#ff6b5b','#0fb5c9','#c98a6a'],borderRadius:8}]},
-  options:{responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:13,weight:'bold'}}},
-    scales:{x:{ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}},
-      y:{beginAtZero:true,ticks:{stepSize:1,font:{size:11},color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}}}}
-});
+function buildJulio(){
+  const est={};JULIO.forEach(r=>est[r.estado]=(est[r.estado]||0)+1);
+  const eo=['Invitado','Programada','Reprogramada','Ejecutada','Duplicado'];
+  const ec={Invitado:'#7c5cff',Programada:'#ffb020',Reprogramada:'#ff6b5b',Ejecutada:'#0fb5c9',Duplicado:'#c98a6a'};
+  charts.jEstado=new Chart(document.getElementById('jEstado'),{type:'bar',
+    data:{labels:eo,datasets:[{data:eo.map(e=>est[e]||0),backgroundColor:eo.map(e=>ec[e]),borderRadius:8}]},
+    options:{...CFG,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:13,weight:'bold'}}},
+      scales:{x:{ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}},y:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}}}}});
 
-new Chart(document.getElementById('cVentas'),{
-  type:'bar',
-  data:{labels:['Contactos','Ejecutadas','Ventas'],
-    datasets:[{data:[8,3,1],backgroundColor:['#0c465b','#0fb5c9','#3ecf8e'],borderRadius:8}]},
-  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'},
-      formatter:(v,ctx)=>ctx.dataIndex===0?v:v+'  ('+(v/8*100).toFixed(1)+'%)'}},
-    scales:{x:{beginAtZero:true,ticks:{stepSize:2,font:{size:11},color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+2;}},
-      y:{ticks:{font:{size:11,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}
-});
+  charts.jVentas=new Chart(document.getElementById('jVentas'),{type:'bar',
+    data:{labels:['Contactos','Ejecutadas','Ventas'],datasets:[{data:[7,3,1],backgroundColor:['#0c465b','#0fb5c9','#3ecf8e'],borderRadius:8}]},
+    options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'},formatter:(v,c)=>c.dataIndex===0?v:v+'  ('+(v/7*100).toFixed(1)+'%)'}},
+      scales:{x:{beginAtZero:true,ticks:{stepSize:2,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+2;}},y:{ticks:{font:{size:11,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
 
-// campañas sobre contactos únicos
-const campCount={};
-UNICOS.forEach(r=>{campCount[r.utm_campaign]=(campCount[r.utm_campaign]||0)+1;});
-const campEntries=Object.entries(campCount).sort((a,b)=>b[1]-a[1]);
-new Chart(document.getElementById('cCampaign'),{
-  type:'bar',
-  data:{labels:campEntries.map(e=>campaignVende.has(e[0])?e[0]+' ★':e[0]),
-    datasets:[{data:campEntries.map(e=>e[1]),
-      backgroundColor:campEntries.map(e=>campaignVende.has(e[0])?'#3ecf8e':'#0fb5c9'),borderRadius:8}]},
-  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'}}},
-    scales:{x:{beginAtZero:true,ticks:{stepSize:1,font:{size:11},color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}},
-      y:{ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}
-});
+  const jU=JULIO.filter(r=>r.estado!=='Duplicado');
+  const cc={};jU.forEach(r=>cc[r.utm_campaign]=(cc[r.utm_campaign]||0)+1);
+  const ce=Object.entries(cc).sort((a,b)=>b[1]-a[1]);
+  const vende=new Set(jU.filter(r=>['Sold','Converted','Contacted'].includes(r.sales)).map(r=>r.utm_campaign));
+  charts.jCampaign=new Chart(document.getElementById('jCampaign'),{type:'bar',
+    data:{labels:ce.map(e=>vende.has(e[0])?e[0]+' ★':e[0]),datasets:[{data:ce.map(e=>e[1]),backgroundColor:ce.map(e=>vende.has(e[0])?'#3ecf8e':'#0fb5c9'),borderRadius:8}]},
+    options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'}}},
+      scales:{x:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}},y:{ticks:{font:{size:9,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
 
-// situación sobre contactos únicos
-const sitCount={presu:0,podria:0,nomomento:0};
-UNICOS.forEach(r=>{sitCount[r.situacionTipo]=(sitCount[r.situacionTipo]||0)+1;});
-new Chart(document.getElementById('cSituacion'),{
-  type:'doughnut',
-  data:{labels:['Tengo el presupuesto','Podría invertir, necesito claridad','No es prioridad ahora'],
-    datasets:[{data:[sitCount.presu,sitCount.podria,sitCount.nomomento],
-      backgroundColor:['#22a46a','#8de3b8','#ffb98a'],borderWidth:3,borderColor:'#ffffff'}]},
-  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
-    plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:12,color:'#5d7883'}},
-      datalabels:{color:'#ffffff',font:{size:14,weight:'bold'},formatter:(v)=>v||''}}}
-});
+  const sc={presu:0,presuEstrat:0,podria:0,noposi:0};
+  jU.forEach(r=>{const t=situTipo(r.situacion);if(sc[t]!==undefined)sc[t]++;});
+  charts.jSituacion=new Chart(document.getElementById('jSituacion'),{type:'doughnut',
+    data:{labels:SITU_LABELS,datasets:[{data:[sc.presu,sc.presuEstrat,sc.podria,sc.noposi],backgroundColor:SITU_COLORS,borderWidth:3,borderColor:'#fff'}]},
+    options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:10,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:14,weight:'bold'},formatter:v=>v||''}}}});
+}
+
+function buildHist(){
+  const camps=['oraculo','profesion_util','tema_mes_año'];
+  const campLbl=['oraculo','profesion_util','tema_mes_año (genérica)'];
+  const estados=['Invitado','Inasistente','Ejecutada','Venta Cruzada','Duplicado'];
+  const ec={Invitado:'#7c5cff','Inasistente':'#ffb020','Ejecutada':'#0fb5c9','Venta Cruzada':'#e8940e','Duplicado':'#ff6b5b'};
+  const matrix={};estados.forEach(e=>matrix[e]=camps.map(()=>0));
+  HIST.forEach(r=>{const ci=camps.indexOf(r.utm_campaign);if(ci<0)return;if(matrix[r.estado])matrix[r.estado][ci]++;});
+  charts.hStacked=new Chart(document.getElementById('hStacked'),{type:'bar',
+    data:{labels:campLbl,datasets:estados.map(e=>({label:e,data:matrix[e],backgroundColor:ec[e],borderRadius:4,stack:'s'}))},
+    options:{...CFG,plugins:{legend:{position:'right',labels:{font:{size:10},boxWidth:12,padding:8,color:'#5d7883',usePointStyle:true,pointStyle:'rectRounded'}},datalabels:{display:false}},
+      scales:{x:{stacked:true,ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}},y:{stacked:true,beginAtZero:true,ticks:{stepSize:5,color:'#8ea6b0'},grid:{color:'#eef3f5'}}}}});
+
+  const est={};HIST.forEach(r=>est[r.estado]=(est[r.estado]||0)+1);
+  const eo=['Invitado','Inasistente','Ejecutada','Venta Cruzada','Duplicado'];
+  charts.hEstado=new Chart(document.getElementById('hEstado'),{type:'doughnut',
+    data:{labels:eo,datasets:[{data:eo.map(e=>est[e]||0),backgroundColor:['#7c5cff','#ffb020','#0fb5c9','#e8940e','#ff6b5b'],borderWidth:3,borderColor:'#fff'}]},
+    options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:9,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:13,weight:'bold'},formatter:v=>v||''}}}});
+
+  const ac={};HIST.forEach(r=>{if(r.area&&r.area!=='–')ac[r.area]=(ac[r.area]||0)+1;});
+  const ae=Object.entries(ac).sort((a,b)=>b[1]-a[1]);
+  charts.hArea=new Chart(document.getElementById('hArea'),{type:'bar',
+    data:{labels:ae.map(e=>e[0]),datasets:[{data:ae.map(e=>e[1]),backgroundColor:'#10728d',borderRadius:6}]},
+    options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:11,weight:'bold'}}},
+      scales:{x:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}},y:{ticks:{font:{size:9,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
+
+  const sc={presu:0,presuEstrat:0,podria:0,noposi:0};
+  HIST.forEach(r=>{const t=situTipo(r.situacion);if(sc[t]!==undefined)sc[t]++;});
+  charts.hSituacion=new Chart(document.getElementById('hSituacion'),{type:'doughnut',
+    data:{labels:SITU_LABELS,datasets:[{data:[sc.presu,sc.presuEstrat,sc.podria,sc.noposi],backgroundColor:SITU_COLORS,borderWidth:3,borderColor:'#fff'}]},
+    options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:9,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:13,weight:'bold'},formatter:v=>v||''}}}});
+}
+
+let built={julio:false,historico:false};
+function switchTab(t){
+  ['julio','agosto','historico'].forEach(x=>{
+    document.getElementById('chip-'+x).classList.toggle('active',x===t);
+    document.getElementById('page-'+x).classList.toggle('active',x===t);
+  });
+  if(t==='julio'&&!built.julio){buildJulio();built.julio=true;}
+  if(t==='historico'&&!built.historico){buildHist();built.historico=true;}
+}
+buildJulio();built.julio=true;
 
 const now=new Date();
 const months=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];

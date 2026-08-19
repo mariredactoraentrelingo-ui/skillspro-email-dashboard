@@ -97,6 +97,8 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 .campaign-tag.oraculo{background:linear-gradient(135deg,#7c5cff,#5f42d6);}
 .campaign-tag.profesion{background:linear-gradient(135deg,#ffb020,#e8940e);color:#4a3000;}
 .campaign-tag.generica{background:#eceff1;color:#7a8a92;border:1px dashed #b9c6cd;}
+.campaign-tag.tustreinta{background:linear-gradient(135deg,#3ecf8e,#22a46a);color:#ffffff;}
+.campaign-tag.estocaro{background:linear-gradient(135deg,#ff6b5b,#e8503e);color:#ffffff;}
 
 .pill{display:inline-block;font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;white-space:nowrap;}
 .p-invitado{background:#dcecff;color:#1b5fa8;}
@@ -106,6 +108,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 .p-duplicado{background:#ffe1d3;color:#b5502a;}
 .p-inasistente{background:#fdf0d0;color:#8a6300;}
 .p-ventacruzada{background:linear-gradient(135deg,#ffb020,#e8940e);color:#4a3000;}
+.p-llamada{background:linear-gradient(135deg,#7c5cff,#5f42d6);color:#ffffff;}
 .p-closed{background:#ede8ff;color:#5f42d6;}
 .p-converted{background:linear-gradient(135deg,#3ecf8e,#22a46a);color:#ffffff;}
 .p-contacted{background:#d6f5e6;color:#17784f;}
@@ -240,11 +243,11 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 <div class="page" id="page-agosto">
   <div class="section-label">Resumen del mes · agosto 2026 en curso</div>
   <div class="kpi-grid">
-    <div class="kcard k1"><div class="klabel">Correos enviados</div><div class="kval">4</div><div class="ksub">2 segmentados + 2 completos</div></div>
-    <div class="kcard k2"><div class="klabel">Contactos alcanzados</div><div class="kval">15.885</div><div class="ksub">Suma de los 4 envíos</div></div>
-    <div class="kcard k3"><div class="klabel">Agendamientos</div><div class="kval">2</div><div class="ksub">Invitados · profesion_util</div></div>
-    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">Sin ventas aún</div></div>
-    <div class="kcard k5"><div class="klabel">Open rate promedio</div><div class="kval">10.9%</div><div class="ksub">Ponderado de 4 envíos</div></div>
+    <div class="kcard k1"><div class="klabel">Correos enviados</div><div class="kval">7</div><div class="ksub">2 segmentados + 5 completos</div></div>
+    <div class="kcard k2"><div class="klabel">Contactos alcanzados</div><div class="kval">31.628</div><div class="ksub">Suma de los 7 envíos</div></div>
+    <div class="kcard k3"><div class="klabel">Agendamientos</div><div class="kval">10</div><div class="ksub">3 campañas activas</div></div>
+    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">2 en Contacted</div></div>
+    <div class="kcard k5"><div class="klabel">Open rate promedio</div><div class="kval">10.6%</div><div class="ksub">Ponderado de 7 envíos</div></div>
   </div>
 
   <div class="section-label">Lo que cambia a partir de agosto</div>
@@ -265,7 +268,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <tbody id="tbodyAgosto"></tbody>
   </table></div></div>
   <div class="empty-banner" style="margin-top:12px">
-    En agendamientos solo aparece <strong>profesion_util</strong> porque es la campaña que hasta ahora generó citas registradas (2), pero <strong>no es la única enviada</strong>. Abajo está el detalle de broadcast con todos los correos que salieron este mes.
+    Este mes ya hay <strong>3 campañas activas con UTM específica</strong>: profesion_util, tus_treinta y esto_es_caro. Abajo está el detalle de broadcast con todos los correos que salieron este mes, incluidos los dos webinars.
   </div>
 
   <div class="section-label">Broadcast · métricas por correo enviado (WordPress)</div>
@@ -274,7 +277,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <tbody id="tbodyBroadcast"></tbody>
   </table></div></div>
   <div class="empty-banner" style="margin-top:12px">
-    Para calentar la base se envió primero de forma <strong>segmentada</strong> (base 1 el 8 de agosto, base 2 con métricas ya finales), y luego a la <strong>base completa</strong> con dos envíos: la invitación al webinar y Skillspro_agosto_2. El de <strong>mejor open rate fue Skillspro_agosto_1_final (14.95%)</strong> sobre base segmentada; entre los de base completa, el <strong>webinar rindió mejor (12.26%)</strong> que el envío general. Revenue y órdenes salen vacíos porque la conexión venta-campaña es justo lo que IT está montando este mes.
+    Ya son <strong>7 correos enviados</strong> en agosto: 2 bases segmentadas para calentar la lista, y 5 envíos a base completa (incluidos 2 webinars). El de <strong>mejor open rate es Skillspro_agosto_1_final (16.18%)</strong>, seguido del webinar del 9 de agosto (13.05%). El de <strong>mejor click rate es Skillspro_agosto_1_base2 (0.34%)</strong>. En general, las bases segmentadas y los webinars están rindiendo mejor que los envíos regulares a base completa. Revenue y órdenes salen vacíos porque la conexión venta-campaña es justo lo que IT está montando este mes.
   </div>
 
   <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agosto 2026 en curso · Datos de Airtable, Clientify y WordPress</p>
@@ -349,7 +352,7 @@ function situTipo(s){
   return 'none';
 }
 function pillEstado(e){
-  const m={'Invitado':'p-invitado','Programada':'p-programada','Reprogramada':'p-reprogramada','Ejecutada':'p-ejecutada','Duplicado':'p-duplicado','Inasistente':'p-inasistente','Venta Cruzada':'p-ventacruzada'};
+  const m={'Invitado':'p-invitado','Programada':'p-programada','Reprogramada':'p-reprogramada','Ejecutada':'p-ejecutada','Duplicado':'p-duplicado','Inasistente':'p-inasistente','Venta Cruzada':'p-ventacruzada','Llamada':'p-llamada'};
   if(!e||e==='–')return '<span class="pill p-none">–</span>';
   return '<span class="pill '+(m[e]||'p-none')+'">'+e+'</span>';
 }
@@ -370,6 +373,8 @@ function campTag(c){
   if(c==='oraculo')cls=' oraculo';
   else if(c==='profesion_util')cls=' profesion';
   else if(c==='tema_mes_año')cls=' generica';
+  else if(c==='tus_treinta')cls=' tustreinta';
+  else if(c==='esto_es_caro')cls=' estocaro';
   return '<span class="campaign-tag'+cls+'">'+c+'</span>';
 }
 function renderHead(id){
@@ -419,16 +424,27 @@ const JULIO=[
 /* ---------- AGOSTO ---------- */
 const AGOSTO=[
   {correo:'arguellojuank44@gmail.com',wa:'+37062640593',nombre:'JUAN CARLOS ARGUELLO',creacion:'7/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Producción de cerdo y res',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
-  {correo:'lorenatovars03@gmail.com',wa:'+61412088494',nombre:'LORENA TOVAR',creacion:'10/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera Ambiental',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'}
+  {correo:'lorenatovars03@gmail.com',wa:'+61412088494',nombre:'LORENA TOVAR',creacion:'10/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera Ambiental',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'gnfco.caaoni@gmail.com',wa:'+61481392232',nombre:'GIANFRANCO CASONI',creacion:'13/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Contacted',cruzada:'–',area:'Otros',profesion:'Psicología / Fitness',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'saracaicedogomez19@gmail.com',wa:'+61432420118',nombre:'SARA CAICEDO',creacion:'13/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Contacted',cruzada:'–',area:'Otros',profesion:'Administración en Servicios de Salud',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'puentesmariaceleste@gmail.com',wa:'+5491150555350',nombre:'MARIA CELESTE PUENTES',creacion:'18/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Message',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'Arquitecta',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'contadoradianaoc@gmail.com',wa:'+573164292826',nombre:'DIANA OBANDO',creacion:'13/8/2026',consultoria:'26/8/2026 09:50 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Finanzas y contabilidad',profesion:'Contador público',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'asaelsalcedo@hotmail.com',wa:'+61406192290',nombre:'ASAEL SALCEDO VARGAS',creacion:'18/8/2026',consultoria:'7/9/2026 12:50 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria industrial',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'coz113@gmail.com',wa:'+61452087214',nombre:'CATHERINE OSORIO',creacion:'18/8/2026',consultoria:'9/9/2026 08:55 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera agrícola',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'entrelingo',utm_content:'mayra'},
+  {correo:'alejandraa.rjsm@gmail.com',wa:'+61493542522',nombre:'ALEJANDRA ROJAS MEDINA',creacion:'18/8/2026',consultoria:'12/9/2026 10:45 AEST',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera civil industrial',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'salgadomelisa@gmail.com',wa:'+61410749857',nombre:'⭐ SHANNON SALGADO',creacion:'18/8/2026',consultoria:'4/9/2026 10:45 AEST',consultoria2:'–',estado:'Llamada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Administración de Empresas',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'}
 ];
 
 /* ---------- BROADCAST AGOSTO ---------- */
 const BROADCAST_COLS=['Nombre','Categoría','Creado','Fecha de envío','Contactos','Enviados','Open rate','Click rate','Órdenes','Revenue','Estado'];
 const BROADCAST=[
-  {name:'Skillspro_agosto_1_final',cat:'Base segmentada 1',created:'8 ago 2026 7:38 am',exec:'8 ago 2026 7:39 am',contacts:'2.657',sent:'2.657',open:'14.95%',click:'0.19%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «¿Y si no tengo experiencia en Australia? Aún puedo validar mi carrera?». Mejor open rate del mes.'},
-  {name:'Skillspro_agosto_1_base2',cat:'Base segmentada 2',created:'7 ago 2026 12:07 pm',exec:'11 ago 2026 6:17 am',contacts:'2.638',sent:'2.638',open:'8.70%',click:'0.23%',orders:'–',revenue:'–',status:'Completed',nota:'Segunda base segmentada, ya con métricas finales. Mejor click rate del mes (0.23%).'},
-  {name:'Skillspro_agosto_2_WEBINAR',cat:'Base completa · webinar',created:'9 ago 2026 10:45 am',exec:'9 ago 2026 10:54 am',contacts:'5.304',sent:'5.304',open:'12.26%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Invitación a webinar, base completa. Segundo mejor open rate del mes.'},
-  {name:'Skillspro_agosto_2',cat:'Base completa',created:'10 ago 2026 1:07 pm',exec:'10 ago 2026 1:12 pm',contacts:'5.286',sent:'5.286',open:'8.73%',click:'0.09%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «Aquí nadie le dice «señor» al jefe». Envío a base completa.'}
+  {name:'Skillspro_agosto_1_final',cat:'Base segmentada 1',created:'8 ago 2026 7:38 am',exec:'8 ago 2026 7:39 am',contacts:'2.657',sent:'2.657',open:'16.18%',click:'0.22%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «¿Y si no tengo experiencia en Australia? Aún puedo validar mi carrera?». Mejor open rate del mes.'},
+  {name:'Skillspro_agosto_1_base2',cat:'Base segmentada 2',created:'7 ago 2026 12:07 pm',exec:'11 ago 2026 6:17 am',contacts:'2.638',sent:'2.638',open:'10.70%',click:'0.34%',orders:'–',revenue:'–',status:'Completed',nota:'Segunda base segmentada. Mejor click rate del mes (0.34%).'},
+  {name:'Skillspro_agosto_2_WEBINAR',cat:'Base completa · webinar',created:'9 ago 2026 10:45 am',exec:'9 ago 2026 10:54 am',contacts:'5.304',sent:'5.304',open:'13.05%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Invitación a webinar, base completa. Segundo mejor open rate del mes.'},
+  {name:'Skillspro_agosto_2',cat:'Base completa',created:'10 ago 2026 1:07 pm',exec:'10 ago 2026 1:12 pm',contacts:'5.286',sent:'5.286',open:'9.48%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «Aquí nadie le dice «señor» al jefe».'},
+  {name:'Skillspro_agosto_3',cat:'Base completa',created:'13 ago 2026 1:17 pm',exec:'13 ago 2026 1:46 pm',contacts:'5.256',sent:'5.198',open:'9.26%',click:'0.07%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «El dinero vuelve, pero hay algo que no!».'},
+  {name:'Skillspro_agosto_3_WEBINAR',cat:'Base completa · webinar',created:'14 ago 2026 12:04 pm',exec:'14 ago 2026 12:20 pm',contacts:'5.249',sent:'5.249',open:'9.85%',click:'0.06%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «¿Sabes cuál es la trampa de ganar bien en Australia?».'},
+  {name:'Skillspro_agosto_4',cat:'Base completa',created:'18 ago 2026 12:01 pm',exec:'18 ago 2026 12:15 pm',contacts:'5.238',sent:'5.235',open:'8.19%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «Si ya te está yendo bien, esto te interesa».'}
 ];
 
 /* ---------- HISTÓRICO ---------- */

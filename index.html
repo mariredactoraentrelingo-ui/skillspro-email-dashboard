@@ -35,8 +35,7 @@ body{font-family:'DM Sans',sans-serif;background:#eef3f6;color:#132c37;font-size
 .section-label:first-of-type{margin-top:14px;}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#d3e2e8,transparent);}
 
-.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
-@media(max-width:980px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;}
 .kcard{background:var(--white);border-radius:14px;padding:18px;border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s;}
 .kcard:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(12,70,91,.10);}
 .kcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
@@ -241,13 +240,15 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 
 <!-- ==================== AGOSTO ==================== -->
 <div class="page" id="page-agosto">
-  <div class="section-label">Resumen del mes · agosto 2026 en curso</div>
+  <div class="section-label">Resumen del mes · corte 18 ago 2026</div>
   <div class="kpi-grid">
-    <div class="kcard k1"><div class="klabel">Correos enviados</div><div class="kval">7</div><div class="ksub">2 segmentados + 5 completos</div></div>
-    <div class="kcard k2"><div class="klabel">Contactos alcanzados</div><div class="kval">31.628</div><div class="ksub">Suma de los 7 envíos</div></div>
-    <div class="kcard k3"><div class="klabel">Agendamientos</div><div class="kval">10</div><div class="ksub">3 campañas activas</div></div>
+    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">10</div><div class="ksub">9 únicos + 1 duplicado</div></div>
+    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">0</div><div class="ksub">Sobre 9 contactos únicos</div></div>
+    <div class="kcard k3"><div class="klabel">Programadas pendientes</div><div class="kval">3</div><div class="ksub">Agenda para septiembre</div></div>
     <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">2 en Contacted</div></div>
-    <div class="kcard k5"><div class="klabel">Open rate promedio</div><div class="kval">10.6%</div><div class="ksub">Ponderado de 7 envíos</div></div>
+    <div class="kcard k5"><div class="klabel">Open Rate</div><div class="kval">10.6%</div><div class="ksub">Ponderado de 6 correos</div></div>
+    <div class="kcard k2"><div class="klabel">CTR</div><div class="kval">0.14%</div><div class="ksub">Ponderado de 6 correos</div></div>
+    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">0%</div><div class="ksub">0 ventas / 9 contactos</div></div>
   </div>
 
   <div class="section-label">Lo que cambia a partir de agosto</div>
@@ -260,6 +261,34 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
       <li><strong>WordPress ya está en marcha.</strong> Con esto empezamos a resolver las problemáticas listadas en julio: open rate, click rate y comportamiento del correo pasan a ser medibles por broadcast.</li>
     </ul>
     <p><strong>Trabajo de IT durante este mes:</strong> el equipo va a trabajar en la métrica de revenue de forma que, cuando el equipo comercial de SkillsPRO cierre una venta originada en un correo, ese ingreso se refleje y se asocie automáticamente en el revenue de la sección de broadcast de WordPress. Así cerramos el último eslabón que falta: conectar la venta con la campaña que la generó.</p>
+  </div>
+
+  <div class="section-label">Estado de la agenda y conversión</div>
+  <div class="charts-row">
+    <div class="ccard">
+      <div class="ctitle">Agenda newsletter en este mes</div>
+      <div class="csub">Distribución por estado de consultoría (10 registros)</div>
+      <div class="cwrap" style="height:275px"><canvas id="aEstado"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Embudo de avance comercial</div>
+      <div class="csub">De contacto único a seguimiento activo</div>
+      <div class="cwrap" style="height:275px"><canvas id="aVentas"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-label">Origen y perfil de los agendamientos</div>
+  <div class="charts-row-2">
+    <div class="ccard">
+      <div class="ctitle">Agendamientos por utm_campaign</div>
+      <div class="csub">Qué campaña trajo cada contacto único · ★ con seguimiento comercial</div>
+      <div class="cwrap" style="height:260px"><canvas id="aCampaign"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Capacidad de inversión declarada</div>
+      <div class="csub">Situación actual reportada en el formulario</div>
+      <div class="cwrap" style="height:290px"><canvas id="aSituacion"></canvas></div>
+    </div>
   </div>
 
   <div class="section-label">Detalle de agendamientos · utm_campaign destacada</div>
@@ -277,7 +306,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <tbody id="tbodyBroadcast"></tbody>
   </table></div></div>
   <div class="empty-banner" style="margin-top:12px">
-    Ya son <strong>7 correos enviados</strong> en agosto: 2 bases segmentadas para calentar la lista, y 5 envíos a base completa (incluidos 2 webinars). El de <strong>mejor open rate es Skillspro_agosto_1_final (16.18%)</strong>, seguido del webinar del 9 de agosto (13.05%). El de <strong>mejor click rate es Skillspro_agosto_1_base2 (0.34%)</strong>. En general, las bases segmentadas y los webinars están rindiendo mejor que los envíos regulares a base completa. Revenue y órdenes salen vacíos porque la conexión venta-campaña es justo lo que IT está montando este mes.
+    Son <strong>6 correos enviados</strong> en agosto (el primero se dividió en 2 segmentos para calentar WordPress, pero es un único correo). El de <strong>mejor open rate combinado es Skillspro_agosto_1 (13.45%)</strong>, seguido del webinar del 9 de agosto (13.05%) — el mejor entre los envíos a base completa. En general, la base segmentada y los webinars están rindiendo mejor que los envíos regulares a base completa. Revenue y órdenes salen vacíos porque la conexión venta-campaña es justo lo que IT está montando este mes.
   </div>
 
   <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agosto 2026 en curso · Datos de Airtable, Clientify y WordPress</p>
@@ -438,9 +467,8 @@ const AGOSTO=[
 /* ---------- BROADCAST AGOSTO ---------- */
 const BROADCAST_COLS=['Nombre','Categoría','Creado','Fecha de envío','Contactos','Enviados','Open rate','Click rate','Órdenes','Revenue','Estado'];
 const BROADCAST=[
-  {name:'Skillspro_agosto_1_final',cat:'Base segmentada 1',created:'8 ago 2026 7:38 am',exec:'8 ago 2026 7:39 am',contacts:'2.657',sent:'2.657',open:'16.18%',click:'0.22%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «¿Y si no tengo experiencia en Australia? Aún puedo validar mi carrera?». Mejor open rate del mes.'},
-  {name:'Skillspro_agosto_1_base2',cat:'Base segmentada 2',created:'7 ago 2026 12:07 pm',exec:'11 ago 2026 6:17 am',contacts:'2.638',sent:'2.638',open:'10.70%',click:'0.34%',orders:'–',revenue:'–',status:'Completed',nota:'Segunda base segmentada. Mejor click rate del mes (0.34%).'},
-  {name:'Skillspro_agosto_2_WEBINAR',cat:'Base completa · webinar',created:'9 ago 2026 10:45 am',exec:'9 ago 2026 10:54 am',contacts:'5.304',sent:'5.304',open:'13.05%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Invitación a webinar, base completa. Segundo mejor open rate del mes.'},
+  {name:'Skillspro_agosto_1',cat:'Base segmentada (calentamiento)',created:'7–8 ago 2026',exec:'8–11 ago 2026',contacts:'5.295',sent:'5.295',open:'13.45%',click:'0.28%',orders:'–',revenue:'–',status:'Completed',nota:'Mismo correo dividido en 2 segmentos para calentar WordPress: <a href="https://go.skillspro-skillsassessment.com/wp-admin/admin.php?page=autonami&path=/broadcast/5" target="_blank" rel="noopener" style="color:#0a94a6">final</a> + <a href="https://go.skillspro-skillsassessment.com/wp-admin/admin.php?page=autonami&path=/broadcast/3" target="_blank" rel="noopener" style="color:#0a94a6">base2</a>. Métricas combinadas.'},
+  {name:'Skillspro_agosto_2_WEBINAR',cat:'Base completa · webinar',created:'9 ago 2026 10:45 am',exec:'9 ago 2026 10:54 am',contacts:'5.304',sent:'5.304',open:'13.05%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Invitación a webinar, base completa. Mejor open rate entre envíos a base completa.'},
   {name:'Skillspro_agosto_2',cat:'Base completa',created:'10 ago 2026 1:07 pm',exec:'10 ago 2026 1:12 pm',contacts:'5.286',sent:'5.286',open:'9.48%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «Aquí nadie le dice «señor» al jefe».'},
   {name:'Skillspro_agosto_3',cat:'Base completa',created:'13 ago 2026 1:17 pm',exec:'13 ago 2026 1:46 pm',contacts:'5.256',sent:'5.198',open:'9.26%',click:'0.07%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «El dinero vuelve, pero hay algo que no!».'},
   {name:'Skillspro_agosto_3_WEBINAR',cat:'Base completa · webinar',created:'14 ago 2026 12:04 pm',exec:'14 ago 2026 12:20 pm',contacts:'5.249',sent:'5.249',open:'9.85%',click:'0.06%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «¿Sabes cuál es la trampa de ganar bien en Australia?».'},
@@ -562,13 +590,45 @@ function buildHist(){
     options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:9,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:13,weight:'bold'},formatter:v=>v||''}}}});
 }
 
-let built={julio:false,historico:false};
+function buildAgosto(){
+  const est={};AGOSTO.forEach(r=>est[r.estado]=(est[r.estado]||0)+1);
+  const eo=['Invitado','Programada','Llamada','Duplicado'];
+  const ec={Invitado:'#7c5cff',Programada:'#ffb020',Llamada:'#0fb5c9',Duplicado:'#c98a6a'};
+  charts.aEstado=new Chart(document.getElementById('aEstado'),{type:'bar',
+    data:{labels:eo,datasets:[{data:eo.map(e=>est[e]||0),backgroundColor:eo.map(e=>ec[e]),borderRadius:8}]},
+    options:{...CFG,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:13,weight:'bold'}}},
+      scales:{x:{ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}},y:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}}}}});
+
+  const aU=AGOSTO.filter(r=>r.estado!=='Duplicado');
+  const enProceso=aU.filter(r=>['Programada','Llamada'].includes(r.estado)||r.sales!=='–').length;
+  charts.aVentas=new Chart(document.getElementById('aVentas'),{type:'bar',
+    data:{labels:['Contactos','En proceso','Ventas'],datasets:[{data:[aU.length,enProceso,0],backgroundColor:['#0c465b','#0fb5c9','#3ecf8e'],borderRadius:8}]},
+    options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'},formatter:(v,c)=>c.dataIndex===0?v:v+'  ('+(v/aU.length*100).toFixed(1)+'%)'}},
+      scales:{x:{beginAtZero:true,ticks:{stepSize:2,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+2;}},y:{ticks:{font:{size:11,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
+
+  const cc={};aU.forEach(r=>cc[r.utm_campaign]=(cc[r.utm_campaign]||0)+1);
+  const ce=Object.entries(cc).sort((a,b)=>b[1]-a[1]);
+  const vende=new Set(aU.filter(r=>['Sold','Converted','Contacted'].includes(r.sales)).map(r=>r.utm_campaign));
+  charts.aCampaign=new Chart(document.getElementById('aCampaign'),{type:'bar',
+    data:{labels:ce.map(e=>vende.has(e[0])?e[0]+' ★':e[0]),datasets:[{data:ce.map(e=>e[1]),backgroundColor:ce.map(e=>vende.has(e[0])?'#3ecf8e':'#0fb5c9'),borderRadius:8}]},
+    options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'}}},
+      scales:{x:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}},y:{ticks:{font:{size:9,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
+
+  const sc={presu:0,presuEstrat:0,podria:0,noposi:0};
+  aU.forEach(r=>{const t=situTipo(r.situacion);if(sc[t]!==undefined)sc[t]++;});
+  charts.aSituacion=new Chart(document.getElementById('aSituacion'),{type:'doughnut',
+    data:{labels:SITU_LABELS,datasets:[{data:[sc.presu,sc.presuEstrat,sc.podria,sc.noposi],backgroundColor:SITU_COLORS,borderWidth:3,borderColor:'#fff'}]},
+    options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:10,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:14,weight:'bold'},formatter:v=>v||''}}}});
+}
+
+let built={julio:false,agosto:false,historico:false};
 function switchTab(t){
   ['julio','agosto','historico'].forEach(x=>{
     document.getElementById('chip-'+x).classList.toggle('active',x===t);
     document.getElementById('page-'+x).classList.toggle('active',x===t);
   });
   if(t==='julio'&&!built.julio){buildJulio();built.julio=true;}
+  if(t==='agosto'&&!built.agosto){buildAgosto();built.agosto=true;}
   if(t==='historico'&&!built.historico){buildHist();built.historico=true;}
 }
 buildJulio();built.julio=true;

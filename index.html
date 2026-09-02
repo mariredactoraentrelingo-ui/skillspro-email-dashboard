@@ -98,8 +98,12 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 .campaign-tag.generica{background:#eceff1;color:#7a8a92;border:1px dashed #b9c6cd;}
 .campaign-tag.tustreinta{background:linear-gradient(135deg,#3ecf8e,#22a46a);color:#ffffff;}
 .campaign-tag.estocaro{background:linear-gradient(135deg,#ff6b5b,#e8503e);color:#ffffff;}
+.campaign-tag.hospitality{background:linear-gradient(135deg,#0c465b,#0a3547);color:#ffffff;}
+.campaign-tag.loqueconoces{background:linear-gradient(135deg,#7c5cff,#5f42d6);color:#ffffff;}
+.campaign-tag.regionprofesion{background:linear-gradient(135deg,#568281,#3d5f5e);color:#ffffff;}
 
 .pill{display:inline-block;font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;white-space:nowrap;}
+.pill.pill-wrap{white-space:normal;line-height:1.4;text-align:left;max-width:210px;}
 .p-invitado{background:#dcecff;color:#1b5fa8;}
 .p-programada{background:#fff0cd;color:#a06a00;}
 .p-reprogramada{background:#ffe0d9;color:#c14a35;}
@@ -136,6 +140,29 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 
 .footer-note{font-size:11px;color:#a3b6bd;text-align:center;margin-top:32px;}
 
+.timeline{position:relative;padding-left:34px;margin:18px 0;}
+.timeline::before{content:'';position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,#0fb5c9,#e2ebef);}
+.tl-item{position:relative;margin-bottom:22px;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-dot{position:absolute;left:-34px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--white);border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;font-size:10px;}
+.tl-dot.done{border-color:#3ecf8e;}
+.tl-dot.pending{border-color:#ffb020;}
+.tl-dot.alert{border-color:#ff6b5b;}
+.tl-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+.tl-date{font-size:10px;font-weight:800;color:#8ea6b0;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.tl-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:var(--petroleo);margin-bottom:7px;}
+.tl-body{font-size:13px;color:#4c6470;line-height:1.75;}
+.tl-body strong{color:#0c465b;}
+.tl-body a{color:#0a94a6;}
+.tl-body ul{padding-left:18px;margin-top:6px;}
+.tl-body li{margin-bottom:4px;}
+.tl-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.tl-stat{background:#f2f9fb;border:1px solid #d5e7ee;border-radius:8px;padding:6px 11px;font-size:11px;color:#076b7c;font-weight:700;}
+.tl-badge{display:inline-block;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+.tl-badge.done{background:#d6f5e6;color:#17784f;}
+.tl-badge.pending{background:#fff0cd;color:#a06a00;}
+.tl-badge.alert{background:#ffe0d9;color:#c14a35;}
+
 @media print{body{background:#ffffff;}.btn-update{display:none;}.table-scroll{overflow:visible;}}
 @media(max-width:600px){.kpi-grid{grid-template-columns:1fr;}.page{padding:16px 14px 30px;}}
 </style>
@@ -158,6 +185,8 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
   <label>Periodo:</label>
   <button class="chip active" id="chip-julio" onclick="switchTab('julio')">Julio 2026</button>
   <button class="chip" id="chip-agosto" onclick="switchTab('agosto')">Agosto 2026</button>
+  <button class="chip" id="chip-webinar" onclick="switchTab('webinar')">Webinar · Agosto</button>
+  <button class="chip" id="chip-septiembre" onclick="switchTab('septiembre')">Septiembre 2026</button>
   <button class="chip" id="chip-historico" onclick="switchTab('historico')">Histórico hasta julio</button>
 </div>
 
@@ -240,41 +269,47 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 
 <!-- ==================== AGOSTO ==================== -->
 <div class="page" id="page-agosto">
-  <div class="section-label">Resumen del mes · corte 18 ago 2026</div>
+  <div class="section-label">Resumen del mes · agosto 2026</div>
   <div class="kpi-grid">
-    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">10</div><div class="ksub">9 únicos + 1 duplicado</div></div>
-    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">0</div><div class="ksub">Sobre 9 contactos únicos</div></div>
+    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">12</div><div class="ksub">12 contactos únicos</div></div>
+    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">0</div><div class="ksub">Sobre 12 contactos únicos</div></div>
     <div class="kcard k3"><div class="klabel">Programadas pendientes</div><div class="kval">3</div><div class="ksub">Agenda para septiembre</div></div>
-    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">2 en Contacted</div></div>
-    <div class="kcard k5"><div class="klabel">Open Rate</div><div class="kval">10.6%</div><div class="ksub">Ponderado de 6 correos</div></div>
-    <div class="kcard k2"><div class="klabel">CTR</div><div class="kval">0.14%</div><div class="ksub">Ponderado de 6 correos</div></div>
-    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">0%</div><div class="ksub">0 ventas / 9 contactos</div></div>
+    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">1 en Contacted</div></div>
+    <div class="kcard k5"><div class="klabel">Open Rate</div><div class="kval">10.8%</div><div class="ksub">Ponderado de 8 correos</div></div>
+    <div class="kcard k2"><div class="klabel">CTR</div><div class="kval">0.13%</div><div class="ksub">Ponderado de 8 correos</div></div>
+    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">0%</div><div class="ksub">0 ventas / 12 contactos</div></div>
   </div>
 
   <div class="section-label">Lo que cambia a partir de agosto</div>
   <div class="insight-card blue">
     <span class="tag">Punto de inflexión</span>
-    <h3>Ya tenemos WordPress y UTMs específicas por correo</h3>
-    <p>Agosto es el primer mes con la infraestructura para cerrar las brechas que arrastrábamos desde julio. Dos cambios de fondo:</p>
+    <h3>Ya tenemos WordPress, UTMs específicas por correo y ahora también Bitrix</h3>
+    <p>Agosto es el primer mes con la infraestructura para cerrar las brechas que arrastrábamos desde julio. Cambios de fondo:</p>
     <ul>
       <li><strong>UTMs específicas por envío.</strong> Antes usábamos una UTM genérica (tema_mes_año) para todos los correos; ahora cada campaña lleva su propia UTM, como profesion_util. Esto nos permitirá saber con precisión qué correo trajo cada agendamiento y, con el tiempo, ir reclasificando el histórico.</li>
       <li><strong>WordPress ya está en marcha.</strong> Con esto empezamos a resolver las problemáticas listadas en julio: open rate, click rate y comportamiento del correo pasan a ser medibles por broadcast.</li>
+      <li><strong>Bitrix se suma como plataforma de envío</strong> a finales de agosto, con mejores tiempos de entrega que WordPress en su primera prueba. Una vez se corrijan algunos detalles pendientes, la idea es que <strong>Bitrix pase a ser el Plan A</strong> de envío y <strong>WordPress quede como Plan B</strong>.</li>
     </ul>
-    <p><strong>Trabajo de IT durante este mes:</strong> el equipo va a trabajar en la métrica de revenue de forma que, cuando el equipo comercial de SkillsPRO cierre una venta originada en un correo, ese ingreso se refleje y se asocie automáticamente en el revenue de la sección de broadcast de WordPress. Así cerramos el último eslabón que falta: conectar la venta con la campaña que la generó.</p>
+    <p><strong>Importante a considerar al usar Bitrix — trabajo de IT durante este mes:</strong> el equipo va a trabajar en la métrica de revenue de forma que, cuando el equipo comercial de SkillsPRO cierre una venta originada en un correo, ese ingreso se refleje y se asocie automáticamente en el revenue de la sección de broadcast de WordPress. Así cerramos el último eslabón que falta: conectar la venta con la campaña que la generó.</p>
   </div>
 
   <div class="section-label">Estado de la agenda y conversión</div>
   <div class="charts-row">
     <div class="ccard">
       <div class="ctitle">Agenda newsletter en este mes</div>
-      <div class="csub">Distribución por estado de consultoría (10 registros)</div>
+      <div class="csub">Distribución por estado de consultoría (12 registros)</div>
       <div class="cwrap" style="height:275px"><canvas id="aEstado"></canvas></div>
     </div>
     <div class="ccard">
-      <div class="ctitle">Embudo de avance comercial</div>
-      <div class="csub">De contacto único a seguimiento activo</div>
+      <div class="ctitle">Avance comercial</div>
+      <div class="csub">Contactos vs. en agenda, en seguimiento y cerrados sin conversión</div>
       <div class="cwrap" style="height:275px"><canvas id="aVentas"></canvas></div>
     </div>
+  </div>
+  <div class="empty-banner">
+    <strong>¿Por qué 0 consultorías ejecutadas si hay varios "Closed" en la tabla?</strong> Porque "Closed" en el status de ventas no significa que se ejecutó la sesión de 45 minutos ni que se concretó una venta — significa que la conversación comercial se cerró, sin que sepamos con certeza si fue porque la persona decidió no seguir, no calificaba, o simplemente no hubo respuesta. De los 12 agendamientos de agosto: <strong>4 están "Closed"</strong> (Gianfranco, Diana, Juan Carlos y Maria Celeste — ninguno llegó a tener su sesión ejecutada), <strong>4 están "En agenda"</strong> (Programada o Llamada: Alejandra, Catherine, Asael y Shannon), <strong>2 están en seguimiento activo</strong> (Contacted o Message: Sara y Lorena), y <strong>2 son Invitados sin actividad de ventas todavía</strong> (Roberto y Andrea). Hoy no tenemos en los datos una marca explícita de "no elegible" — si se agrega ese campo en Airtable, se podría distinguir cuántos "Closed" son por descalificación real y cuántos por otras razones.</div>
+  <div class="empty-banner" style="margin-top:10px">
+    <strong>¿Qué pasó con los duplicados que había antes?</strong> En la versión anterior de estos datos, Imran Khan, Livi Ariza y Alejandra Rojas aparecían marcados como "Duplicado" — registros repetidos del mismo contacto en Airtable. En esta actualización final que nos compartiste, esos duplicados ya no aparecen: probablemente se limpiaron directamente en Airtable antes de exportar los datos finales. Por eso los 12 registros de agosto que ves aquí son todos contactos únicos, sin duplicados.
   </div>
 
   <div class="section-label">Origen y perfil de los agendamientos</div>
@@ -297,7 +332,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <tbody id="tbodyAgosto"></tbody>
   </table></div></div>
   <div class="empty-banner" style="margin-top:12px">
-    Este mes ya hay <strong>3 campañas activas con UTM específica</strong>: profesion_util, tus_treinta y esto_es_caro. Abajo está el detalle de broadcast con todos los correos que salieron este mes, incluidos los dos webinars.
+    De los <strong>8 correos enviados este mes, 7 tienen UTM específica</strong>: profesion_util, profesional_inteligente, tus_treinta, esto_es_caro, region_profesion, lo_que_conoces y hospitality. El único sin UTM propia es Skillspro_agosto_2_encuesta, porque su botón lleva a una encuesta y no a un enlace de agendamiento. Abajo está el detalle de broadcast con todos los correos que salieron este mes.
   </div>
 
   <div class="section-label">Broadcast · métricas por correo enviado (WordPress)</div>
@@ -306,10 +341,342 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <tbody id="tbodyBroadcast"></tbody>
   </table></div></div>
   <div class="empty-banner" style="margin-top:12px">
-    Son <strong>6 correos enviados</strong> en agosto (el primero se dividió en 2 segmentos para calentar WordPress, pero es un único correo). El de <strong>mejor open rate combinado es Skillspro_agosto_1 (13.45%)</strong>, seguido del webinar del 9 de agosto (13.05%) — el mejor entre los envíos a base completa. En general, la base segmentada y los webinars están rindiendo mejor que los envíos regulares a base completa. Revenue y órdenes salen vacíos porque la conexión venta-campaña es justo lo que IT está montando este mes.
+    Son <strong>8 correos con botón de agendamiento</strong> enviados en agosto (el primero se dividió en 2 segmentos para calentar WordPress, pero es un único correo). El de <strong>mejor open y click rate combinado es Skillspro_agosto_1 (13.84% / 0.30%)</strong>, seguido de Skillspro_agosto_5 (13.23%). El de peor desempeño fue Skillspro_agosto_6 (9.00% / 0.04%). Nota: Skillspro_agosto_2_encuesta usa un botón distinto que lleva a una encuesta, no a la sesión estratégica, así que no es directamente comparable con el resto en intención de agendamiento. Revenue y órdenes salen vacíos porque en SkillsPRO hablamos de <strong>agendamientos</strong>, no de órdenes de e-commerce directas como en Entrelingo. Sí se puede llegar a ver si de esos agendamientos se logran ventas de los servicios de SkillsPRO, en la medida en que se arme el enlace correcto por Bitrix para trackear esto semana a semana durante el mes.
   </div>
 
-  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agosto 2026 en curso · Datos de Airtable, Clientify y WordPress</p>
+  <div class="section-label">Análisis y oportunidades para septiembre</div>
+  <div class="insight-card">
+    <span class="tag">Lectura positiva</span>
+    <h3>Agosto deja una base sólida para escalar en septiembre</h3>
+    <p><strong>Open Rate (10.8%) y CTR (0.13%):</strong> son el punto de partida real ahora que medimos por primera vez con WordPress, así que no hay un "antes" con el que compararlos negativamente — son la línea base. Lo que sí muestran los propios datos de agosto es dónde está la palanca: el envío segmentado de calentamiento (13.84%) y Skillspro_agosto_5 (13.23%) casi duplican el rendimiento de los envíos más flojos (9.00%–9.95%).</p>
+    <p><strong>Sobre segmentar:</strong> hoy no tenemos criterios reales para segmentar la base y sacarle provecho — la práctica actual es enviar directo a la base completa de SkillsPRO, y hacerlo de otra forma es difícil sin más información. Lo que sí cambia a partir de ahora es que, con el webinar de ingenieros, ya tenemos una <strong>lista actualizada de personas identificadas como ingenieras</strong> potencialmente interesadas en validar su profesión en Australia. Eso abre una primera segmentación real: enviar correos específicos a quienes ya sabemos que son ingenieros, y que <strong>los próximos temas de contenido cubran otras profesiones para ir construyendo, mes a mes, listas segmentadas adicionales.</strong></p>
+    <p><strong>Cada correo ahora tiene su propio link con UTM</strong>, lo que permite ver con precisión cuál generó más clics reales hacia la sesión estratégica, no solo aperturas. Con eso como base, investigamos qué recomiendan las guías de email marketing más recientes para 2026 y el patrón coincide con lo que ya muestran nuestros propios números: los asuntos cortos y orientados a un beneficio concreto (no genéricos) rinden mejor, y un solo CTA por correo ayuda a enfocar el clic.</p>
+    <p><strong>Por qué probablemente bajó el rendimiento de Skillspro_agosto_6:</strong> fue el correo con el open y click rate más bajos del mes, y también el que más tardó en completarse — mucho más que el resto de los envíos del mes, que se entregaron en minutos u horas. No hay una explicación clara y confirmada de por qué se demoró tanto en salir a toda la base, pero es razonable pensar que ese envío lento diluyó la relevancia del contenido: para cuando le llegó a una parte de la base, el momento y el contexto ya habían cambiado. El asunto ("¿Qué es lo que te gusta de Australia?") también es el más genérico y menos orientado a un beneficio concreto de todo el mes, lo que coincide con las prácticas que señalan que los asuntos vagos compiten peor por la atención en la bandeja de entrada.</p>
+
+    <h3 style="margin-top:18px">¿Hay casos de agendamientos tardíos? En este mes hay más de un caso:</h3>
+    <ul>
+      <li><strong>Paola García</strong> llegó por la campaña que registramos con los <strong>open rate y CTR más bajos</strong> (Skillspro_agosto_6), lo que es un punto positivo a pesar de las oportunidades de mejora de ese correo. Puede ser que haya llegado luego, precisamente por la tardanza del envío.</li>
+      <li><strong>Roberto Bahamonde</strong> llegó por <span class="big">hospitality</span> (Skillspro_agosto_7), dos días después del envío.</li>
+      <li><strong>Andrea Oliveros</strong>, por <span class="big">esto_es_caro</span> (Skillspro_agosto_4), también dos días después del envío.</li>
+    </ul>
+    <p>¿Qué obtenemos de interpretación por esto? Que funcionan bien las campañas que <strong>apelan a una identidad, un oficio o una objeción concreta</strong> (una profesión específica, el costo), incluso cuando la persona no actúa de inmediato: el interés se sostiene varios días después del envío y termina convirtiendo igual. Eso es una buena señal — significa que el contenido no se "vence" apenas sale de la bandeja de entrada, y que vale la pena seguir vigilando estos agendamientos con rezago en los próximos meses.</p>
+
+    <p style="margin-top:14px"><strong>Por qué una misma persona da clic y agenda desde distintos correos:</strong> un mismo contacto recibe varios correos a lo largo de las semanas antes de decidirse a actuar. No siempre reacciona al primero que le llega ni al que más le "habla" en teoría — reacciona al que coincide con el momento en que finalmente está listo para dar el paso. Por eso <strong>el utm_campaign que queda registrado en su agendamiento no necesariamente representa el primer correo que vio, sino el último que lo empujó a actuar.</strong> Esto significa que atribuir el mérito completo a un solo correo puede ser engañoso: <strong>la decisión suele construirse con varios toques, y el correo que "convierte" es apenas el último eslabón de una cadena de exposiciones previas.</strong> Es un argumento más a favor de mantener presencia constante y variada, en vez de esperar que un solo envío haga todo el trabajo.</p>
+
+    <p style="margin-top:14px"><strong>Qué contenido funcionó mejor:</strong> <span class="big">esto_es_caro</span> fue la campaña que más agendamientos trajo (6 de 12), lo que confirma que <strong>nombrar directamente la objeción del costo genera más acción que temas más neutros.</strong> <span class="big">tus_treinta</span> también rindió bien, y <span class="big">region_profesion</span> tuvo el segundo mejor open rate del mes.</p>
+    <p><strong>Pero hay un problema de fondo que se está repitiendo con fuerza:</strong> no es que estemos dirigiendo contenido específicamente a profesiones de salud — es que <span style="font-size:15px;color:#0c465b"><strong>estamos atrayendo cada vez más profesionales de salud y bienestar (dentistas, odontología, psicología, fitness) a través de casos como el de hospitality del 28 de agosto</strong></span> (con el caso de Cata) y el correo a suscritos del webinar del 31 de agosto (pedido por Mafe) — ambos usaron casos de ingenieros para hablarle a esta audiencia, ya que <strong>SkillsPRO no valida muchas profesiones de la salud</strong> con sus 7 entidades actuales. <strong>Esto es probablemente parte de por qué no se están concretando más agendamientos:</strong> <strong>estamos generando interés en personas a las que, hoy, no podemos ayudar a validar su profesión.</strong></p>
+    <p style="background:#f0faf6;border-radius:8px;padding:12px 15px;border:1px solid #cdeedd;margin-top:8px"><strong>Actualización importante — sí validamos algunas de estas profesiones:</strong> investigamos el estado real de validación y no todas están cerradas. <strong>Psicología</strong> es totalmente viable, se procesa vía VETASSESS. <strong>Fitness</strong> (entrenadores, instructores) también se puede validar, comúnmente a través de VETASSESS — una de nuestras entidades activas. El caso realmente complejo es <strong>Dentistas / Odontología</strong>: el organismo oficial es la Australian Dental Council (ADC), que no es una de nuestras 7 entidades actuales, y el proceso exige exámenes teóricos, prácticos y un nivel de inglés muy alto. Es decir: el gap real no es "salud" en general, sino específicamente odontología — Gianfranco (Psicología/Fitness) sí tiene camino de validación con lo que ya ofrecemos.</p>
+
+    <p style="margin-top:14px">El problema de fondo no es que dirigimos contenido a estas profesiones — es que <strong>ya tenemos en nuestra base de datos personas con estas profesiones</strong>, sin una forma sistemática de identificarlas y tratarlas distinto. Esto exige decisiones como equipo:</p>
+    <div style="background:#ffffff;border-radius:8px;padding:14px 16px;border:1px solid #d5eee0;margin-top:6px">
+      <strong style="color:#0c465b">¿Tenemos forma de mirar y filtrar las profesiones?</strong>
+      <p style="margin:6px 0 10px">Ya se intentó: un filtro <strong>"is not blank"</strong> sobre el campo personalizado de área profesional arroja <strong>756 personas</strong>; filtrando por profesión salen <strong>831 personas</strong> — de una base de <strong>más de 5.000 contactos</strong> suscritos a la newsletter. A partir de esto, se puede:</p>
+      <ul>
+        <li><strong>1. Generar un correo (programado con Sergio)</strong> para el resto de los 5k que pregunte algo como <em>"¿Cuál es tu profesión o qué estás estudiando en Australia o en el exterior?"</em>. Quienes respondan se van segmentando en <strong>micro-bases</strong>.</li>
+        <li><strong>2. Crear listas específicas por entidad</strong> y tags más concretas (ej. INGENIERÍA, MARKETING) para ir metiendo ahí a los contactos que se vayan segmentando y a los nuevos que entren por webinars específicos, como ya pasó con los ingenieros. Así <strong>Bitrix no se desordena en miles de listas y tags, y WordPress tampoco</strong>. <strong>Beneficio a largo plazo:</strong> mejor open rate y CTR al hablarle de forma específica a cada segmento, y los correos generales quedarían libres para probar asuntos de curiosidades y temas de Australia, alejándonos un poco de la formalidad de solo hablar de validación profesional.</li>
+        <li><strong>3. Segmentar a quienes ya tienen profesión registrada</strong> en la base de WordPress y en la nueva base que tenemos gracias al webinar, metiéndolos en las bases específicas mencionadas — esto también sirve como filtro para los próximos webinars.</li>
+        <li><strong>4. Definir un plan para dar valor real</strong> a las personas cuya profesión no validamos: ¿un correo con redirección hacia empresas que sí puedan ayudarlas, o simplemente dejarlas en una lista de "no aplica"? Ayudarlas de alguna forma, aunque no seamos nosotros quienes las validemos, hablaría muy bien de SkillsPRO como empresa.</li>
+      </ul>
+    </div>
+
+    <div style="background:#ffffff;border-radius:8px;padding:14px 16px;border:1px solid #d5eee0;margin-top:14px">
+      <strong style="color:#0c465b">Ideas de contenido para septiembre:</strong>
+      <ul>
+        <li>Una segunda parte de <strong>esto_es_caro</strong>: qué pasa si no inviertes ahora vs. qué pasa si sí — evitando que el caso de ejemplo sea otra vez de ingeniería, ya que ese ángulo ya se cubrió con los correos de hospitality y de suscritos al webinar. Ahora que sabemos que <strong>Psicología</strong> sí se valida, es un buen caso nuevo para usar.</li>
+        <li>Reforzar la línea de <strong>region_profesion</strong>, dado su buen desempeño: contenido que cruce profesión + región específica de Australia.</li>
+        <li>Un correo de <strong>reactivación</strong> dirigido a quienes empezaron el formulario y no lo terminaron, reconociendo la duda sin presionar ("sabemos que dar el paso da vueltas en la cabeza, y eso está bien").</li>
+        <li>Evitar asuntos genéricos tipo "qué te gusta de Australia": los datos de agosto y las guías de email marketing 2026 coinciden en que los asuntos con un beneficio concreto superan a los conversacionales sin gancho.</li>
+      </ul>
+      <strong style="color:#0c465b">Contenido que no sea directamente de venta — curiosidades y tips de Australia:</strong>
+      <p style="margin:6px 0 10px;color:#4c6470;font-size:13px">Además de los temas orientados a validación profesional, vale la pena probar contenido que le interese a esta audiencia simplemente por vivir o estar por vivir en Australia, sin pedir nada a cambio — esto ayuda a que la newsletter no se sienta como un canal exclusivamente de venta:</p>
+      <ul>
+        <li>Curiosidades culturales o cotidianas de Australia (comida, costumbres, choque cultural real que nadie cuenta).</li>
+        <li>Tips prácticos de vida diaria: trámites comunes, transporte, clima por estación, diferencias regionales fuera del contexto laboral.</li>
+        <li>Historias curiosas o datos poco conocidos sobre ciudades o regiones australianas.</li>
+        <li>Contenido tipo "lo que nadie te cuenta antes de emigrar" — con humor, sin vender nada directamente.</li>
+      </ul>
+      <strong style="color:#0c465b">Ideas de asuntos para probar (open rate y CTR):</strong>
+      <ul>
+        <li>«Lo caro no es validar tu título, es seguir esperando»</li>
+        <li>«¿Y si tu duda de hoy es la misma que tenían ellos hace un año?»</li>
+        <li>«Empezaste el formulario y no lo terminaste. Está bien, hablemos»</li>
+        <li>«La región donde tu profesión vale más en Australia»</li>
+        <li>«Psicóloga, entrenador, fisioterapeuta: sí podemos ayudarte a validar tu carrera»</li>
+        <li>«Lo que nadie te cuenta antes de mudarte a Australia»</li>
+      </ul>
+    </div>
+    <p style="font-size:12px;color:#5c7168;background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #d5eee0;margin-top:12px"><strong>Pendiente operativo — seguimiento con Sergio:</strong> falta actualizar el flujo de origen de los suscritos de newsletter con el nuevo pop-up y diseño de formulario pensado para incentivar la suscripción. Además, en los recursos ya publicados de SkillsPRO, la casilla de suscripción del formulario de descarga debe quedar <strong>premarcada</strong> por defecto, de forma que quien no la desmarque acepte suscribirse automáticamente. Esto debería aumentar el volumen de suscriptores y, en cadena, el de agendamientos.</p>
+  </div>
+
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agosto 2026 · Datos de Airtable, Clientify y WordPress</p>
+</div>
+
+<!-- ==================== SEPTIEMBRE ==================== -->
+<div class="page" id="page-septiembre">
+  <div class="section-label">Resumen del mes · septiembre 2026 recién comienza</div>
+  <div class="kpi-grid">
+    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">1</div><div class="ksub">Mes recién iniciando</div></div>
+    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">0</div><div class="ksub">Aún sin ejecutar</div></div>
+    <div class="kcard k3"><div class="klabel">Invitados</div><div class="kval">1</div><div class="ksub">Pendiente de agendar</div></div>
+    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">Sin ventas aún</div></div>
+    <div class="kcard k5"><div class="klabel">Campaña activa</div><div class="kval" style="font-size:17px;padding-top:6px">lo_que_conoces</div><div class="ksub">Único origen del mes</div></div>
+  </div>
+
+  <div class="section-label">Situación del mes</div>
+  <div class="empty-banner">
+    Septiembre arranca con <strong>un solo agendamiento</strong>, en estado Invitado y sin consultoría agendada todavía. También llegan las <strong>3 consultorías programadas desde agosto</strong> (Alejandra Rojas, Catherine Osorio y Asael Salcedo), que se ejecutan durante este mes — puedes revisarlas en la pestaña de agosto. El único origen registrado hasta ahora en septiembre es la campaña <strong>lo_que_conoces</strong>, distinta a las cuatro que se usaron en agosto.
+  </div>
+
+  <div class="section-label">Detalle de agendamientos · utm_campaign destacada</div>
+  <div class="table-card"><div class="table-scroll"><table>
+    <thead><tr id="theadSeptiembre"></tr></thead>
+    <tbody id="tbodySeptiembre"></tbody>
+  </table></div></div>
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Septiembre 2026 en curso · Datos de Airtable y Clientify</p>
+</div>
+
+<!-- ==================== WEBINAR ==================== -->
+<div class="page" id="page-webinar">
+  <div class="section-label">Correos de invitación pre webinar no suscritos</div>
+  <div class="kpi-grid">
+    <div class="kcard k1"><div class="klabel">Correos enviados</div><div class="kval">10</div><div class="ksub">Directos + dual-CTA + automatización + Bitrix</div></div>
+    <div class="kcard k2"><div class="klabel">Contactos alcanzados</div><div class="kval">52.141</div><div class="ksub">Suma de los 10 envíos</div></div>
+    <div class="kcard k3"><div class="klabel">Open Rate</div><div class="kval">10.5%</div><div class="ksub">Ponderado de los 10 envíos</div></div>
+    <div class="kcard k4"><div class="klabel">CTR</div><div class="kval">0.15%</div><div class="ksub">Ponderado de los 10 envíos</div></div>
+    <div class="kcard k5"><div class="klabel">Mejor envío</div><div class="kval" style="font-size:15px;padding-top:6px">agosto_1_WEBINAR</div><div class="ksub">13.35% open</div></div>
+  </div>
+
+  <div class="section-label">1. Correos directos de urgencia hacia el webinar</div>
+  <div class="empty-banner">
+    Los primeros 3 correos de esta secuencia se enviaron con un solo objetivo y un solo CTA: invitar directamente al webinar, con un tono de urgencia y sin contenido de valor adicional alrededor.
+  </div>
+  <div class="charts-row">
+    <div class="ccard">
+      <div class="ctitle">Rendimiento de los 3 correos directos</div>
+      <div class="csub">Open rate y click rate por envío</div>
+      <div class="cwrap" style="height:260px"><canvas id="wChartDirecto"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Detalle de envíos directos</div>
+      <div class="csub">Solo invitación a webinar, sin dual-CTA</div>
+      <div class="table-scroll" style="margin-top:6px"><table>
+        <thead><tr><th>Correo</th><th>Enviado</th><th>Enviados</th><th>Open</th><th>Click</th></tr></thead>
+        <tbody id="tbodyWebinarDirecto"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="section-label">2. Prueba de otro tipo de contenido: dual-CTA</div>
+  <div class="insight-card blue">
+    <span class="tag">Test de contenido</span>
+    <h3>70% valor, 30% dos botones distintos y sin parecido entre sí</h3>
+    <p>Buscando una estrategia alternativa a la urgencia directa, se probó un formato distinto: correos con <strong>70% de contenido de valor real</strong> y el 30% restante dirigiendo a <strong>dos botones deliberadamente distintos entre sí</strong> — uno hacia la sesión estratégica gratuita y otro hacia el registro al webinar — para que cada persona hiciera clic en lo que realmente le interesaba, sin que un botón "ganara" por simple parecido visual con el otro. Esta prueba se aplicó en <strong>Skillspro_agosto_2 (8 ago, la primera vez que se probó este formato)</strong> y luego de forma más sistemática en <strong>Skillspro_agosto_5, 6 y 7</strong> — que en esta pestaña equivalen a <strong>webinar 4, 5 y 6</strong>.</p>
+  </div>
+  <div class="charts-row">
+    <div class="ccard">
+      <div class="ctitle">Rendimiento de los correos dual-CTA</div>
+      <div class="csub">Open rate y click rate por envío</div>
+      <div class="cwrap" style="height:260px"><canvas id="wChartDual"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Detalle de envíos dual-CTA</div>
+      <div class="csub">70% valor + 2 botones distintos</div>
+      <div class="table-scroll" style="margin-top:6px"><table>
+        <thead><tr><th>Correo</th><th>Enviado</th><th>Enviados</th><th>Open</th><th>Click</th></tr></thead>
+        <tbody id="tbodyWebinarDual"></tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="section-label">3. Qué funcionó más y por qué: directos vs. dual-CTA</div>
+  <div class="charts-row">
+    <div class="ccard">
+      <div class="ctitle">Comparación de formatos</div>
+      <div class="csub">Directos de urgencia vs. dual-CTA con valor</div>
+      <div class="cwrap" style="height:290px"><canvas id="wChartComparativo"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Lectura de la comparación</div>
+      <div class="csub" style="margin-bottom:10px">Directos: 11.23% open / 0.12% click · Dual-CTA: 10.78% open / 0.07% click</div>
+      <p style="font-size:13px;color:#4c6470;line-height:1.75">Los correos <strong>directos de urgencia</strong> tuvieron un open rate y un click rate levemente superiores a los dual-CTA en el promedio agregado. Pero el dato más interesante no está en el promedio sino en el mejor caso de cada grupo: dentro de los dual-CTA, <strong>Skillspro_agosto_5 (13.23%)</strong> superó a dos de los tres correos directos, lo que sugiere que el tema tratado (región + profesión) pesa tanto o más que el formato del CTA. La caída de <strong>Skillspro_agosto_6 (9.00%)</strong> dentro del mismo grupo dual-CTA confirma que el formato por sí solo no garantiza nada — importa mucho el asunto y el momento del envío.</p>
+    </div>
+  </div>
+
+  <div class="section-label">Automatizaciones WordPress</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot done">✓</div>
+      <div class="tl-card">
+        <div class="tl-date">Contexto</div>
+        <div class="tl-title">Por qué se crearon varios flujos en paralelo</div>
+        <div class="tl-body">Se armaron varios flujos de automatización por dos razones concretas, no para comparar bases entre sí:
+          <p style="margin-top:8px"><strong>Razón 1 — dos páginas de webinar, dos bases de inscritos + 1 base de no suscritos:</strong> las dos páginas de webinar se hicieron en WordPress distintos —la anterior en el WP de SkillsPRO, la actual en go.entrelingo— y ambas necesitaban el mismo flujo de correos del 3 al 5 de septiembre, además del flujo post-venta.</p>
+          <p style="margin-top:6px"><strong>Razón 2 — <strong>necesitábamos enviar el contenido de forma más rápida a los no suscritos</strong></strong> y preparar en paralelo el flujo pre-webinar que, como se ha visto, empezaba mucho antes que el flujo de los inscritos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done">✓</div>
+      <div class="tl-card">
+        <div class="tl-date">No suscritos</div>
+        <div class="tl-title"><strong>Flujo 1 (no suscritos)</strong> — correo de prueba del <a href="https://go.skillspro-skillsassessment.com/wp-admin/admin.php?page=autonami&path=/automation/14" target="_blank" rel="noopener">"Flujo webinar no suscritos"</a></div>
+        <div class="tl-body">En este primer flujo se envió un único correo de prueba para ver cómo se comportaba el envío por automatización. Se disparó hacia la base total de SkillsPRO, con el condicional de que la persona <strong>no se hubiera suscrito al webinar</strong>. El asunto de este correo de prueba fue <strong>«Nadie escribe bien un Career Episode a la primera»</strong>, y en la numeración de este flujo fue el <strong>7º correo pre-webinar</strong>.
+          <div class="tl-stats">
+            <span class="tl-stat">Enviados: 5.202</span>
+            <span class="tl-stat">Open rate: 9.84%</span>
+            <span class="tl-stat">Click rate: 0.06%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done">✓</div>
+      <div class="tl-card">
+        <div class="tl-date">No suscritos</div>
+        <div class="tl-title"><strong>Flujo 2 (no suscritos)</strong> — backlog del 26 de agosto</div>
+        <div class="tl-body">El segundo flujo se trabajó para contener el resto de la secuencia pre-webinar, programado para dispararse entre el 26 de agosto y el 5 de septiembre. De esa programación, el único correo que alcanzó a salir antes del cambio de plataforma fue el disparado el <strong>26 de agosto</strong>, con el asunto <strong>«Cómo ganar 110% MÁS con tu Ingeniería»</strong>. En la numeración del flujo, este fue el <strong>8º correo pre-webinar</strong>.
+          <div class="tl-stats">
+            <span class="tl-stat">Enviados: 5.187</span>
+            <span class="tl-stat">Open rate: 8.85%</span>
+            <span class="tl-stat">Click rate: 0.06%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot alert">!</div>
+      <div class="tl-card">
+        <div class="tl-date">1 septiembre 2026</div>
+        <div class="tl-title">Cambio de plataforma: de WordPress a Bitrix<span class="tl-badge done">Migración</span></div>
+        <div class="tl-body">El 1 de septiembre se realizó con éxito el primer envío de SkillsPRO desde <strong>Bitrix</strong>, con un tiempo de entrega notablemente menor que el de WordPress. A partir de este resultado, se decidió <strong>cancelar el flujo programado del 3 al 5 de septiembre en WordPress</strong> para que salga por Bitrix.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done">✓</div>
+      <div class="tl-card">
+        <div class="tl-date">1 septiembre 2026</div>
+        <div class="tl-title">Primera prueba exitosa: primer envío desde Bitrix</div>
+        <div class="tl-body">Se envió el correo pre-webinar <strong>«El error #1 que estás cometiendo como ingeniero en Australia»</strong> como primera prueba de la nueva plataforma, con resultados sólidos y una tasa de éxito de entrega perfecta. Este correo representa el <strong>9º correo pre-webinar a los no suscritos</strong>.
+          <div class="tl-stats">
+            <span class="tl-stat">Estado: Enviada</span>
+            <span class="tl-stat">Destinatarios: 5.164</span>
+            <span class="tl-stat">Enviados: 5.164</span>
+            <span class="tl-stat">Fallidos: 0</span>
+            <span class="tl-stat">Tasa de éxito: 100%</span>
+            <span class="tl-stat">Aperturas: 488 (9.5%)</span>
+            <span class="tl-stat">Clics: 43 (0.8%)</span>
+            <span class="tl-stat">Rebotes: 175 (3.4%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot pending">⏳</div>
+      <div class="tl-card">        <div class="tl-date">Pendiente · vía Bitrix, 3–5 sept</div>
+        <div class="tl-title">Asuntos pendientes por enviar a no suscritos<span class="tl-badge pending">5 pendientes</span></div>
+        <div class="tl-body">Programados desde WordPress originalmente, ahora se enviarán por Bitrix:
+          <ul>
+            <li>«QUEDAN DOS DÍAS para el webinar gratis de ingenieros!»</li>
+            <li>«ES MAÑANA 📢 Es momento de validar tu Ingeniería!!»</li>
+            <li>«EN 1 HORA 🔔»</li>
+            <li>«Quedan 10 minutos ⏰»</li>
+            <li>«🔴 Estamos en vivo»</li>
+          </ul>
+          Todos estos correos fueron revisados por <strong>Camila, Edinson</strong> y algunos por <strong>Sindy</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done">✓</div>
+      <div class="tl-card">
+        <div class="tl-date">Inscritos</div>
+        <div class="tl-title"><strong>Flujo para inscritos</strong></div>
+        <div class="tl-body">Para este flujo necesitábamos garantizar el envío de los correos pre-webinar del 3 al 5 de septiembre, y también el envío inmediato y en el tiempo definido de los correos post-venta.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done">✓</div>
+      <div class="tl-card">
+        <div class="tl-date">31 agosto 2026, 7:11 pm</div>
+        <div class="tl-title">Se envió correo solicitado por Mafe</div>
+        <div class="tl-body">Aparte del trabajo de automatización que se había hecho para los correos a inscritos, se envió un segundo correo a esta base de datos (tomando en cuenta que el primero fue la confirmación de inscripción), con un enlace para añadir el evento a la agenda y otro hacia el grupo de WhatsApp.
+          <div class="tl-stats">
+            <span class="tl-stat">Nombre: Suscritos_webinar_skillspro_31/08</span>
+            <span class="tl-stat">Enviados: 229</span>
+            <span class="tl-stat">Open rate: 10.68%</span>
+            <span class="tl-stat">Click rate: 2.14%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot alert">!</div>
+      <div class="tl-card">
+        <div class="tl-date">Riesgo identificado</div>
+        <div class="tl-title">Preocupación por el envío en lotes de WordPress</div>
+        <div class="tl-body">La preocupación con WordPress es que sus correos no se disparan de inmediato: se entregan por lotes y ese proceso puede tardar varias horas. Con Bitrix ya validado y funcionando, el plan es <strong>descargar la base de datos de inscritos de ambas páginas</strong> del webinar para programar sus envíos directamente en Bitrix, evitando ese retraso justo en los momentos donde el tiempo importa más (recordatorios de última hora, "estamos en vivo").</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot pending">Σ</div>
+      <div class="tl-card">
+        <div class="tl-date">Balance general de flujos</div>
+        <div class="tl-title">Totales de correos pre y post-webinar</div>
+        <div class="tl-body">
+          <div class="tl-stats">
+            <span class="tl-stat">Pre-webinar a no suscritos enviados: 10</span>
+            <span class="tl-stat">Correos a inscritos enviados: 2</span>
+            <span class="tl-stat">Pendientes a inscritos: 5 pre-webinar + 5 post-venta</span>
+          </div>
+          <p style="margin-top:10px">De los correos pendientes a <strong>no suscritos</strong>, solo se enviarán los que aún tienen el botón de "inscribirme" activo. A esta base <strong>no se le enviará la secuencia post-venta</strong>, ya que esos correos son exclusivos para quienes sí se inscribieron al webinar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Post-webinar</div>
+  <div class="insight-card blue">
+    <span class="tag">En revisión</span>
+    <h3>Secuencia post-venta lista, pendiente de un ajuste de Mafe</h3>
+    <p>Los correos de post-venta ya están redactados y se programarán, <strong>vía Bitrix</strong>, para salir después del webinar, escalonados en el momento adecuado según el comportamiento esperado de cada etapa de decisión:</p>
+    <ul>
+      <li><strong>post1</strong> — «Solo 8 cupos para validar tu ingeniería»</li>
+      <li><strong>post2</strong> — «A medianoche se van los bonus»</li>
+      <li><strong>post3</strong> — «¿Y si no tengo experiencia con mi profesión en Australia?»</li>
+      <li><strong>post4</strong> — «Las dudas que casi nadie se atreve a preguntar»</li>
+      <li><strong>post5</strong> — «Cierra en 4 horas»</li>
+    </ul>
+    <p style="background:#ffffff;border-radius:8px;padding:12px 15px;border:1px solid #cfe4ef;margin-top:8px"><strong>Nota de Mafe (1 septiembre):</strong> propuso evaluar si se incluye dentro de los bonos un descuento de <strong>500 AUD</strong>. El precio oficial del acompañamiento es de <strong>5.500 AUD</strong>, pero quienes compren durante el webinar pagarían <strong>5.000 AUD</strong>. El valor total de los bonos sería de <strong>1.562 AUD</strong>. Cuando el timer llegue a cero, tanto los bonos como el precio de oferta de 5.000 desaparecerían. También sugirió quitar los decimales de las cifras y usar un banner que cambie de color con este texto de advertencia: <em>"⚠️ Cuando el timer llegue a cero, esta oferta de $5,000 AUD y los bonos desaparecen."</em> Queda pendiente <strong>revisar los correos de post-venta ya redactados</strong> para confirmar si es necesario ajustarlos con estos cambios antes de programarlos.</p>
+  </div>
+
+  <div class="section-label">Análisis del webinar: estamos en una etapa de descubrimiento</div>
+  <div class="insight-card">
+    <span class="tag">Lectura general</span>
+    <h3>No es el contenido — es a quién se lo estamos enviando</h3>
+    <p>Es importante aclarar algo antes de sacar conclusiones sobre el rendimiento: <strong>cada correo de esta base de no suscritos tenía contenido de valor real y se cuidó que no fuera una simple repetición del mismo llamado al webinar.</strong> Por eso el bajo rendimiento de algunos envíos <strong>no se explica por falta de variedad en el ángulo del contenido</strong>. La explicación más probable está en otro lugar: esta base de no suscritos es la misma base completa de SkillsPRO que recibe los correos normales del mes, sin filtrar por profesión. Estamos en una etapa real de <strong>descubrimiento</strong>, con preguntas que todavía no hemos resuelto:</p>
+    <ol style="padding-left:20px;margin-top:8px">
+      <li style="margin-bottom:8px"><strong>¿Qué profesiones están llegando realmente</strong> a través de estos correos y del webinar?</li>
+      <li style="margin-bottom:8px"><strong>¿Las podemos validar</strong> con nuestras 7 entidades actuales?</li>
+      <li style="margin-bottom:8px">Si no las podemos validar, <strong>¿qué hacemos por estas personas?</strong> ¿Un correo personalizado de redirección hacia otra marca del grupo, u otro camino?</li>
+      <li style="margin-bottom:8px">Si hay carreras que nos llegan desde julio y que <strong>sí podemos validar</strong>, ¿qué tipo de correos podemos generar para llamar mejor su atención?</li>
+      <li style="margin-bottom:8px">Si no nos están llegando las profesiones adecuadas, ¿cómo segmentamos la base para que en vez de enviarle a 5.000 personas potenciales, le enviemos a menos personas pero exactamente a las que sí podemos ayudar y captar su atención? Aquí la propuesta central: <strong style="color:#c14a35;text-transform:uppercase">que los próximos webinars sean de otras entidades</strong>, para empezar a construir bases de datos más pequeñas y mucho más segmentadas por profesión.</li>
+      <li>Se puede hablar con <strong>Juan</strong> para revisar si lo que el equipo comercial descargó de Clientify guardó la profesión de cada cliente, y que nos compartan solo los datos de las personas relevantes para cargar la base en segmentos y no en total. Si logramos esto, el webinar de ingenieros se le enviaría solo a no suscritos que son ingenieros, y así sucesivamente con los siguientes webinars.</li>
+    </ol>
+    <p style="margin-top:10px">En resumen: lo que probablemente ayudaría a subir el interés real en el webinar es que la gente no suscrita a la que se le escribe <strong>de verdad tenga la profesión de la que se va a hablar</strong>. Si no, lo que se logra es que esa persona no abra el correo, y que luego tampoco abra los siguientes de otros temas. <strong>No es un problema de contenido — es un problema de a quién se lo estamos enviando.</strong></p>
+    <p style="margin-top:10px">Dicho esto, dentro de los datos que sí tenemos, el <strong>click rate de Bitrix (0.8%)</strong> en su primera prueba superó ampliamente el click rate promedio de los envíos por WordPress este mes, aunque con una sola muestra es pronto para atribuirlo solo a la plataforma. Y el correo dirigido a <strong>inscritos</strong> (31 agosto, agenda + WhatsApp) tuvo un click rate de <strong>2.14%</strong>, muy por encima de cualquier otro correo del mes — la prueba más clara de que segmentar por nivel de compromiso real sigue siendo la palanca más fuerte que hemos probado hasta ahora.</p>
+  </div>
+
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Webinar Ingenieros · Agosto–Septiembre 2026</p>
 </div>
 
 <!-- ==================== HISTÓRICO ==================== -->
@@ -394,7 +761,7 @@ function pillSitu(s){
   const t=situTipo(s);
   if(t==='none')return '<span class="pill p-none">–</span>';
   const m={presu:'p-presu',presuEstrat:'p-presu-estrat',podria:'p-podria',noposi:'p-noposi'};
-  return '<span class="pill '+m[t]+'">'+s+'</span>';
+  return '<span class="pill pill-wrap '+m[t]+'">'+s+'</span>';
 }
 function campTag(c){
   if(!c||c==='–')return '<span class="pill p-none">–</span>';
@@ -404,6 +771,9 @@ function campTag(c){
   else if(c==='tema_mes_año')cls=' generica';
   else if(c==='tus_treinta')cls=' tustreinta';
   else if(c==='esto_es_caro')cls=' estocaro';
+  else if(c==='hospitality')cls=' hospitality';
+  else if(c==='lo_que_conoces')cls=' loqueconoces';
+  else if(c==='region_profesion')cls=' regionprofesion';
   return '<span class="campaign-tag'+cls+'">'+c+'</span>';
 }
 function renderHead(id){
@@ -452,27 +822,55 @@ const JULIO=[
 
 /* ---------- AGOSTO ---------- */
 const AGOSTO=[
-  {correo:'arguellojuank44@gmail.com',wa:'+37062640593',nombre:'JUAN CARLOS ARGUELLO',creacion:'7/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Producción de cerdo y res',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
-  {correo:'lorenatovars03@gmail.com',wa:'+61412088494',nombre:'LORENA TOVAR',creacion:'10/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera Ambiental',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
-  {correo:'gnfco.caaoni@gmail.com',wa:'+61481392232',nombre:'GIANFRANCO CASONI',creacion:'13/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Contacted',cruzada:'–',area:'Otros',profesion:'Psicología / Fitness',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
   {correo:'saracaicedogomez19@gmail.com',wa:'+61432420118',nombre:'SARA CAICEDO',creacion:'13/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Contacted',cruzada:'–',area:'Otros',profesion:'Administración en Servicios de Salud',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
-  {correo:'puentesmariaceleste@gmail.com',wa:'+5491150555350',nombre:'MARIA CELESTE PUENTES',creacion:'18/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Message',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'Arquitecta',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
-  {correo:'contadoradianaoc@gmail.com',wa:'+573164292826',nombre:'DIANA OBANDO',creacion:'13/8/2026',consultoria:'26/8/2026 09:50 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Finanzas y contabilidad',profesion:'Contador público',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
-  {correo:'asaelsalcedo@hotmail.com',wa:'+61406192290',nombre:'ASAEL SALCEDO VARGAS',creacion:'18/8/2026',consultoria:'7/9/2026 12:50 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria industrial',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'gnfco.caaoni@gmail.com',wa:'+61481392232',nombre:'GIANFRANCO CASONI',creacion:'13/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Otros',profesion:'Psicología / Fitness',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'contadoradianaoc@gmail.com',wa:'+573164292826',nombre:'DIANA OBANDO',creacion:'13/8/2026',consultoria:'26/8/2026 09:50 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Finanzas y contabilidad',profesion:'Contador público',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'lorenatovars03@gmail.com',wa:'+61412088494',nombre:'LORENA TOVAR',creacion:'10/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Message',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera Ambiental',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'arguellojuank44@gmail.com',wa:'+37062640593',nombre:'JUAN CARLOS ARGUELLO',creacion:'7/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Otros',profesion:'Producción de cerdo y res',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'rabahamondet@hotmail.com',wa:'+61402779750',nombre:'ROBERTO BAHAMONDE',creacion:'30/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Dentista',experiencia:'Menos de 1 año',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'andre_1229@hotmail.com',wa:'+61420492593',nombre:'ANDREA OLIVEROS LOPEZ',creacion:'20/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Odontologia',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'salgadomelisa@gmail.com',wa:'+61410749857',nombre:'⭐ SHANNON SALGADO',creacion:'18/8/2026',consultoria:'4/9/2026 10:45 AEST',consultoria2:'–',estado:'Llamada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Administración de Empresas',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'alejandraa.rjsm@gmail.com',wa:'+61493542522',nombre:'ALEJANDRA ROJAS MEDINA',creacion:'18/8/2026',consultoria:'12/9/2026 10:45 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera civil industrial',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'puentesmariaceleste@gmail.com',wa:'+5491150555350',nombre:'MARIA CELESTE PUENTES',creacion:'18/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'Arquitecta',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
   {correo:'coz113@gmail.com',wa:'+61452087214',nombre:'CATHERINE OSORIO',creacion:'18/8/2026',consultoria:'9/9/2026 08:55 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera agrícola',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'entrelingo',utm_content:'mayra'},
-  {correo:'alejandraa.rjsm@gmail.com',wa:'+61493542522',nombre:'ALEJANDRA ROJAS MEDINA',creacion:'18/8/2026',consultoria:'12/9/2026 10:45 AEST',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera civil industrial',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
-  {correo:'salgadomelisa@gmail.com',wa:'+61410749857',nombre:'⭐ SHANNON SALGADO',creacion:'18/8/2026',consultoria:'4/9/2026 10:45 AEST',consultoria2:'–',estado:'Llamada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Administración de Empresas',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'}
+  {correo:'asaelsalcedo@hotmail.com',wa:'+61406192290',nombre:'ASAEL SALCEDO VARGAS',creacion:'18/8/2026',consultoria:'7/9/2026 12:50 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria industrial',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'}
 ];
 
 /* ---------- BROADCAST AGOSTO ---------- */
-const BROADCAST_COLS=['Nombre','Categoría','Creado','Fecha de envío','Contactos','Enviados','Open rate','Click rate','Órdenes','Revenue','Estado'];
+const BROADCAST_COLS=['Nombre','Asunto / Categoría','Enviado','Contactos','Enviados','Open rate','Click rate','Órdenes','Revenue','Estado'];
 const BROADCAST=[
-  {name:'Skillspro_agosto_1',cat:'Base segmentada (calentamiento)',created:'7–8 ago 2026',exec:'8–11 ago 2026',contacts:'5.295',sent:'5.295',open:'13.45%',click:'0.28%',orders:'–',revenue:'–',status:'Completed',nota:'Mismo correo dividido en 2 segmentos para calentar WordPress: <a href="https://go.skillspro-skillsassessment.com/wp-admin/admin.php?page=autonami&path=/broadcast/5" target="_blank" rel="noopener" style="color:#0a94a6">final</a> + <a href="https://go.skillspro-skillsassessment.com/wp-admin/admin.php?page=autonami&path=/broadcast/3" target="_blank" rel="noopener" style="color:#0a94a6">base2</a>. Métricas combinadas.'},
-  {name:'Skillspro_agosto_2_WEBINAR',cat:'Base completa · webinar',created:'9 ago 2026 10:45 am',exec:'9 ago 2026 10:54 am',contacts:'5.304',sent:'5.304',open:'13.05%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Invitación a webinar, base completa. Mejor open rate entre envíos a base completa.'},
-  {name:'Skillspro_agosto_2',cat:'Base completa',created:'10 ago 2026 1:07 pm',exec:'10 ago 2026 1:12 pm',contacts:'5.286',sent:'5.286',open:'9.48%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «Aquí nadie le dice «señor» al jefe».'},
-  {name:'Skillspro_agosto_3',cat:'Base completa',created:'13 ago 2026 1:17 pm',exec:'13 ago 2026 1:46 pm',contacts:'5.256',sent:'5.198',open:'9.26%',click:'0.07%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «El dinero vuelve, pero hay algo que no!».'},
-  {name:'Skillspro_agosto_3_WEBINAR',cat:'Base completa · webinar',created:'14 ago 2026 12:04 pm',exec:'14 ago 2026 12:20 pm',contacts:'5.249',sent:'5.249',open:'9.85%',click:'0.06%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «¿Sabes cuál es la trampa de ganar bien en Australia?».'},
-  {name:'Skillspro_agosto_4',cat:'Base completa',created:'18 ago 2026 12:01 pm',exec:'18 ago 2026 12:15 pm',contacts:'5.238',sent:'5.235',open:'8.19%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',nota:'Asunto: «Si ya te está yendo bien, esto te interesa».'}
+  {name:'Skillspro_agosto_1',exec:'7–11 ago 2026',contacts:'5.295',sent:'5.295',open:'13.84%',click:'0.30%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«¿Y si no tengo experiencia en Australia? Aún puedo validar mi carrera?»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=profesion_util',
+   nota:'Correo de calentamiento de WordPress: la base completa de SkillsPRO se dividió en dos y ambas recibieron el mismo correo — base 1 (2.657, open 16.55%) y base 2 (2.638, open 11.11%). Métricas combinadas. Mejor open y click rate de todo el mes.'},
+  {name:'Skillspro_agosto_2 (+ webinar, doble CTA)',exec:'8 ago 2026',contacts:'5.249',sent:'5.249',open:'10.47%',click:'0.09%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«¿Cuál es la diferencia REAL entre un profesional inteligente y uno conformista?»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=profesional_inteligente',
+   nota:'Botón principal con campaña profesional_inteligente, botón secundario hacia webinar. También cuenta dentro del total de correos pre-webinar a no suscritos (ver pestaña Webinar).'},
+  {name:'Skillspro_agosto_2_encuesta',exec:'10 ago 2026',contacts:'5.286',sent:'5.286',open:'9.72%',click:'0.15%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«Aquí nadie le dice «señor» al jefe»',
+   link:null,
+   nota:'A diferencia del resto, este botón no lleva a la sesión estratégica sino a una encuesta. No es comparable 1 a 1 con los demás en términos de intención de agendamiento.'},
+  {name:'Skillspro_agosto_3',exec:'13 ago 2026',contacts:'5.256',sent:'5.198',open:'9.84%',click:'0.09%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«El dinero vuelve, pero hay algo que no!»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=tus_treinta',
+   nota:''},
+  {name:'Skillspro_agosto_4',exec:'18 ago 2026',contacts:'5.238',sent:'5.235',open:'9.95%',click:'0.19%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«Si ya te está yendo bien, esto te interesa»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=esto_es_caro',
+   nota:'Generó un lead confirmado el 20 de agosto (Andrea Oliveros), 2 días después del envío.'},
+  {name:'Skillspro_agosto_5 (+ invitación webinar)',exec:'21 ago 2026',contacts:'5.213',sent:'5.209',open:'13.23%',click:'0.08%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«¿En qué región de Australia deberías vivir según tu profesión?»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=region_profesion',
+   nota:'Segundo mejor open rate del mes, muy por encima del promedio.'},
+  {name:'Skillspro_agosto_6 (+ invitación webinar)',exec:'22 ago 2026',contacts:'5.184',sent:'5.178',open:'9.00%',click:'0.04%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«¿Qué es lo que te gusta de Australia?»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=lo_que_conoces',
+   nota:'El de peor desempeño del mes en open y click rate. Fue el envío más lento del mes, sin una explicación clara y confirmada de por qué. Generó un lead recién el 1 de septiembre (Paola García), 5 días después — la conversión más tardía identificada este mes.'},
+  {name:'Skillspro_agosto_7 (+ invitación webinar)',exec:'28 ago 2026',contacts:'5.173',sent:'5.171',open:'10.42%',click:'0.06%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«¿Viniste a Australia para trabajar toda la vida en hospitality?»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=hospitality',
+   nota:'Generó un lead confirmado el 30 de agosto (Roberto Bahamonde), 2 días después del envío.'}
 ];
 
 /* ---------- HISTÓRICO ---------- */
@@ -500,17 +898,41 @@ const HIST=[
   {correo:'alejandra.pizarro.jorquera@gmail.com',wa:'+61415287972',nombre:'ALEJANDRA PIZARRO JORQUERA',creacion:'25/6/2026',consultoria:'11/7/2026 10:15 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria en Prevencion de Riesgos / Magister en Ingenieria Industrial',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'}
 ];
 
+/* ---------- SEPTIEMBRE ---------- */
+/* ---------- WEBINAR BROADCAST ---------- */
+const WEBINAR_DIRECTO=[
+  {name:'Skillspro_agosto_1_WEBINAR',exec:'9 ago 2026',sent:'5.304',open:'13.35%',click:'0.15%'},
+  {name:'Skillspro_agosto_2_WEBINAR',exec:'14 ago 2026',sent:'5.249',open:'10.47%',click:'0.09%'},
+  {name:'Skillspro_agosto_3_WEBINAR',exec:'20 ago 2026',sent:'5.228',open:'9.83%',click:'0.11%'}
+];
+const WEBINAR_DUAL=[
+  {name:'Skillspro_agosto_2 (doble CTA)',exec:'8 ago 2026',sent:'5.249',open:'10.47%',click:'0.09%'},
+  {name:'Skillspro_agosto_5 (webinar 4)',exec:'21 ago 2026',sent:'5.209',open:'13.23%',click:'0.08%'},
+  {name:'Skillspro_agosto_6 (webinar 5)',exec:'22 ago 2026',sent:'5.178',open:'9.00%',click:'0.04%'},
+  {name:'Skillspro_agosto_7 (webinar 6)',exec:'28 ago 2026',sent:'5.171',open:'10.42%',click:'0.06%'}
+];
+const WEBINAR_AUTO=[
+  {name:'Automatización correo 7',exec:'~ago 2026',sent:'5.202',open:'9.84%',click:'0.06%'},
+  {name:'Automatización correo 8 (backlog 26 ago)',exec:'26 ago 2026',sent:'5.187',open:'8.85%',click:'0.06%'},
+  {name:'Bitrix correo 9 (El error #1...)',exec:'1 sept 2026',sent:'5.164',open:'9.5%',click:'0.8%'}
+];
+
+const SEPTIEMBRE=[
+  {correo:'mellipao19@gmail.com',wa:'+61412809227',nombre:'PAOLA GARCÍA',creacion:'1/9/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'IT',profesion:'Auditor de TI',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'lo_que_conoces',utm_term:'[utm_term]',utm_content:'[utm_content]'}
+];
+
 renderHead('theadJulio');renderRows('tbodyJulio',JULIO);
 renderHead('theadAgosto');renderRows('tbodyAgosto',AGOSTO);
+renderHead('theadSeptiembre');renderRows('tbodySeptiembre',SEPTIEMBRE);
 renderHead('theadHist');renderRows('tbodyHist',HIST);
 
 document.getElementById('theadBroadcast').innerHTML=BROADCAST_COLS.map(c=>'<th>'+c+'</th>').join('');
 document.getElementById('tbodyBroadcast').innerHTML=BROADCAST.map(b=>{
   const est=b.status==='Completed'?'<span class="pill p-completed">Completed</span>':'<span class="pill p-ongoing">Ongoing</span>';
+  const linkHtml=b.link?'<br><a href="'+b.link+'" target="_blank" rel="noopener" style="font-size:10px;color:#0a94a6">ver link con UTM →</a>':'<br><span style="font-size:10px;color:#c47f00">enlace lleva a encuesta, no a agendamiento</span>';
   return '<tr>'+
     '<td class="wrap"><strong style="color:#0c465b">'+b.name+'</strong>'+(b.nota?'<br><span style="font-size:10px;color:#93a9b2;font-weight:400">'+b.nota+'</span>':'')+'</td>'+
-    '<td>'+b.cat+'</td>'+
-    '<td>'+b.created+'</td>'+
+    '<td class="wrap">'+b.asunto+linkHtml+'</td>'+
     '<td>'+b.exec+'</td>'+
     '<td class="num">'+b.contacts+'</td>'+
     '<td class="num">'+b.sent+'</td>'+
@@ -521,6 +943,12 @@ document.getElementById('tbodyBroadcast').innerHTML=BROADCAST.map(b=>{
     '<td>'+est+'</td>'+
   '</tr>';
 }).join('');
+
+function renderWRow(b){
+  return '<tr><td class="wrap"><strong style="color:#0c465b">'+b.name+'</strong></td><td>'+b.exec+'</td><td class="num">'+b.sent+'</td><td class="num">'+b.open+'</td><td class="num">'+b.click+'</td></tr>';
+}
+document.getElementById('tbodyWebinarDirecto').innerHTML=WEBINAR_DIRECTO.map(renderWRow).join('');
+document.getElementById('tbodyWebinarDual').innerHTML=WEBINAR_DUAL.map(renderWRow).join('');
 
 Chart.register(ChartDataLabels);
 const CFG={responsive:true,maintainAspectRatio:false};
@@ -592,19 +1020,21 @@ function buildHist(){
 
 function buildAgosto(){
   const est={};AGOSTO.forEach(r=>est[r.estado]=(est[r.estado]||0)+1);
-  const eo=['Invitado','Programada','Llamada','Duplicado'];
-  const ec={Invitado:'#7c5cff',Programada:'#ffb020',Llamada:'#0fb5c9',Duplicado:'#c98a6a'};
+  const eo=['Invitado','Programada','Llamada','Inasistente'];
+  const ec={Invitado:'#7c5cff',Programada:'#ffb020',Llamada:'#0fb5c9',Inasistente:'#ff6b5b'};
   charts.aEstado=new Chart(document.getElementById('aEstado'),{type:'bar',
     data:{labels:eo,datasets:[{data:eo.map(e=>est[e]||0),backgroundColor:eo.map(e=>ec[e]),borderRadius:8}]},
     options:{...CFG,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:13,weight:'bold'}}},
       scales:{x:{ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}},y:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}}}}});
 
-  const aU=AGOSTO.filter(r=>r.estado!=='Duplicado');
-  const enProceso=aU.filter(r=>['Programada','Llamada'].includes(r.estado)||r.sales!=='–').length;
+  const aU=AGOSTO;
+  const cerrados=aU.filter(r=>r.sales==='Closed').length;
+  const enSeguimiento=aU.filter(r=>['Contacted','Message'].includes(r.sales)).length;
+  const enAgenda=aU.filter(r=>['Programada','Llamada'].includes(r.estado)).length;
   charts.aVentas=new Chart(document.getElementById('aVentas'),{type:'bar',
-    data:{labels:['Contactos','En proceso','Ventas'],datasets:[{data:[aU.length,enProceso,0],backgroundColor:['#0c465b','#0fb5c9','#3ecf8e'],borderRadius:8}]},
+    data:{labels:['Contactos','En agenda','En seguimiento','Cerrados s/ conversión'],datasets:[{data:[aU.length,enAgenda,enSeguimiento,cerrados],backgroundColor:['#0c465b','#ffb020','#0fb5c9','#c14a35'],borderRadius:8}]},
     options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'},formatter:(v,c)=>c.dataIndex===0?v:v+'  ('+(v/aU.length*100).toFixed(1)+'%)'}},
-      scales:{x:{beginAtZero:true,ticks:{stepSize:2,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+2;}},y:{ticks:{font:{size:11,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
+      scales:{x:{beginAtZero:true,ticks:{stepSize:2,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+2;}},y:{ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
 
   const cc={};aU.forEach(r=>cc[r.utm_campaign]=(cc[r.utm_campaign]||0)+1);
   const ce=Object.entries(cc).sort((a,b)=>b[1]-a[1]);
@@ -621,14 +1051,53 @@ function buildAgosto(){
     options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:10,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:14,weight:'bold'},formatter:v=>v||''}}}});
 }
 
-let built={julio:false,agosto:false,historico:false};
+function makeDualAxisChart(canvasId,labels,opens,clicks){
+  const maxOpen=Math.max(...opens)*1.18;
+  const maxClick=Math.max(...clicks)*1.25;
+  return new Chart(document.getElementById(canvasId),{type:'bar',
+    data:{labels,datasets:[
+      {label:'Open rate %',data:opens,backgroundColor:'#0fb5c9',borderRadius:6,yAxisID:'y'},
+      {label:'Click rate %',data:clicks,backgroundColor:'#ffb020',borderRadius:6,yAxisID:'y1'}
+    ]},
+    options:{...CFG,layout:{padding:{top:16}},plugins:{legend:{position:'bottom',labels:{font:{size:11},boxWidth:12,padding:10,color:'#5d7883'}},
+      datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:10,weight:'bold'},formatter:v=>v.toFixed(2)+'%'}},
+      scales:{
+        x:{ticks:{font:{size:9,weight:'bold'},color:'#5d7883'},grid:{display:false}},
+        y:{beginAtZero:true,max:maxOpen,position:'left',ticks:{color:'#0a94a6',callback:v=>v+'%'},grid:{color:'#eef3f5'},title:{display:true,text:'Open rate',color:'#0a94a6',font:{size:10}}},
+        y1:{beginAtZero:true,max:maxClick,position:'right',ticks:{color:'#c47f00',callback:v=>v+'%'},grid:{display:false},title:{display:true,text:'Click rate',color:'#c47f00',font:{size:10}}}
+      }}});
+}
+
+function buildWebinar(){
+  charts.wChartDirecto=makeDualAxisChart('wChartDirecto',
+    WEBINAR_DIRECTO.map(b=>b.name.replace('Skillspro_agosto_','')),
+    WEBINAR_DIRECTO.map(b=>parseFloat(b.open)),
+    WEBINAR_DIRECTO.map(b=>parseFloat(b.click)));
+
+  charts.wChartDual=makeDualAxisChart('wChartDual',
+    WEBINAR_DUAL.map(b=>b.name.replace('Skillspro_agosto_','')),
+    WEBINAR_DUAL.map(b=>parseFloat(b.open)),
+    WEBINAR_DUAL.map(b=>parseFloat(b.click)));
+
+  const dirAvgOpen=WEBINAR_DIRECTO.reduce((a,b)=>a+parseFloat(b.open),0)/WEBINAR_DIRECTO.length;
+  const dirAvgClick=WEBINAR_DIRECTO.reduce((a,b)=>a+parseFloat(b.click),0)/WEBINAR_DIRECTO.length;
+  const dualAvgOpen=WEBINAR_DUAL.reduce((a,b)=>a+parseFloat(b.open),0)/WEBINAR_DUAL.length;
+  const dualAvgClick=WEBINAR_DUAL.reduce((a,b)=>a+parseFloat(b.click),0)/WEBINAR_DUAL.length;
+  charts.wChartComparativo=makeDualAxisChart('wChartComparativo',
+    ['Directos de urgencia','Dual-CTA (70% valor)'],
+    [dirAvgOpen,dualAvgOpen],
+    [dirAvgClick,dualAvgClick]);
+}
+
+let built={julio:false,agosto:false,webinar:false,historico:false};
 function switchTab(t){
-  ['julio','agosto','historico'].forEach(x=>{
+  ['julio','agosto','septiembre','webinar','historico'].forEach(x=>{
     document.getElementById('chip-'+x).classList.toggle('active',x===t);
     document.getElementById('page-'+x).classList.toggle('active',x===t);
   });
   if(t==='julio'&&!built.julio){buildJulio();built.julio=true;}
   if(t==='agosto'&&!built.agosto){buildAgosto();built.agosto=true;}
+  if(t==='webinar'&&!built.webinar){buildWebinar();built.webinar=true;}
   if(t==='historico'&&!built.historico){buildHist();built.historico=true;}
 }
 buildJulio();built.julio=true;

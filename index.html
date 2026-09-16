@@ -101,6 +101,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 .campaign-tag.hospitality{background:linear-gradient(135deg,#0c465b,#0a3547);color:#ffffff;}
 .campaign-tag.loqueconoces{background:linear-gradient(135deg,#7c5cff,#5f42d6);color:#ffffff;}
 .campaign-tag.regionprofesion{background:linear-gradient(135deg,#568281,#3d5f5e);color:#ffffff;}
+.campaign-tag.siguenpreguntando{background:linear-gradient(135deg,#ff9a5b,#e8703a);color:#ffffff;}
 
 .pill{display:inline-block;font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;white-space:nowrap;}
 .pill.pill-wrap{white-space:normal;line-height:1.4;text-align:left;max-width:210px;}
@@ -124,6 +125,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 .p-noposi{background:#f3a07d;color:#7a3313;}
 .p-completed{background:#d6f5e6;color:#17784f;}
 .p-ongoing{background:#fff0cd;color:#a06a00;}
+.p-planes{background:#e3ddff;color:#4a3aa8;}
 
 .note-card{background:var(--white);border-radius:14px;border:1px solid var(--border);border-left:5px solid var(--coral);padding:24px 26px;}
 .note-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--petroleo);margin-bottom:7px;}
@@ -413,18 +415,62 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 
 <!-- ==================== SEPTIEMBRE ==================== -->
 <div class="page" id="page-septiembre">
-  <div class="section-label">Resumen del mes · septiembre 2026 recién comienza</div>
+  <div class="section-label">Resumen del mes · septiembre 2026 en curso · corte 16 sept 2026</div>
   <div class="kpi-grid">
-    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">1</div><div class="ksub">Mes recién iniciando</div></div>
-    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">0</div><div class="ksub">Aún sin ejecutar</div></div>
-    <div class="kcard k3"><div class="klabel">Invitados</div><div class="kval">1</div><div class="ksub">Pendiente de agendar</div></div>
-    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">0</div><div class="ksub">Sin ventas aún</div></div>
-    <div class="kcard k5"><div class="klabel">Campaña activa</div><div class="kval" style="font-size:17px;padding-top:6px">lo_que_conoces</div><div class="ksub">Único origen del mes</div></div>
+    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">7</div><div class="ksub">5 contactos + 2 duplicados</div></div>
+    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">1</div><div class="ksub">Martin Gutierrez</div></div>
+    <div class="kcard k3"><div class="klabel">Programadas</div><div class="kval">3</div><div class="ksub">Javiera, Imran Khan, Ehsanullah</div></div>
+    <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">1</div><div class="ksub">Plan GOLD · $2.640 AUD</div></div>
+    <div class="kcard k5"><div class="klabel">Open Rate</div><div class="kval">9.92%</div><div class="ksub">Ponderado de 4 correos</div></div>
+    <div class="kcard k2"><div class="klabel">CTR</div><div class="kval">0.05%</div><div class="ksub">Ponderado de 4 correos</div></div>
+    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">20%</div><div class="ksub">1 venta / 5 contactos únicos</div></div>
   </div>
 
   <div class="section-label">Situación del mes</div>
-  <div class="empty-banner">
-    Septiembre arranca con <strong>un solo agendamiento</strong>, en estado Invitado y sin consultoría agendada todavía. También llegan las <strong>3 consultorías programadas desde agosto</strong> (Alejandra Rojas, Catherine Osorio y Asael Salcedo), que se ejecutan durante este mes — puedes revisarlas en la pestaña de agosto. El único origen registrado hasta ahora en septiembre es la campaña <strong>lo_que_conoces</strong>, distinta a las cuatro que se usaron en agosto.
+  <div class="insight-card">
+    <span class="tag">Primera venta del mes</span>
+    <h3>Martin Gutierrez cierra el Plan GOLD por $2.640 AUD</h3>
+    <p>Septiembre trae la primera venta confirmada del mes: <strong>Martin Gutierrez</strong> (Data analyst, campaña <span class="big">hospitality</span>) agendó consultoría el 11 de septiembre y cerró el <strong>Plan GOLD</strong> por <strong>$2.640 AUD</strong>. Es la venta con mayor valor registrada hasta ahora en el dashboard.</p>
+    <p>La campaña <span class="big">hospitality</span> sigue activa este mes y también trajo a <strong>Javiera Diaz Nakada</strong> (Engineering technologist / HSE), con consultoría programada para el 30 de septiembre. Su registro aparece duplicado en la base — mismo contacto, misma fecha de consultoría — así que se cuenta una sola vez como agendamiento real.</p>
+    <p>Se suma una campaña nueva este mes: <span class="big">siguen_preguntando</span>, que trajo de vuelta a <strong>Imran Khan</strong> y <strong>Ehsanullah Ehsas</strong> (ambos ya habían aparecido antes en el histórico, entre mayo y julio). Imran Khan aparece dos veces con la misma fecha de creación (16 de septiembre) y el mismo correo y teléfono: la primera entrada, sin consultoría agendada, se cuenta como duplicado, y la segunda —con consultoría programada para el 16 de octubre— es el agendamiento real. Ehsanullah quedó programado para el 14 de octubre.</p>
+    <p style="font-size:12px;color:#5c7168;background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #d5eee0"><strong>Primera consultoría ejecutada del mes:</strong> el registro de Martin Gutierrez venía en la fuente con el estado "Planes"; se corrigió a <strong>Ejecutada</strong> porque su sesión del 11 de septiembre sí se realizó y terminó en venta.</p>
+  </div>
+
+  <div class="section-label">Estado de la agenda y conversión</div>
+  <div class="charts-row">
+    <div class="ccard">
+      <div class="ctitle">Agenda newsletter en este mes</div>
+      <div class="csub">Distribución por estado de consultoría (7 registros)</div>
+      <div class="cwrap" style="height:275px"><canvas id="sEstado"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Embudo de conversión</div>
+      <div class="csub">De contacto único a venta cerrada</div>
+      <div class="cwrap" style="height:275px"><canvas id="sVentas"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-label">Origen y perfil de los agendamientos</div>
+  <div class="charts-row-2">
+    <div class="ccard">
+      <div class="ctitle">Agendamientos por utm_campaign</div>
+      <div class="csub">Qué campaña trajo cada contacto único · ★ genera venta</div>
+      <div class="cwrap" style="height:260px"><canvas id="sCampaign"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Capacidad de inversión declarada</div>
+      <div class="csub">Situación actual reportada en el formulario</div>
+      <div class="cwrap" style="height:290px"><canvas id="sSituacion"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-label">Broadcast · métricas por correo enviado (septiembre)</div>
+  <div class="table-card"><div class="table-scroll"><table>
+    <thead><tr id="theadSeptiembreBroadcast"></tr></thead>
+    <tbody id="tbodySeptiembreBroadcast"></tbody>
+  </table></div></div>
+  <div class="empty-banner" style="margin-top:12px">
+    <strong>4 correos enviados</strong> entre el 2 y el 11 de septiembre, todos con open rate cercano al 10%, en línea con la base que dejó agosto. El correo <strong>Skillspro_septiembre_4</strong> («¿2026 y siguen preguntando ESTO en entrevistas de trabajo?») corresponde a la campaña <strong>siguen_preguntando</strong>, origen de los leads de Imran Khan y Ehsanullah Ehsas este mes, y fue además el de mejor click rate (0.07%).
   </div>
 
   <div class="section-label">Detalle de agendamientos · utm_campaign destacada</div>
@@ -432,7 +478,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <thead><tr id="theadSeptiembre"></tr></thead>
     <tbody id="tbodySeptiembre"></tbody>
   </table></div></div>
-  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Septiembre 2026 en curso · Datos de Airtable y Clientify</p>
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Septiembre 2026 en curso · Corte 16 sept · Datos de Airtable y Clientify</p>
 </div>
 
 <!-- ==================== WEBINAR ==================== -->
@@ -748,7 +794,7 @@ function situTipo(s){
   return 'none';
 }
 function pillEstado(e){
-  const m={'Invitado':'p-invitado','Programada':'p-programada','Reprogramada':'p-reprogramada','Ejecutada':'p-ejecutada','Duplicado':'p-duplicado','Inasistente':'p-inasistente','Venta Cruzada':'p-ventacruzada','Llamada':'p-llamada'};
+  const m={'Invitado':'p-invitado','Programada':'p-programada','Reprogramada':'p-reprogramada','Ejecutada':'p-ejecutada','Duplicado':'p-duplicado','Inasistente':'p-inasistente','Venta Cruzada':'p-ventacruzada','Llamada':'p-llamada','Planes':'p-planes'};
   if(!e||e==='–')return '<span class="pill p-none">–</span>';
   return '<span class="pill '+(m[e]||'p-none')+'">'+e+'</span>';
 }
@@ -774,6 +820,7 @@ function campTag(c){
   else if(c==='hospitality')cls=' hospitality';
   else if(c==='lo_que_conoces')cls=' loqueconoces';
   else if(c==='region_profesion')cls=' regionprofesion';
+  else if(c==='siguen_preguntando')cls=' siguenpreguntando';
   return '<span class="campaign-tag'+cls+'">'+c+'</span>';
 }
 function renderHead(id){
@@ -918,7 +965,27 @@ const WEBINAR_AUTO=[
 ];
 
 const SEPTIEMBRE=[
-  {correo:'mellipao19@gmail.com',wa:'+61412809227',nombre:'PAOLA GARCÍA',creacion:'1/9/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'IT',profesion:'Auditor de TI',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'lo_que_conoces',utm_term:'[utm_term]',utm_content:'[utm_content]'}
+  {correo:'mellipao19@gmail.com',wa:'+61412809227',nombre:'PAOLA GARCÍA',creacion:'1/9/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'IT',profesion:'Auditor de TI',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'lo_que_conoces',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'16/9/2026',consultoria:'–',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Otros',profesion:'truck driver',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
+  {correo:'javieradnakada@gmail.com',wa:'+61406020030',nombre:'JAVIERA DIAZ NAKADA',creacion:'3/9/2026',consultoria:'30/9/2026 10:45 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Engineering technologist / HSE',experiencia:'Menos de 1 año',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'javieradnakada@gmail.com',wa:'+61406020030',nombre:'JAVIERA DIAZ NAKADA',creacion:'3/9/2026',consultoria:'30/9/2026 10:45 AEST',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Engineering technologist / HSE',experiencia:'Menos de 1 año',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'16/9/2026',consultoria:'16/10/2026 08:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'electrician',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
+  {correo:'ehsanehsas78@gmail.com',wa:'+93781282442',nombre:'EHSANULLAH EHSAS',creacion:'16/9/2026',consultoria:'14/10/2026 08:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Shopping and driving and agriculture jobs',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
+  {correo:'martingut27@gmail.com',wa:'+61418790588',nombre:'MARTIN GUTIERREZ',creacion:'7/9/2026',consultoria:'11/9/2026 08:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Sold',cruzada:'–',area:'Negocios y administración',profesion:'Data analyst',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'}
+];
+
+/* ---------- BROADCAST SEPTIEMBRE ---------- */
+const BROADCAST_SEPTIEMBRE=[
+  {name:'Skillspro_septiembre_1',exec:'2 sept 2026, 6:27–6:47am',contacts:'5.151',sent:'5.151',open:'10.00%',click:'0.04%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«Ya no sé si me creo todo esto...»',link:null,nota:''},
+  {name:'Skillspro_septiembre_2',exec:'4 sept 2026, 1:50–2:22pm',contacts:'5.144',sent:'5.142',open:'10.28%',click:'0.06%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«Estamos en crisis»',link:null,nota:''},
+  {name:'Skillspro_septiembre_3',exec:'8 sept 2026, 4:37–7:46am',contacts:'5.140',sent:'5.132',open:'9.37%',click:'0.02%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«3 formas para acabar con el síndrome del impostor»',link:null,nota:''},
+  {name:'Skillspro_septiembre_4',exec:'11 sept 2026, 11:07–11:08am',contacts:'5.375',sent:'5.375',open:'10.04%',click:'0.07%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«¿2026 y siguen preguntando ESTO en entrevistas de trabajo?»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=siguen_preguntando',
+   nota:'Origen de la campaña siguen_preguntando, que trajo a Imran Khan y Ehsanullah Ehsas este mes. Mejor click rate de los 4 envíos.'}
 ];
 
 renderHead('theadJulio');renderRows('tbodyJulio',JULIO);
@@ -930,6 +997,24 @@ document.getElementById('theadBroadcast').innerHTML=BROADCAST_COLS.map(c=>'<th>'
 document.getElementById('tbodyBroadcast').innerHTML=BROADCAST.map(b=>{
   const est=b.status==='Completed'?'<span class="pill p-completed">Completed</span>':'<span class="pill p-ongoing">Ongoing</span>';
   const linkHtml=b.link?'<br><a href="'+b.link+'" target="_blank" rel="noopener" style="font-size:10px;color:#0a94a6">ver link con UTM →</a>':'<br><span style="font-size:10px;color:#c47f00">enlace lleva a encuesta, no a agendamiento</span>';
+  return '<tr>'+
+    '<td class="wrap"><strong style="color:#0c465b">'+b.name+'</strong>'+(b.nota?'<br><span style="font-size:10px;color:#93a9b2;font-weight:400">'+b.nota+'</span>':'')+'</td>'+
+    '<td class="wrap">'+b.asunto+linkHtml+'</td>'+
+    '<td>'+b.exec+'</td>'+
+    '<td class="num">'+b.contacts+'</td>'+
+    '<td class="num">'+b.sent+'</td>'+
+    '<td class="num">'+b.open+'</td>'+
+    '<td class="num">'+b.click+'</td>'+
+    '<td class="num muted">'+b.orders+'</td>'+
+    '<td class="num muted">'+b.revenue+'</td>'+
+    '<td>'+est+'</td>'+
+  '</tr>';
+}).join('');
+
+document.getElementById('theadSeptiembreBroadcast').innerHTML=BROADCAST_COLS.map(c=>'<th>'+c+'</th>').join('');
+document.getElementById('tbodySeptiembreBroadcast').innerHTML=BROADCAST_SEPTIEMBRE.map(b=>{
+  const est=b.status==='Completed'?'<span class="pill p-completed">Completed</span>':'<span class="pill p-ongoing">Ongoing</span>';
+  const linkHtml=b.link?'<br><a href="'+b.link+'" target="_blank" rel="noopener" style="font-size:10px;color:#0a94a6">ver link con UTM →</a>':'';
   return '<tr>'+
     '<td class="wrap"><strong style="color:#0c465b">'+b.name+'</strong>'+(b.nota?'<br><span style="font-size:10px;color:#93a9b2;font-weight:400">'+b.nota+'</span>':'')+'</td>'+
     '<td class="wrap">'+b.asunto+linkHtml+'</td>'+
@@ -1051,6 +1136,38 @@ function buildAgosto(){
     options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:10,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:14,weight:'bold'},formatter:v=>v||''}}}});
 }
 
+function buildSeptiembre(){
+  const est={};SEPTIEMBRE.forEach(r=>est[r.estado]=(est[r.estado]||0)+1);
+  const eo=['Invitado','Programada','Ejecutada','Duplicado'];
+  const ec={Invitado:'#7c5cff',Programada:'#ffb020',Ejecutada:'#0fb5c9',Duplicado:'#c98a6a'};
+  charts.sEstado=new Chart(document.getElementById('sEstado'),{type:'bar',
+    data:{labels:eo,datasets:[{data:eo.map(e=>est[e]||0),backgroundColor:eo.map(e=>ec[e]),borderRadius:8}]},
+    options:{...CFG,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:13,weight:'bold'}}},
+      scales:{x:{ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}},y:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}}}}});
+
+  const sU=SEPTIEMBRE.filter(r=>r.estado!=='Duplicado');
+  const ejecutadas=sU.filter(r=>r.estado==='Ejecutada').length;
+  const ventas=sU.filter(r=>r.sales==='Sold').length;
+  charts.sVentas=new Chart(document.getElementById('sVentas'),{type:'bar',
+    data:{labels:['Contactos','Ejecutadas','Ventas'],datasets:[{data:[sU.length,ejecutadas,ventas],backgroundColor:['#0c465b','#0fb5c9','#3ecf8e'],borderRadius:8}]},
+    options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'},formatter:(v,c)=>c.dataIndex===0?v:v+'  ('+(v/sU.length*100).toFixed(1)+'%)'}},
+      scales:{x:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}},y:{ticks:{font:{size:11,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
+
+  const cc={};sU.forEach(r=>cc[r.utm_campaign]=(cc[r.utm_campaign]||0)+1);
+  const ce=Object.entries(cc).sort((a,b)=>b[1]-a[1]);
+  const vende=new Set(sU.filter(r=>['Sold','Converted','Contacted'].includes(r.sales)).map(r=>r.utm_campaign));
+  charts.sCampaign=new Chart(document.getElementById('sCampaign'),{type:'bar',
+    data:{labels:ce.map(e=>vende.has(e[0])?e[0]+' ★':e[0]),datasets:[{data:ce.map(e=>e[1]),backgroundColor:ce.map(e=>vende.has(e[0])?'#3ecf8e':'#0fb5c9'),borderRadius:8}]},
+    options:{...CFG,indexAxis:'y',plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#0c465b',font:{size:12,weight:'bold'}}},
+      scales:{x:{beginAtZero:true,ticks:{stepSize:1,color:'#8ea6b0'},grid:{color:'#eef3f5'},afterDataLimits(s){s.max=s.max+1;}},y:{ticks:{font:{size:9,weight:'bold'},color:'#5d7883'},grid:{display:false}}}}});
+
+  const sc={presu:0,presuEstrat:0,podria:0,noposi:0};
+  sU.forEach(r=>{const t=situTipo(r.situacion);if(sc[t]!==undefined)sc[t]++;});
+  charts.sSituacion=new Chart(document.getElementById('sSituacion'),{type:'doughnut',
+    data:{labels:SITU_LABELS,datasets:[{data:[sc.presu,sc.presuEstrat,sc.podria,sc.noposi],backgroundColor:SITU_COLORS,borderWidth:3,borderColor:'#fff'}]},
+    options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:10,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:14,weight:'bold'},formatter:v=>v||''}}}});
+}
+
 function makeDualAxisChart(canvasId,labels,opens,clicks){
   const maxOpen=Math.max(...opens)*1.18;
   const maxClick=Math.max(...clicks)*1.25;
@@ -1089,7 +1206,7 @@ function buildWebinar(){
     [dirAvgClick,dualAvgClick]);
 }
 
-let built={julio:false,agosto:false,webinar:false,historico:false};
+let built={julio:false,agosto:false,webinar:false,septiembre:false,historico:false};
 function switchTab(t){
   ['julio','agosto','septiembre','webinar','historico'].forEach(x=>{
     document.getElementById('chip-'+x).classList.toggle('active',x===t);
@@ -1098,6 +1215,7 @@ function switchTab(t){
   if(t==='julio'&&!built.julio){buildJulio();built.julio=true;}
   if(t==='agosto'&&!built.agosto){buildAgosto();built.agosto=true;}
   if(t==='webinar'&&!built.webinar){buildWebinar();built.webinar=true;}
+  if(t==='septiembre'&&!built.septiembre){buildSeptiembre();built.septiembre=true;}
   if(t==='historico'&&!built.historico){buildHist();built.historico=true;}
 }
 buildJulio();built.julio=true;

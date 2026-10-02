@@ -189,7 +189,8 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
   <button class="chip" id="chip-agosto" onclick="switchTab('agosto')">Agosto 2026</button>
   <button class="chip" id="chip-webinar" onclick="switchTab('webinar')">Webinar · Agosto</button>
   <button class="chip" id="chip-septiembre" onclick="switchTab('septiembre')">Septiembre 2026</button>
-  <button class="chip" id="chip-historico" onclick="switchTab('historico')">Histórico hasta julio</button>
+  <button class="chip" id="chip-webinaroctubre" onclick="switchTab('webinaroctubre')">Webinar Octubre</button>
+  <button class="chip" id="chip-historico" onclick="switchTab('historico')">Histórico hasta septiembre</button>
 </div>
 
 <!-- ==================== JULIO ==================== -->
@@ -415,32 +416,34 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 
 <!-- ==================== SEPTIEMBRE ==================== -->
 <div class="page" id="page-septiembre">
-  <div class="section-label">Resumen del mes · septiembre 2026 en curso · corte 16 sept 2026</div>
+  <div class="section-label">Resumen del mes · septiembre 2026 en curso · corte 29 sept 2026</div>
   <div class="kpi-grid">
-    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">7</div><div class="ksub">5 contactos + 2 duplicados</div></div>
+    <div class="kcard k1"><div class="klabel">Registros totales</div><div class="kval">9</div><div class="ksub">7 contactos + 2 duplicados</div></div>
     <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">1</div><div class="ksub">Martin Gutierrez</div></div>
-    <div class="kcard k3"><div class="klabel">Programadas</div><div class="kval">3</div><div class="ksub">Javiera, Imran Khan, Ehsanullah</div></div>
+    <div class="kcard k3"><div class="klabel">Programadas</div><div class="kval">4</div><div class="ksub">Javiera, Imran Khan, Ehsanullah, Nashin</div></div>
     <div class="kcard k4"><div class="klabel">Ventas cerradas</div><div class="kval">1</div><div class="ksub">Plan GOLD · $2.640 AUD</div></div>
-    <div class="kcard k5"><div class="klabel">Open Rate</div><div class="kval">9.92%</div><div class="ksub">Ponderado de 4 correos</div></div>
-    <div class="kcard k2"><div class="klabel">CTR</div><div class="kval">0.05%</div><div class="ksub">Ponderado de 4 correos</div></div>
-    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">20%</div><div class="ksub">1 venta / 5 contactos únicos</div></div>
+    <div class="kcard k5"><div class="klabel">Open Rate</div><div class="kval">10.09%</div><div class="ksub">Ponderado de 7 correos</div></div>
+    <div class="kcard k2"><div class="klabel">CTR</div><div class="kval">0.07%</div><div class="ksub">Ponderado de 7 correos</div></div>
+    <div class="kcard k5"><div class="klabel">Tasa de conversión</div><div class="kval">14.3%</div><div class="ksub">1 venta / 7 contactos únicos</div></div>
   </div>
 
   <div class="section-label">Situación del mes</div>
   <div class="insight-card">
-    <span class="tag">Primera venta del mes</span>
+    <span class="tag">9 registros, 1 ejecutada confirmada</span>
     <h3>Martin Gutierrez cierra el Plan GOLD por $2.640 AUD</h3>
-    <p>Septiembre trae la primera venta confirmada del mes: <strong>Martin Gutierrez</strong> (Data analyst, campaña <span class="big">hospitality</span>) agendó consultoría el 11 de septiembre y cerró el <strong>Plan GOLD</strong> por <strong>$2.640 AUD</strong>. Es la venta con mayor valor registrada hasta ahora en el dashboard.</p>
-    <p>La campaña <span class="big">hospitality</span> sigue activa este mes y también trajo a <strong>Javiera Diaz Nakada</strong> (Engineering technologist / HSE), con consultoría programada para el 30 de septiembre. Su registro aparece duplicado en la base — mismo contacto, misma fecha de consultoría — así que se cuenta una sola vez como agendamiento real.</p>
-    <p>Se suma una campaña nueva este mes: <span class="big">siguen_preguntando</span>, que trajo de vuelta a <strong>Imran Khan</strong> y <strong>Ehsanullah Ehsas</strong> (ambos ya habían aparecido antes en el histórico, entre mayo y julio). Imran Khan aparece dos veces con la misma fecha de creación (16 de septiembre) y el mismo correo y teléfono: la primera entrada, sin consultoría agendada, se cuenta como duplicado, y la segunda —con consultoría programada para el 16 de octubre— es el agendamiento real. Ehsanullah quedó programado para el 14 de octubre.</p>
-    <p style="font-size:12px;color:#5c7168;background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #d5eee0"><strong>Primera consultoría ejecutada del mes:</strong> el registro de Martin Gutierrez venía en la fuente con el estado "Planes"; se corrigió a <strong>Ejecutada</strong> porque su sesión del 11 de septiembre sí se realizó y terminó en venta.</p>
+    <p>Septiembre cierra con <strong>9 registros</strong>: 7 contactos únicos y 2 duplicados (Javiera Diaz Nakada e Imran Khan, cada uno registrado dos veces el mismo día). De esos 7 contactos, <strong>solo Martin Gutierrez tiene su consultoría marcada como Ejecutada</strong> — el resto están Invitado o Programada, sin sesión realizada todavía.</p>
+    <p><strong>Martin Gutierrez</strong> (Data analyst, campaña <span class="big">hospitality</span>) se cuenta una sola vez en el dashboard: ejecutó su consultoría el 11 de septiembre y, a partir de esa misma sesión, cerró el <strong>Plan GOLD</strong> por <strong>$2.640 AUD</strong> — ejecución y venta son el mismo evento de la misma persona, no dos registros distintos. Es la venta con mayor valor registrada hasta ahora en el dashboard.</p>
+    <p><strong>Imran Khan</strong> se mantiene en la tabla de este mes (así venía en la fuente), pero el equipo marcó que ya lleva más de 7 agendamientos en menos de 6 meses y no corresponde a un perfil real de Skills Assessment — su seguimiento se traslada a JobPro y, según indicaron, ya se eliminó de los programados en Airtable. Es esperable que no vuelva a aparecer en los próximos meses.</p>
+    <p>La campaña <span class="big">hospitality</span> también trajo a <strong>Javiera Diaz Nakada</strong> (Engineering technologist / HSE), con consultoría programada para el 30 de septiembre. Su registro está duplicado en la base, y además ya había llegado por newsletter en julio — por eso cuenta como duplicado y no como agendamiento nuevo de septiembre.</p>
+    <p>Se suman <strong>dos leads nuevos</strong> este mes: <strong>Nashin Baez</strong> (Informática, campaña <span class="big">profesion_calificada_</span>), con consultoría programada para el 12 de octubre, y <strong>Lidia Correa Ortiz</strong> (Contadora, campaña <span class="big">quien_ha_migrado</span>), que por ahora declaró que no está dentro de sus posibilidades invertir.</p>
+    <p style="background:#f0faf6;border-radius:8px;padding:12px 15px;border:1px solid #cdeedd;margin-top:8px"><strong>Prueba de contenido fuera del ángulo tradicional:</strong> este mes se probó contenido enfocado en otra arista de lo laboral — burnout, reflexiones sobre ser migrante y vivir en otro país, leyes laborales y tendencias como el "aura farming" en versión profesional para Australia (correo <strong>Skillspro_septiembre_6</strong>). El recibimiento fue positivo, aunque no todo este contenido generó agendamientos directos. La conclusión es seguir con un enfoque híbrido: contenido noticioso e informativo más formal dirigido a profesionales desde la venta, combinado con piezas reflexivas y confrontadoras sobre temas laborales. Vale la pena mantenerlo porque el correo de <strong>quien_ha_migrado</strong> (Skillspro_septiembre_7) trajo un lead (Lidia Correa Ortiz), y el correo tipo noticia <strong>«Australia acaba de anunciar esto»</strong> (Skillspro_septiembre_5, campaña profesion_calificada_) también generó un lead (Nashin Baez) — no por ser noticia en sí, sino por abordarla desde un ángulo confrontador y de oportunidad: <em>"sacarle provecho a que sigue siendo prioridad la migración calificada"</em>.</p>
   </div>
 
   <div class="section-label">Estado de la agenda y conversión</div>
   <div class="charts-row">
     <div class="ccard">
       <div class="ctitle">Agenda newsletter en este mes</div>
-      <div class="csub">Distribución por estado de consultoría (7 registros)</div>
+      <div class="csub">Distribución por estado de consultoría (9 registros)</div>
       <div class="cwrap" style="height:275px"><canvas id="sEstado"></canvas></div>
     </div>
     <div class="ccard">
@@ -470,7 +473,21 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <tbody id="tbodySeptiembreBroadcast"></tbody>
   </table></div></div>
   <div class="empty-banner" style="margin-top:12px">
-    <strong>4 correos enviados</strong> entre el 2 y el 11 de septiembre, todos con open rate cercano al 10%, en línea con la base que dejó agosto. El correo <strong>Skillspro_septiembre_4</strong> («¿2026 y siguen preguntando ESTO en entrevistas de trabajo?») corresponde a la campaña <strong>siguen_preguntando</strong>, origen de los leads de Imran Khan y Ehsanullah Ehsas este mes, y fue además el de mejor click rate (0.07%).
+    En septiembre se enviaron <strong>7 correos</strong>, con un open rate que se movió entre 9.37% y 11.63%. El que mejor funcionó fue <strong>Skillspro_septiembre_5</strong> («Australia acaba de anunciar esto»): tuvo el open rate más alto del mes (11.63%), el click rate más alto (0.16%) y además generó el lead de Nashin Baez. El otro correo que generó un lead directo fue <strong>Skillspro_septiembre_7</strong> («Solo quien ha migrado, me va a entender en esto»), que trajo a Lidia Correa Ortiz.
+  </div>
+
+  <div class="section-label">Conclusiones del mes</div>
+  <div class="insight-card blue">
+    <ol style="padding-left:20px;margin-top:4px">
+      <li style="margin-bottom:10px">De la base total que tenemos, logramos subir el open rate de <strong>0.6%</strong> a <strong>0.10%</strong>, y el resultado de apertura por correo es ahora más estable mes a mes.</li>
+      <li style="margin-bottom:10px">A este grupo le gusta que le hablen en positivo: comunicaciones enfocadas en las oportunidades detrás de los retos funcionan mejor que el enfoque solo informativo.</li>
+      <li style="margin-bottom:10px">Los temas laborales sí generan interés (probamos el síndrome del impostor), pero más que salud mental, lo que más les interesa es contenido sobre <strong>leyes laborales, cultura laboral</strong> y temas relacionados.</li>
+      <li style="margin-bottom:10px">Les gustan las noticias y los correos sin botón directo de agendamiento. Esta prueba ya se hizo en agosto y conviene repetirla, mejorando el seguimiento: en agosto el único link rastreable fue el de la encuesta, así que ahora se podría probar regalando un recurso con una UTM propia (definida por Mariana) para poder medir bien el resultado.</li>
+      <li style="margin-bottom:10px">Hay que seguir probando contenidos distintos para ver cuánto interés real se le puede sacar a la base actual, que en su mayoría se ve bastante fría: no ha respondido a los diferentes estímulos que hemos probado con los correos.</li>
+      <li style="margin-bottom:10px">Falta etiquetar como "subscribed" a toda la base que entra semana a semana a SkillsPRO. Según lo conversado con Edinson, estos contactos están más "calientes" (con dudas sobre seguir o no el proceso), y hacerlo no genera un problema legal directo, porque las personas pueden desuscribirse si así lo desean. Hay que coordinar con Mariana cómo revisar semanalmente qué etiqueta tienen en WordPress los usuarios que ya compraron un plan, para no seguir incluyéndolos en correos con objetivo de agendamiento.</li>
+      <li style="margin-bottom:10px">Con ayuda de los webinars, deberíamos ponernos como meta segmentar por entidad evaluadora: tener leads calificados a quienes se les pueda enviar correos más personalizados, lo que debería subir el volumen de agendamientos.</li>
+      <li>Hace falta trabajar con el equipo de redes sociales para promocionar la newsletter con diferentes contenidos y formatos. Desde redes se puede captar un buen porcentaje de clientes interesados para seguir actualizando las bases de datos.</li>
+    </ol>
   </div>
 
   <div class="section-label">Detalle de agendamientos · utm_campaign destacada</div>
@@ -478,7 +495,16 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <thead><tr id="theadSeptiembre"></tr></thead>
     <tbody id="tbodySeptiembre"></tbody>
   </table></div></div>
-  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Septiembre 2026 en curso · Corte 16 sept · Datos de Airtable y Clientify</p>
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Septiembre 2026 en curso · Corte 29 sept · Datos de Airtable y Clientify</p>
+</div>
+
+<!-- ==================== WEBINAR OCTUBRE ==================== -->
+<div class="page" id="page-webinaroctubre">
+  <div class="section-label">Webinar Octubre</div>
+  <div class="empty-banner">
+    <strong>En curso.</strong> Esta sección se irá completando a medida que avance el webinar de octubre y haya datos de correos, inscritos y conversión para analizar.
+  </div>
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Webinar Octubre · En curso</p>
 </div>
 
 <!-- ==================== WEBINAR ==================== -->
@@ -727,34 +753,35 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
 
 <!-- ==================== HISTÓRICO ==================== -->
 <div class="page" id="page-historico">
-  <div class="section-label">Agenda newsletter total hasta julio 2026</div>
+  <div class="section-label">Agenda newsletter total hasta septiembre 2026</div>
   <div class="kpi-grid">
-    <div class="kcard k1"><div class="klabel">Agendamientos totales</div><div class="kval">21</div><div class="ksub">Desde mayo a julio</div></div>
-    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">8</div><div class="ksub">38% del total</div></div>
-    <div class="kcard k3"><div class="klabel">Inasistentes</div><div class="kval">6</div><div class="ksub">Agendaron y no asistieron</div></div>
+    <div class="kcard k1"><div class="klabel">Agendamientos totales</div><div class="kval">41</div><div class="ksub">Desde mayo a septiembre</div></div>
+    <div class="kcard k2"><div class="klabel">Consultorías ejecutadas</div><div class="kval">9</div><div class="ksub">22% del total</div></div>
+    <div class="kcard k3"><div class="klabel">Inasistentes</div><div class="kval">7</div><div class="ksub">Agendaron y no asistieron</div></div>
     <div class="kcard k4"><div class="klabel">Venta cruzada</div><div class="kval">1</div><div class="ksub">Esteban Barrios · AustraliaPRO</div></div>
-    <div class="kcard k5"><div class="klabel">Sin UTM específica</div><div class="kval">17</div><div class="ksub">81% con UTM genérica</div></div>
+    <div class="kcard k5"><div class="klabel">Sin UTM específica</div><div class="kval">17</div><div class="ksub">41% con UTM genérica (solo mayo–julio)</div></div>
   </div>
 
   <div class="section-label">Lectura del histórico</div>
   <div class="insight-card blue">
     <span class="tag">Nota metodológica</span>
-    <h3>El histórico no permite comparar campañas todavía</h3>
-    <p><strong>tema_mes_año</strong> aparece con 17 de 21 agendamientos, pero <span class="big">no es un correo ni una campaña real</span>. Era la <strong>UTM genérica</strong> que se usaba antes para etiquetar por igual a todos los envíos, cuando aún no teníamos una UTM distinta por correo. Por eso concentra casi todo el volumen: no es que rindiera más, es que absorbía todo lo que no tenía etiqueta propia.</p>
-    <p>Las únicas campañas con UTM específica en este periodo son <strong>oraculo</strong> (3) y <strong>profesion_util</strong> (1), y son las que sí podemos leer como campañas reales. A partir de agosto, con UTMs específicas por correo, cada envío queda identificado, y con el tiempo podremos ir reclasificando lo que hoy cae en la bolsa de tema_mes_año.</p>
-    <p style="background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #cfe4ef"><strong>Lo que sí vale del histórico:</strong> el patrón de <span class="big">6 inasistencias</span> sobre 21 agendamientos. Independiente de la campaña, casi una de cada tres personas que agenda no llega a la consultoría. Reducir esa fuga de citas es la palanca más accionable con los datos que ya tenemos.</p>
+    <h3>El histórico ya cubre mayo a septiembre, con agosto y septiembre mejor etiquetados</h3>
+    <p>Esta tabla ahora suma los <strong>41 agendamientos</strong> acumulados entre mayo y septiembre: los 21 originales de mayo-julio, más los 12 de agosto y los 9 de septiembre. Al sumar agosto se excluyó un registro — <strong>Juan Carlos Arguello</strong> (profesion_util) — porque ya estaba contado en el histórico desde antes; sumarlo de nuevo habría inflado el total.</p>
+    <p><strong>tema_mes_año</strong> sigue apareciendo con 17 de los 41 agendamientos (41%, antes 81% sobre el total más chico), pero <span class="big">no es un correo ni una campaña real</span> — era la <strong>UTM genérica</strong> que se usaba antes de tener una UTM distinta por correo, y solo corresponde al periodo mayo-julio. Desde agosto cada envío tiene su propia UTM (profesion_util, hospitality, siguen_preguntando, quien_ha_migrado, profesion_calificada_, entre otras), por lo que la proporción de UTM genérica solo puede seguir bajando mes a mes.</p>
+    <p><strong>Imran Khan</strong> aparece en el histórico en junio, julio (dos veces) y septiembre (dos veces): son <strong>5 agendamientos en 4 meses</strong> con el mismo contacto, lo que confirma lo que notó el equipo — no corresponde a un lead real de Skills Assessment y su seguimiento se traslada a JobPro.</p>
+    <p style="background:#ffffff;border-radius:8px;padding:11px 14px;border:1px solid #cfe4ef"><strong>Lo que sí mejora con más datos:</strong> la inasistencia bajó de <span class="big">6 sobre 21 (28.6%)</span> a <span class="big">7 sobre 41 (17%)</span> — agosto y septiembre no sumaron inasistencias nuevas de peso. Sigue siendo la palanca más accionable: reducir esa fuga de citas entre quien agenda y quien efectivamente llega a la consultoría.</p>
   </div>
 
   <div class="section-label">Estado y origen acumulados</div>
   <div class="charts-row">
     <div class="ccard">
       <div class="ctitle">Agenda newsletter total</div>
-      <div class="csub">Estado de consultoría por UTM · tema_mes_año = etiqueta genérica</div>
+      <div class="csub">Estado de consultoría por UTM (mayo-julio) · tema_mes_año = etiqueta genérica</div>
       <div class="cwrap" style="height:300px"><canvas id="hStacked"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle">Estado de consultoría</div>
-      <div class="csub">Distribución global de los 21 agendamientos</div>
+      <div class="csub">Distribución global de los 41 agendamientos</div>
       <div class="cwrap" style="height:300px"><canvas id="hEstado"></canvas></div>
     </div>
   </div>
@@ -778,7 +805,7 @@ tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
     <thead><tr id="theadHist"></tr></thead>
     <tbody id="tbodyHist"></tbody>
   </table></div></div>
-  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agenda newsletter total hasta julio 2026 · Datos de Airtable y Clientify</p>
+  <p class="footer-note">Dashboard SkillsPRO · Entrelingo Group · Agenda newsletter total hasta septiembre 2026 · Datos de Airtable y Clientify</p>
 </div>
 
 <script>
@@ -942,7 +969,29 @@ const HIST=[
   {correo:'lccocinero@gmail.com',wa:'+61430045715',nombre:'LUIS CARLOS IBARRA RUIZ',creacion:'25/6/2026',consultoria:'6/7/2026 11:00 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Retail y Hospitabilidad',profesion:'Chef',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
   {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'25/6/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Otros',profesion:'truck driver',experiencia:'Menos de 1 año',situacion:'En este momento no esta dentro de mis posibilidades',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
   {correo:'ndifonkelvinekpe@gmail.com',wa:'+237653116602',nombre:'NDIFON KELVIN EKPE',creacion:'25/6/2026',consultoria:'4/7/2026 10:45 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Educación, artes y cocina',profesion:'Teaching English',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
-  {correo:'alejandra.pizarro.jorquera@gmail.com',wa:'+61415287972',nombre:'ALEJANDRA PIZARRO JORQUERA',creacion:'25/6/2026',consultoria:'11/7/2026 10:15 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria en Prevencion de Riesgos / Magister en Ingenieria Industrial',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'}
+  {correo:'alejandra.pizarro.jorquera@gmail.com',wa:'+61415287972',nombre:'ALEJANDRA PIZARRO JORQUERA',creacion:'25/6/2026',consultoria:'11/7/2026 10:15 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria en Prevencion de Riesgos / Magister en Ingenieria Industrial',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tema_mes_año',utm_term:'–',utm_content:'–'},
+  /* --- Agosto (Juan Carlos Arguello excluido: ya estaba contado arriba) --- */
+  {correo:'saracaicedogomez19@gmail.com',wa:'+61432420118',nombre:'SARA CAICEDO',creacion:'13/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Contacted',cruzada:'–',area:'Otros',profesion:'Administración en Servicios de Salud',experiencia:'De 3 a 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'gnfco.caaoni@gmail.com',wa:'+61481392232',nombre:'GIANFRANCO CASONI',creacion:'13/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Otros',profesion:'Psicología / Fitness',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'contadoradianaoc@gmail.com',wa:'+573164292826',nombre:'DIANA OBANDO',creacion:'13/8/2026',consultoria:'26/8/2026 09:50 AEST',consultoria2:'–',estado:'Inasistente',sales:'Closed',cruzada:'–',area:'Finanzas y contabilidad',profesion:'Contador público',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'tus_treinta',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'lorenatovars03@gmail.com',wa:'+61412088494',nombre:'LORENA TOVAR',creacion:'10/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Message',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera Ambiental',experiencia:'De 3 a 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_util',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'rabahamondet@hotmail.com',wa:'+61402779750',nombre:'ROBERTO BAHAMONDE',creacion:'30/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Dentista',experiencia:'Menos de 1 año',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'andre_1229@hotmail.com',wa:'+61420492593',nombre:'ANDREA OLIVEROS LOPEZ',creacion:'20/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Otros',profesion:'Odontologia',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'salgadomelisa@gmail.com',wa:'+61410749857',nombre:'SHANNON SALGADO',creacion:'18/8/2026',consultoria:'4/9/2026 10:45 AEST',consultoria2:'–',estado:'Llamada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Administración de Empresas',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'alejandraa.rjsm@gmail.com',wa:'+61493542522',nombre:'ALEJANDRA ROJAS MEDINA',creacion:'18/8/2026',consultoria:'12/9/2026 10:45 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera civil industrial',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'puentesmariaceleste@gmail.com',wa:'+5491150555350',nombre:'MARIA CELESTE PUENTES',creacion:'18/8/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'Arquitecta',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'coz113@gmail.com',wa:'+61452087214',nombre:'CATHERINE OSORIO',creacion:'18/8/2026',consultoria:'9/9/2026 08:55 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingeniera agrícola',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'entrelingo',utm_content:'mayra'},
+  {correo:'asaelsalcedo@hotmail.com',wa:'+61406192290',nombre:'ASAEL SALCEDO VARGAS',creacion:'18/8/2026',consultoria:'7/9/2026 12:50 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Ingenieria industrial',experiencia:'De 1 a 3 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'esto_es_caro',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  /* --- Septiembre --- */
+  {correo:'mellipao19@gmail.com',wa:'+61412809227',nombre:'PAOLA GARCÍA',creacion:'1/9/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'Closed',cruzada:'–',area:'IT',profesion:'Auditor de TI',experiencia:'Más de 5 años',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'lo_que_conoces',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'16/9/2026',consultoria:'–',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Otros',profesion:'truck driver',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
+  {correo:'javieradnakada@gmail.com',wa:'+61406020030',nombre:'JAVIERA DIAZ NAKADA',creacion:'3/9/2026',consultoria:'30/9/2026 10:45 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Engineering technologist / HSE',experiencia:'Menos de 1 año',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'javieradnakada@gmail.com',wa:'+61406020030',nombre:'JAVIERA DIAZ NAKADA',creacion:'3/9/2026',consultoria:'30/9/2026 10:45 AEST',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Engineering technologist / HSE',experiencia:'Menos de 1 año',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'16/9/2026',consultoria:'16/10/2026 08:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'electrician',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
+  {correo:'ehsanehsas78@gmail.com',wa:'+93781282442',nombre:'EHSANULLAH EHSAS',creacion:'16/9/2026',consultoria:'14/10/2026 08:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Shopping and driving and agriculture jobs',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
+  {correo:'martingut27@gmail.com',wa:'+61418790588',nombre:'MARTIN GUTIERREZ',creacion:'7/9/2026',consultoria:'11/9/2026 08:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Sold',cruzada:'–',area:'Negocios y administración',profesion:'Data analyst',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'nashinbaezecu@gmail.com',wa:'+61466491129',nombre:'NASHIN BAEZ',creacion:'23/9/2026',consultoria:'12/10/2026 11:55 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Informática',experiencia:'Menos de 1 año',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_calificada_',utm_term:'–',utm_content:'–'},
+  {correo:'lydiscorreao@hotmail.com',wa:'+61434611550',nombre:'LIDIA CORREA ORTIZ',creacion:'29/9/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Finanzas y contabilidad',profesion:'Contador',experiencia:'Más de 5 años',situacion:'En este momento no esta dentro de mis posibilidades',utm_source:'newsletter',utm_medium:'email',utm_campaign:'quien_ha_migrado',utm_term:'entrelingo',utm_content:'breilly'}
 ];
 
 /* ---------- SEPTIEMBRE ---------- */
@@ -971,7 +1020,9 @@ const SEPTIEMBRE=[
   {correo:'javieradnakada@gmail.com',wa:'+61406020030',nombre:'JAVIERA DIAZ NAKADA',creacion:'3/9/2026',consultoria:'30/9/2026 10:45 AEST',consultoria2:'–',estado:'Duplicado',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Engineering technologist / HSE',experiencia:'Menos de 1 año',situacion:'Podría invertir pero necesito planificarlo',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
   {correo:'ik7528148@gmail.com',wa:'+923491983002',nombre:'IMRAN KHAN',creacion:'16/9/2026',consultoria:'16/10/2026 08:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Construcción, Diseño y Drafting',profesion:'electrician',experiencia:'Más de 5 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
   {correo:'ehsanehsas78@gmail.com',wa:'+93781282442',nombre:'EHSANULLAH EHSAS',creacion:'16/9/2026',consultoria:'14/10/2026 08:00 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Negocios y administración',profesion:'Shopping and driving and agriculture jobs',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'siguen_preguntando',utm_term:'–',utm_content:'–'},
-  {correo:'martingut27@gmail.com',wa:'+61418790588',nombre:'MARTIN GUTIERREZ',creacion:'7/9/2026',consultoria:'11/9/2026 08:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Sold',cruzada:'–',area:'Negocios y administración',profesion:'Data analyst',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'}
+  {correo:'martingut27@gmail.com',wa:'+61418790588',nombre:'MARTIN GUTIERREZ',creacion:'7/9/2026',consultoria:'11/9/2026 08:00 AEST',consultoria2:'–',estado:'Ejecutada',sales:'Sold',cruzada:'–',area:'Negocios y administración',profesion:'Data analyst',experiencia:'De 1 a 3 años',situacion:'Tengo el presupuesto',utm_source:'newsletter',utm_medium:'email',utm_campaign:'hospitality',utm_term:'[utm_term]',utm_content:'[utm_content]'},
+  {correo:'nashinbaezecu@gmail.com',wa:'+61466491129',nombre:'NASHIN BAEZ',creacion:'23/9/2026',consultoria:'12/10/2026 11:55 AEST',consultoria2:'–',estado:'Programada',sales:'–',cruzada:'–',area:'Ingeniería',profesion:'Informática',experiencia:'Menos de 1 año',situacion:'Tengo el presupuesto pero necesito entender bien la estrategia antes de decidir',utm_source:'newsletter',utm_medium:'email',utm_campaign:'profesion_calificada_',utm_term:'–',utm_content:'–'},
+  {correo:'lydiscorreao@hotmail.com',wa:'+61434611550',nombre:'LIDIA CORREA ORTIZ',creacion:'29/9/2026',consultoria:'–',consultoria2:'–',estado:'Invitado',sales:'–',cruzada:'–',area:'Finanzas y contabilidad',profesion:'Contador',experiencia:'Más de 5 años',situacion:'En este momento no esta dentro de mis posibilidades',utm_source:'newsletter',utm_medium:'email',utm_campaign:'quien_ha_migrado',utm_term:'entrelingo',utm_content:'breilly'}
 ];
 
 /* ---------- BROADCAST SEPTIEMBRE ---------- */
@@ -985,7 +1036,18 @@ const BROADCAST_SEPTIEMBRE=[
   {name:'Skillspro_septiembre_4',exec:'11 sept 2026, 11:07–11:08am',contacts:'5.375',sent:'5.375',open:'10.04%',click:'0.07%',orders:'–',revenue:'–',status:'Completed',
    asunto:'«¿2026 y siguen preguntando ESTO en entrevistas de trabajo?»',
    link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=siguen_preguntando',
-   nota:'Origen de la campaña siguen_preguntando, que trajo a Imran Khan y Ehsanullah Ehsas este mes. Mejor click rate de los 4 envíos.'}
+   nota:'Origen de la campaña siguen_preguntando, que trajo a Ehsanullah Ehsas este mes.'},
+  {name:'Skillspro_septiembre_5',exec:'23 sept 2026, 7:15–9:12am',contacts:'5.364',sent:'5.363',open:'11.63%',click:'0.16%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«Australia acaba de anunciar esto (y te conviene saberlo)»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=profesion_calificada_',
+   nota:'Mejor open y click rate del mes. Origen del lead de Nashin Baez vía profesion_calificada_.'},
+  {name:'Skillspro_septiembre_6',exec:'25 sept 2026, 11:46–11:48am',contacts:'5.356',sent:'5.356',open:'9.87%',click:'0.05%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«Cómo se ve "farmear aura" versión Australia»',link:null,
+   nota:'Contenido experimental de la prueba de "otra arista de lo laboral"; sin lead asociado todavía.'},
+  {name:'Skillspro_septiembre_7',exec:'29 sept 2026, 4:32–4:51pm',contacts:'5.339',sent:'5.339',open:'9.39%',click:'0.06%',orders:'–',revenue:'–',status:'Completed',
+   asunto:'«Solo quien ha migrado, me va a entender en esto»',
+   link:'https://go.skillspro-skillsassessment.com/sesion-estrategica/?utm_source=newsletter&utm_medium=email&utm_campaign=quien_ha_migrado',
+   nota:'Origen del lead de Lidia Correa Ortiz vía quien_ha_migrado.'}
 ];
 
 renderHead('theadJulio');renderRows('tbodyJulio',JULIO);
@@ -1084,9 +1146,9 @@ function buildHist(){
       scales:{x:{stacked:true,ticks:{font:{size:10,weight:'bold'},color:'#5d7883'},grid:{display:false}},y:{stacked:true,beginAtZero:true,ticks:{stepSize:5,color:'#8ea6b0'},grid:{color:'#eef3f5'}}}}});
 
   const est={};HIST.forEach(r=>est[r.estado]=(est[r.estado]||0)+1);
-  const eo=['Invitado','Inasistente','Ejecutada','Venta Cruzada','Duplicado'];
+  const eo=['Invitado','Programada','Llamada','Inasistente','Ejecutada','Venta Cruzada','Duplicado'];
   charts.hEstado=new Chart(document.getElementById('hEstado'),{type:'doughnut',
-    data:{labels:eo,datasets:[{data:eo.map(e=>est[e]||0),backgroundColor:['#7c5cff','#ffb020','#0fb5c9','#e8940e','#ff6b5b'],borderWidth:3,borderColor:'#fff'}]},
+    data:{labels:eo,datasets:[{data:eo.map(e=>est[e]||0),backgroundColor:['#7c5cff','#ffb020','#568281','#ff9a5b','#0fb5c9','#e8940e','#ff6b5b'],borderWidth:3,borderColor:'#fff'}]},
     options:{...CFG,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12,padding:9,color:'#5d7883',usePointStyle:true,pointStyle:'circle'}},datalabels:{color:'#fff',font:{size:13,weight:'bold'},formatter:v=>v||''}}}});
 
   const ac={};HIST.forEach(r=>{if(r.area&&r.area!=='–')ac[r.area]=(ac[r.area]||0)+1;});
@@ -1208,7 +1270,7 @@ function buildWebinar(){
 
 let built={julio:false,agosto:false,webinar:false,septiembre:false,historico:false};
 function switchTab(t){
-  ['julio','agosto','septiembre','webinar','historico'].forEach(x=>{
+  ['julio','agosto','septiembre','webinaroctubre','webinar','historico'].forEach(x=>{
     document.getElementById('chip-'+x).classList.toggle('active',x===t);
     document.getElementById('page-'+x).classList.toggle('active',x===t);
   });
